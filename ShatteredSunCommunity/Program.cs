@@ -7,11 +7,11 @@ namespace ShatteredSunCommunity
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
-
+            
             // Add services to the container.
             builder.Services.AddRazorComponents()
                 .AddInteractiveServerComponents();
-
+            DIContainer.Initialize(builder.Services);
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.

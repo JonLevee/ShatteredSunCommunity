@@ -1,7 +1,9 @@
 ﻿using NLog;
 using ShatteredSunCommunity.Extensions;
+using ShatteredSunCommunity.Models;
 using System.Diagnostics;
 using System.Reflection;
+using System.Text.Json;
 using LogLevel = NLog.LogLevel;
 
 namespace ShatteredSunCommunity
@@ -9,20 +11,12 @@ namespace ShatteredSunCommunity
     public static class DIContainer
     {
         private static IServiceProvider serviceProvider;
-        private static ServiceCollection services;
+        private static IServiceCollection services;
 
-        static DIContainer()
+        public static void Initialize(IServiceCollection serviceCollection)
         {
-            services = new ServiceCollection();
-            serviceProvider = services.BuildServiceProvider();
-        }
-
-        public static void Initialize(Action<ServiceCollection> configureServices)
-        {
-
+            services = serviceCollection;
             ConfigureDefaultServices(services);
-            configureServices(services);
-            serviceProvider = services.BuildServiceProvider();
             var detailLog = Path.Combine(Assembly.GetExecutingAssembly().Location, "detailLog.txt");
             if (File.Exists(detailLog))
             {
@@ -57,14 +51,17 @@ namespace ShatteredSunCommunity
             // first register non-interface types
             foreach (var type in serviceTypes.Where(t => !t.IsInterface))
             {
-                var attr = type.GetCustomAttribute<SingletonServiceAttribute>() ?? ServiceScopeAttribute.Default;
-                var descriptor = new ServiceDescriptor(type, type, attr.Scope);
-                services.Add(descriptor);
+                var attr = type.GetCustomAttribute<SingletonServiceAttribute>();
+                if (attr != null)
+                {
+                    var descriptor = new ServiceDescriptor(type, type, attr.Scope);
+                    services.Add(descriptor);
+                }
             }
             // then register interfaces
             foreach (var type in serviceTypes.Where(t => t.IsInterface))
             {
-                var attr = type.GetCustomAttribute<SingletonServiceAttribute>() ?? ServiceScopeAttribute.Default;
+                var attr = type.GetCustomAttribute<SingletonServiceAttribute>();
                 // default implementation should be same as interface name
                 var implementationTypes = services
                     .Select(t => t.ServiceType)
@@ -79,16 +76,32 @@ namespace ShatteredSunCommunity
                 var descriptor = new ServiceDescriptor(type, implementationType, attr.Scope);
                 services.Add(descriptor);
             }
+
+            services.AddSingleton(GetSanctuarySunData);
+        }
+
+        private static SanctuarySunData GetSanctuarySunData(IServiceProvider provider)
+        {
+            var file = "ShatteredSunUnitData.json";
+            var json = File.ReadAllText(file);
+            var instance = JsonSerializer.Deserialize<SanctuarySunData>(json);
+            return instance;
         }
 
         public static T Get<T>() where T : class
         {
+            if (serviceProvider == null)
+                serviceProvider = services.BuildServiceProvider();
+
             var instance = serviceProvider.GetService<T>();
             Debug.Assert(instance != null);
             return instance;
         }
         public static T Get<T>(params object[] parameters) where T : class
         {
+            if (serviceProvider == null)
+                serviceProvider = services.BuildServiceProvider();
+
             var instance = ActivatorUtilities.CreateInstance<T>(serviceProvider, parameters);
             Debug.Assert(instance != null);
             return instance;

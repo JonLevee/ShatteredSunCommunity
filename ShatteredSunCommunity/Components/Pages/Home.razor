@@ -1,7 +1,15 @@
 ﻿@page "/"
+@inject Models.SanctuarySunData data
 
 <PageTitle>Home</PageTitle>
 
 <h1>Hello, world!</h1>
 
 Welcome to your new app.
+
+<ul>
+    @foreach (var item in data.Factions.Values)
+    {
+        <li>@item.Name</li>
+    }
+</ul>

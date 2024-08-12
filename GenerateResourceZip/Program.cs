@@ -110,11 +110,32 @@ namespace GenerateResourceZip
                     TryGetUnitItem(unit, table, "movement/type");
                     TryGetUnitItem(unit, table, "tags");
 
+                    var faction = new UnitItem
+                    {
+                        Group = "misc",
+                        Name = "faction",
+                        Value = data.Factions[unit.TpId.Substring(0, 2)].Name
+                    };
+                    unit.Add(faction.Name, faction);
 
-                    data.Units.Add((string)unit.TpId.Value, unit);
+                    var enabled = new UnitItem
+                    {
+                        Group = "misc",
+                        Name = "enabled",
+                        Value = data.AvailableUnits.ContainsKey(unit.TpId) ? data.AvailableUnits[unit.TpId] : false
+                    };
+                    unit.Add(enabled.Name, enabled);
+
+                    data.Units.Add(unit.TpId, unit);
                 }
             }
 
+            var outputPath = "../../../../ShatteredSunCommunity/ShatteredSunUnitData.json";
+            var options = new JsonSerializerOptions
+            {
+                WriteIndented = true,
+            };
+            File.WriteAllText(outputPath, JsonSerializer.Serialize(data, options));
 
         }
 

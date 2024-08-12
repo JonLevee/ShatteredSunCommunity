@@ -2,7 +2,7 @@
 {
     public class Unit : Dictionary<string,UnitItem>
     {
-        public UnitItem TpId => this["general/tpId"];
+        public string TpId => (string)this["general/tpId"].Value;
         public Unit() : base(StringComparer.OrdinalIgnoreCase) 
         { 
         }
