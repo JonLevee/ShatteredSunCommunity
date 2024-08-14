@@ -42,10 +42,24 @@ h1:focus {
     color: white;
 }
 
-    .blazor-error-boundary::after {
-        content: "An error has occurred."
-    }
+.blazor-error-boundary::after {
+    content: "An error has occurred."
+}
 
 .darker-border-checkbox.form-check-input {
     border-color: #929292;
 }
+
+.unitView {
+    border-style: solid;
+    border: 1px solid black;
+}
+
+.unitHeader, .td, .th {
+    padding: 5px
+}
+
+td, .unitImage {
+    border-style: solid;
+}
+

@@ -12,6 +12,8 @@ using System.Text.Json.Serialization;
 using System.Diagnostics;
 using System.Text.Json.Serialization.Metadata;
 using System.Xml.Linq;
+using static System.Runtime.InteropServices.JavaScript.JSType;
+using ShatteredSunCommunity.Extensions;
 
 namespace GenerateResourceZip
 {
@@ -37,7 +39,84 @@ namespace GenerateResourceZip
             "turrets",
             "visuals",
         };
+        private static readonly UnitField[] pathsToAdd =
+        {
+            new UnitField("adjacency"),
+            new UnitField("construction/buildPower"),
+            new UnitField("construction/canBuild"),
+            new UnitField("construction/range"),
+            new UnitField("construction/upgradesTo"),
+            new UnitField("defence/health/max"),
+            new UnitField("defence/health/regen"),
+            new UnitField("defence/shields/max"),
+            new UnitField("defence/shields/name"),
+            new UnitField("defence/shields/regenDelay"),
+            new UnitField("defence/shields/rechargeTime"),
+            new UnitField("defence/shields/regen"),
+            new UnitField("economy/buildTime", isHeader: true),
+            new UnitField("economy/cost/alloys", isHeader: true),
+            new UnitField("economy/cost/energy", isHeader: true),
+            new UnitField("economy/maintenanceConsumption/energy"),
+            new UnitField("economy/production/alloys"),
+            new UnitField("economy/production/energy"),
+            new UnitField("economy/storage/alloys"),
+            new UnitField("economy/storage/energy"),
+            new UnitField("general/class", onCreate: ConvertValueArrayToText),
+            new UnitField("general/displayName", isHeader: true),
+            new UnitField("general/iconUI", isImage: true, isHeader: true),
+            new UnitField("general/name", isHeader: true),
+            new UnitField("general/orders", onCreate: (ssd,ud,uf,node)=> {
+                uf.Text = MakeTextFromArray(((JsonObject)node)
+                    .Where(kv=>((bool?)kv.Value).GetValueOrDefault())
+                    .Select(kv=>kv.Key));
+            }),
+            new UnitField("general/tpId", isHeader: true),
+            new UnitField("intel/radarRadius"),
+            new UnitField("intel/visionRadius"),
+            new UnitField("movement/acceleration"),
+            new UnitField("movement/air"),
+            new UnitField("movement/minSpeed"),
+            new UnitField("movement/rotationSpeed"),
+            new UnitField("movement/speed"),
+            new UnitField("movement/type"),
+            new UnitField("tags", onCreate: ConvertValueArrayToText),
+            new UnitField("faction", isHeader: true, requireValidPath:false, onCreate: (ssd,ud,uf,node)=> {
+                var tpId = ud["GeneralTpId"].Text;
+                uf.Text = ssd.Factions[tpId.Substring(0, 2)].Name;
+            }),
+            new UnitField("enabled", isHeader: true, requireValidPath:false, onCreate: (ssd, ud, uf,node) =>
+            {
+                var tpId = ud["GeneralTpId"].Text;
+                ssd.AvailableUnits.TryGetValue(tpId, out var value);
+                uf.Text = value.ToString();
+            }
+            ),
+        };
 
+        private static void ConvertValueArrayToText(SanctuarySunData ssd, UnitData udt, UnitField uf, JsonNode node)
+        {
+            uf.Text = MakeTextFromArray(((JsonArray)node).Cast<JsonValue>().Select(v => v.ToString()));
+        }
+
+        private static string MakeTextFromArray(IEnumerable<string> values) => string.Join(UnitField.ARRAY_SEPARATOR, values);
+
+        private static readonly JsonSerializerOptions jsonOptions = new()
+        {
+            PropertyNameCaseInsensitive = true,
+            WriteIndented = true,
+            IgnoreReadOnlyFields = true,
+            DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull|JsonIgnoreCondition.WhenWritingDefault,
+            Converters =
+                        {
+                            new LuaTableConverter(),
+                        },
+            UnmappedMemberHandling = JsonUnmappedMemberHandling.Disallow
+        };
+
+        public Program()
+        {
+            LuaRoot = string.Empty;
+        }
         static void Main(string[] args)
         {
             var steamInfo = new SteamInfo();
@@ -76,12 +155,13 @@ namespace GenerateResourceZip
             {
                 foreach (var item in table.Values.Cast<LuaTable>())
                 {
+                    Debug.Assert(item != null);
                     var faction = new Faction
                     {
-                        Name = item["name"].ToString(),
-                        TpLetter = item["tpLetter"].ToString(),
-                        Tag = item["tag"].ToString(),
-                        InitialUnit = item["initialUnit"].ToString(),
+                        Name = item["name"].ToStringNullSafe(),
+                        TpLetter = item["tpLetter"].ToStringNullSafe(),
+                        Tag = item["tag"].ToStringNullSafe(),
+                        InitialUnit = item["initialUnit"].ToStringNullSafe(),
                     };
                     data.Factions.Add(faction.TpLetter, faction);
                 }
@@ -102,156 +182,41 @@ namespace GenerateResourceZip
                 {
                     var unit = new UnitData();
                     // converting the table to json format makes it easier to process
-                    var jsonOptions = new JsonSerializerOptions
-                    {
-                        PropertyNameCaseInsensitive = true,
-                        WriteIndented = true,
-                        Converters =
-                        {
-                            new LuaTableConverter(),
-                        },
-                        UnmappedMemberHandling = JsonUnmappedMemberHandling.Disallow
-                    };
 
                     var json = JsonSerializer.Serialize(table, jsonOptions);
-                    File.WriteAllText("unit.json", json);
                     var jsonNode = JsonSerializer.Deserialize<JsonNode>(json, jsonOptions);
+                    Debug.Assert(jsonNode != null);
                     TrimJsonNode(jsonNode);
                     json = JsonSerializer.Serialize(jsonNode, jsonOptions);
-                    File.WriteAllText("unit1.json", json);
-
-                    Add(unit, jsonNode, "adjacency");
-                    Add(unit, jsonNode, "construction/buildPower");
-                    Add(unit, jsonNode, "construction/canBuild");
-                    Add(unit, jsonNode, "construction/range");
-                    Add(unit, jsonNode, "construction/upgradesTo");
-                    Add(unit, jsonNode, "defence/health/max");
-                    Add(unit, jsonNode, "defence/health/regen");
-                    Add(unit, jsonNode, "defence/shields/max");
-                    Add(unit, jsonNode, "defence/shields/name");
-                    Add(unit, jsonNode, "defence/shields/regenDelay");
-                    Add(unit, jsonNode, "defence/shields/rechargeTime");
-                    Add(unit, jsonNode, "defence/shields/regen");
-                    Add(unit, jsonNode, "economy/buildTime");
-                    Add(unit, jsonNode, "economy/cost/alloys");
-                    Add(unit, jsonNode, "economy/cost/energy");
-                    Add(unit, jsonNode, "economy/maintenanceConsumption/energy");
-                    Add(unit, jsonNode, "economy/production/alloys");
-                    Add(unit, jsonNode, "economy/production/energy");
-                    Add(unit, jsonNode, "economy/storage/alloys");
-                    Add(unit, jsonNode, "economy/storage/energy");
-                    Add(unit, jsonNode, "general/class", getValue: GetClass);
-                    Add(unit, jsonNode, "general/displayName");
-                    Add(unit, jsonNode, "general/iconUI", field => field.IsImage = true);
-                    Add(unit, jsonNode, "general/name");
-                    Add(unit, jsonNode, "general/orders", getValue: GetOrders);
-                    Add(unit, jsonNode, "general/tpId");
-                    Add(unit, jsonNode, "intel/radarRadius");
-                    Add(unit, jsonNode, "intel/visionRadius");
-                    Add(unit, jsonNode, "movement/acceleration");
-                    Add(unit, jsonNode, "movement/air");
-                    Add(unit, jsonNode, "movement/minSpeed");
-                    Add(unit, jsonNode, "movement/rotationSpeed");
-                    Add(unit, jsonNode, "movement/speed");
-                    Add(unit, jsonNode, "movement/type");
-                    Add(unit, jsonNode, "tags", getValue: GetArray);
-
+                    foreach(var pathToAdd in pathsToAdd)
+                    {
+                        Add(data, unit, jsonNode, pathToAdd);
+                    }
+                    //File.WriteAllText("unit.json", json);
 
                     data.Units.Add(unit);
-                    /*
-                    TryGetUnitItem(unit, table, "adjacency");
-                    TryGetUnitItem(unit, table, "construction/buildPower");
-                    TryGetUnitItem(unit, table, "construction/canBuild");
-                    TryGetUnitItem(unit, table, "construction/range");
-                    TryGetUnitItem(unit, table, "construction/upgradesTo");
-                    TryGetUnitItem(unit, table, "defence/health/max");
-                    TryGetUnitItem(unit, table, "defence/health/regen");
-                    TryGetUnitItem(unit, table, "defence/shields");
-                    TryGetUnitItem(unit, table, "economy/buildTime");
-                    TryGetUnitItem(unit, table, "economy/cost/alloys");
-                    TryGetUnitItem(unit, table, "economy/cost/energy");
-                    TryGetUnitItem(unit, table, "economy/maintenanceConsumption/energy");
-                    TryGetUnitItem(unit, table, "economy/production/alloys");
-                    TryGetUnitItem(unit, table, "economy/production/energy");
-                    TryGetUnitItem(unit, table, "economy/storage/alloys");
-                    TryGetUnitItem(unit, table, "economy/storage/energy");
-                    if (TryGetUnitItem(unit, table, "general/class"))
-                    {
-                        unit["general/class"].Value = ((LuaTable)unit["general/class"].Value)
-                            .Values
-                            .Cast<string>()
-                            .Where(item => !item.StartsWith("unitsFinalized"))
-                            .Single();
-                    }
-                    TryGetUnitItem(unit, table, "general/displayName");
-                    TryGetUnitItem(unit, table, "general/iconUI", isImage: true);
-                    TryGetUnitItem(unit, table, "general/name");
-                    if (TryGetUnitItem(unit, table, "general/orders"))
-                    {
-                        var orders = (LuaTable)unit["general/orders"].Value;
-                        var updated = orders
-                            .Keys
-                            .Cast<string>()
-                            .Where(key => (bool)orders[key])
-                            .Order()
-                            .ToList();
-                        unit["general/orders"].Value = updated;
-                    }
-                    TryGetUnitItem(unit, table, "general/tpId");
-                    TryGetUnitItem(unit, table, "intel/radarRadius");
-                    TryGetUnitItem(unit, table, "intel/visionRadius");
-                    TryGetUnitItem(unit, table, "movement/acceleration");
-                    TryGetUnitItem(unit, table, "movement/air");
-                    TryGetUnitItem(unit, table, "movement/minSpeed");
-                    TryGetUnitItem(unit, table, "movement/rotationSpeed");
-                    TryGetUnitItem(unit, table, "movement/speed");
-                    TryGetUnitItem(unit, table, "movement/type");
-                    TryGetUnitItem(unit, table, "tags");
-
-                    var faction = new UnitItem
-                    {
-                        Group = "misc",
-                        Name = "faction",
-                        Value = data.Factions[unit.TpId.Substring(0, 2)].Name
-                    };
-                    unit.Add(faction.Name, faction);
-
-                    var enabled = new UnitItem
-                    {
-                        Group = "misc",
-                        Name = "enabled",
-                        Value = data.AvailableUnits.ContainsKey(unit.TpId) ? data.AvailableUnits[unit.TpId] : false
-                    };
-                    unit.Add(enabled.Name, enabled);
-
-                    data.Units.Add(unit.TpId, unit);
-                    */
                 }
             }
 
             var outputPath = "../../../../ShatteredSunCommunity/ShatteredSunUnitData.json";
-            var options = new JsonSerializerOptions
-            {
-                WriteIndented = true,
-            };
-            File.WriteAllText(outputPath, JsonSerializer.Serialize(data, options));
+            File.WriteAllText(outputPath, JsonSerializer.Serialize(data, jsonOptions));
 
         }
 
         private void Add(
-            UnitData data,
+            SanctuarySunData data,
+            UnitData unit,
             JsonNode node,
+            UnitField field,
             List<string> pathParts,
-            int iPathPart,
-            Action<UnitField>? callback = null,
-            Func<JsonNode, object>? getValue = null)
+            int iPathPart)
         {
             for (; node != null && iPathPart < pathParts.Count; iPathPart++)
             {
                 var pathPart = pathParts[iPathPart];
                 if (node is JsonObject jObject)
                 {
-                    node = jObject[pathPart];
+                    node = jObject[pathPart].ToNullSafe();
                 }
                 else if (node is JsonArray array)
                 {
@@ -259,61 +224,33 @@ namespace GenerateResourceZip
                     for (var i = 0; i < array.Count; ++i)
                     {
                         pathParts[iPathPart - 1] = $"{save}[{i}]";
-                        Add(data, array[i], pathParts, iPathPart, callback, getValue);
+                        Add(data, unit, array[i].ToNullSafe(), field, pathParts, iPathPart);
                     }
                     return;
                 }
 
             }
-            if (node == null)
+            if (node == null && field.RequireValidPath)
             {
                 return;
             }
             var groups = pathParts.Select(p => p.Substring(0, 1).ToUpper() + p.Substring(1)).ToArray();
-            var field = new UnitField
-            {
-                Path = string.Join("/", pathParts),
-                Name = string.Concat(groups),
-                Groups = groups,
-                IsHeader = false,
-                IsImage = false,
-                Value = (getValue ?? DefaultGetValue).Invoke(node)
-            };
-            callback?.Invoke(field);
-            data.Add(field.Name, field);
-
+            field.Path = string.Join("/", pathParts);
+            field.Name = string.Concat(groups);
+            field.Groups = groups;
+            field.Text = node.ToStringNullSafe();
+            field.OnCreate(data, unit, node);
+            unit.Add(field.Name, field);
         }
+
         private void Add(
-            UnitData data,
+            SanctuarySunData data,
+            UnitData unit,
             JsonNode node,
-            string path,
-            Action<UnitField>? callback = null,
-            Func<JsonNode, object>? getValue = null)
+            UnitField field)
         {
-            var pathParts = path.Split('/').ToList();
-            Add(data, node, pathParts, 0, callback, getValue);
-        }
-
-        private object DefaultGetValue(JsonNode node)
-        {
-            return node.AsValue();
-        }
-
-        private object GetOrders(JsonNode node)
-        {
-            return node
-                .AsObject()
-                .Where(kv => (bool)kv.Value)
-                .Select(kv => kv.Key)
-                .ToArray();
-        }
-        private object GetArray(JsonNode node)
-        {
-            return node
-                .AsArray()
-                .Cast<JsonValue>()
-                .Select(v => v.GetValue<string>())
-                .ToArray();
+            var pathParts = field.Path.Split('/').ToList();
+            Add(data, unit, node, field, pathParts, 0);
         }
 
         private object GetClass(JsonNode node)
@@ -365,9 +302,9 @@ namespace GenerateResourceZip
             table = (LuaTable)lua[tableName];
             return new Disposable(lua.Dispose);
         }
-    }
+        }
 
-    public class LuaTableConverter : JsonConverter<LuaTable>
+        public class LuaTableConverter : JsonConverter<LuaTable>
     {
         public override LuaTable? Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
         {
@@ -394,5 +331,4 @@ namespace GenerateResourceZip
             writer.WriteRawValue(text);
         }
     }
-
 }

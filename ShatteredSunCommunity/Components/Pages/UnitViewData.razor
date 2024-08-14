@@ -1,0 +1,29 @@
+﻿@page "/unitViewData"
+@inherits LayoutComponentBase
+@using ShatteredSunCommunity.Models
+@rendermode InteractiveServer
+
+<table>
+    <tr>
+        <td>@Item["GeneralIconUI"]</td>
+        <th>@Item["GeneralDisplayName"]</th>
+    </tr>
+    <tr>
+        <td>@Item["GeneralName"]</td>
+    </tr>
+    <tr>
+        <td>Faction: @Item["Faction"]</td>
+    </tr>
+    <tr>
+        <td>tpId: @Item["GeneralTpId"]</td>
+    </tr>
+    <tr>
+        <td>Enabled: @Item["Enabled"]</td>
+    </tr>
+
+</table>
+
+@code {
+    [Parameter]
+    public UnitData Item { get; set; } = null;
+}

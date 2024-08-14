@@ -1,0 +1,9 @@
+﻿table, th, td {
+    border-style: solid;
+    border: 1px solid black;
+}
+
+h1.unitView {
+    color: brown;
+    font-family: Tahoma, Geneva, Verdana, sans-serif;
+}

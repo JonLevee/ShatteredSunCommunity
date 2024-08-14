@@ -1,19 +1,26 @@
 ﻿@page "/unitView"
+@inherits LayoutComponentBase
 @using ShatteredSunCommunity.Models
+@using Components.Pages
 @inject Models.SanctuarySunData data
 @rendermode InteractiveServer
 
+<style>
+    .unitView {
+        border-style: solid;
+        border: 1px solid black;
+    }
+
+</style>
 <PageTitle>Unit Viewer</PageTitle>
 
-<h3>UnitView</h3>
+<h1 class="unitView">UnitView</h1>
+<h3 class="unitView">UnitView</h3>
 <table>
     <tbody>
         @foreach (var item in data.Units)
         {
-            <tr>
-                <th>TpId</th>
-                <td>item.TpId</td>
-            </tr>
+            <UnitViewData Item=@item/>
         }
     </tbody>
 </table>

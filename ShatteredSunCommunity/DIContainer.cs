@@ -4,6 +4,7 @@ using ShatteredSunCommunity.Models;
 using System.Diagnostics;
 using System.Reflection;
 using System.Text.Json;
+using System.Text.Json.Nodes;
 using System.Text.Json.Serialization;
 using LogLevel = NLog.LogLevel;
 
@@ -85,14 +86,7 @@ namespace ShatteredSunCommunity
         {
             var file = "ShatteredSunUnitData.json";
             var json = File.ReadAllText(file);
-            var jsonOpts = new JsonSerializerOptions
-            {
-                Converters =
-                {
-                    //new JsonElementToObjectConverter()
-                }
-            };
-            var instance = JsonSerializer.Deserialize<SanctuarySunData>(json, jsonOpts);
+            var instance = JsonSerializer.Deserialize<SanctuarySunData>(json);
             return instance;
         }
 
