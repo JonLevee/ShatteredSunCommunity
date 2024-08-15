@@ -50,16 +50,4 @@ h1:focus {
     border-color: #929292;
 }
 
-.unitView {
-    border-style: solid;
-    border: 1px solid black;
-}
-
-.unitHeader, .td, .th {
-    padding: 5px
-}
-
-td, .unitImage {
-    border-style: solid;
-}
 

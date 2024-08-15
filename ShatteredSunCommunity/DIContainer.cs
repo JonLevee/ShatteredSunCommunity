@@ -1,4 +1,5 @@
-﻿using NLog;
+﻿using GenerateBuildVersion;
+using NLog;
 using ShatteredSunCommunity.Extensions;
 using ShatteredSunCommunity.Models;
 using System.Diagnostics;
@@ -80,6 +81,7 @@ namespace ShatteredSunCommunity
             }
 
             services.AddSingleton(GetSanctuarySunData);
+            services.AddSingleton<CSSVersionInfoBuilder>();
         }
 
         private static SanctuarySunData GetSanctuarySunData(IServiceProvider provider)

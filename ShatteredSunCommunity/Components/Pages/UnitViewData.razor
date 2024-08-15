@@ -2,11 +2,16 @@
 @inherits LayoutComponentBase
 @using ShatteredSunCommunity.Models
 @rendermode InteractiveServer
+<style>
+    *   {
+            border: none;
+        }
+</style>
 
 <table>
     <tr>
-        <td>@Item["GeneralIconUI"]</td>
-        <th>@Item["GeneralDisplayName"]</th>
+        <td rowspan="4">@Item["GeneralIconUI"]</td>
+        <th class="unitViewData">@Item["GeneralDisplayName"]</th>
     </tr>
     <tr>
         <td>@Item["GeneralName"]</td>

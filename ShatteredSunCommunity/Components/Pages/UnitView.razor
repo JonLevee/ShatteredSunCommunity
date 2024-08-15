@@ -2,29 +2,36 @@
 @inherits LayoutComponentBase
 @using ShatteredSunCommunity.Models
 @using Components.Pages
+@using System.Reflection
 @inject Models.SanctuarySunData data
 @rendermode InteractiveServer
 
 <style>
-    .unitView {
-        border-style: solid;
-        border: 1px solid black;
+    * {
+        border: none;
     }
-
 </style>
 <PageTitle>Unit Viewer</PageTitle>
 
+
 <h1 class="unitView">UnitView</h1>
-<h3 class="unitView">UnitView</h3>
+<h2>@Version</h2>
 <table>
     <tbody>
         @foreach (var item in data.Units)
         {
-            <UnitViewData Item=@item/>
+            <tr>
+                <td>
+                    <UnitViewData Item=@item />
+                </td>
+            </tr>
+            <tr>
+                <td><hr/></td>
+            </tr>
         }
     </tbody>
 </table>
 
 @code {
-    
+    public string Version => Assembly.GetEntryAssembly()?.GetCustomAttribute<AssemblyProductAttribute>()?.Product;
 }
