@@ -15,7 +15,8 @@
 
 
 <h1 class="unitView">UnitView</h1>
-<h2>@Version</h2>
+<h2>@ProductName</h2>
+<UnitGrouping/>
 <table>
     <tbody>
         @foreach (var item in data.Units)
@@ -33,5 +34,5 @@
 </table>
 
 @code {
-    public string Version => Assembly.GetEntryAssembly()?.GetCustomAttribute<AssemblyProductAttribute>()?.Product;
+    public string ProductName => Assembly.GetEntryAssembly()?.GetCustomAttribute<AssemblyProductAttribute>()?.Product;
 }

@@ -4,8 +4,13 @@ using System.Text.Json.Serialization;
 
 namespace ShatteredSunCommunity.Models
 {
-    public class Units : List<UnitData>
+    public enum UnitFieldTypeEnum
     {
-
+        String,
+        Double,
+        StringArray,
+        Image,
+        Bool
     }
+
 }

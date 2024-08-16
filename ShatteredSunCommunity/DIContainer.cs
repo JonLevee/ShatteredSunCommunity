@@ -1,5 +1,5 @@
-﻿using GenerateBuildVersion;
-using NLog;
+﻿using NLog;
+using ShatteredSunCommunity.Conversion;
 using ShatteredSunCommunity.Extensions;
 using ShatteredSunCommunity.Models;
 using System.Diagnostics;
@@ -81,14 +81,13 @@ namespace ShatteredSunCommunity
             }
 
             services.AddSingleton(GetSanctuarySunData);
-            services.AddSingleton<CSSVersionInfoBuilder>();
         }
 
         private static SanctuarySunData GetSanctuarySunData(IServiceProvider provider)
         {
             var file = "ShatteredSunUnitData.json";
             var json = File.ReadAllText(file);
-            var instance = JsonSerializer.Deserialize<SanctuarySunData>(json);
+            var instance = JsonSerializer.Deserialize<SanctuarySunData>(json, JsonHelper.JsonOptions);
             return instance;
         }
 
@@ -109,72 +108,6 @@ namespace ShatteredSunCommunity
             var instance = ActivatorUtilities.CreateInstance<T>(serviceProvider, parameters);
             Debug.Assert(instance != null);
             return instance;
-        }
-    }
-
-    public class JsonElementToObjectConverter : JsonConverter<object>
-    {
-        public override bool CanConvert(Type typeToConvert)
-        {
-            var typeCode = Type.GetTypeCode(typeToConvert);
-            // see https://stackoverflow.com/questions/1749966/c-sharp-how-to-determine-whether-a-type-is-a-number
-            switch (typeCode)
-            {
-                case TypeCode.Byte:
-                case TypeCode.SByte:
-                case TypeCode.UInt16:
-                case TypeCode.UInt32:
-                case TypeCode.UInt64:
-                case TypeCode.Int16:
-                case TypeCode.Int32:
-                case TypeCode.Int64:
-                case TypeCode.Decimal:
-                case TypeCode.Double:
-                case TypeCode.Single:
-                case TypeCode.String:
-                    return true;
-                default:
-                    return false;
-            }
-        }
-        public override object Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
-        {
-            var typeCode = Type.GetTypeCode(typeToConvert);
-            // see https://stackoverflow.com/questions/1749966/c-sharp-how-to-determine-whether-a-type-is-a-number
-            switch (typeCode)
-            {
-                case TypeCode.Byte:
-                    return reader.GetByte();
-                case TypeCode.SByte:
-                    return reader.GetSByte();
-                case TypeCode.UInt16:
-                    return reader.GetUInt16();
-                case TypeCode.UInt32:
-                    return reader.GetUInt32();
-                case TypeCode.UInt64:
-                    return reader.GetUInt64();
-                case TypeCode.Int16:
-                    return reader.GetInt16();
-                case TypeCode.Int32:
-                    return reader.GetInt32();
-                case TypeCode.Int64:
-                    return reader.GetInt64();
-                case TypeCode.Decimal:
-                    return reader.GetDecimal();
-                case TypeCode.Double:
-                    return reader.GetDouble();
-                case TypeCode.Single:
-                    return reader.GetSingle();
-                case TypeCode.String:
-                    return reader.GetString();
-                default:
-                    throw new NotImplementedException($"Don't know how to convert type '{typeCode}'");
-            }
-        }
-
-        public override void Write(Utf8JsonWriter writer, object value, JsonSerializerOptions options)
-        {
-            throw new NotImplementedException();
         }
     }
 }
