@@ -1,10 +1,13 @@
 ﻿@page "/unitView"
 @inherits LayoutComponentBase
 @using ShatteredSunCommunity.Models
+@using ShatteredSunCommunity.UnitSelect
 @using Components.Pages
 @using System.Reflection
 @inject Models.SanctuarySunData data
+@inject UnitSelectLists unitSelectLists
 @rendermode InteractiveServer
+@implements IDisposable
 
 <style>
     * {
@@ -16,9 +19,19 @@
 
 <h1 class="unitView">UnitView</h1>
 <h2>@ProductName</h2>
-<UnitGrouping/>
+<UnitGrouping GroupBy="@groupBy" />
+<h3>GroupSelected: @groupBy.IsSelected</h3>
+<h3>ValueSelected: @groupBy.IsValueSelected</h3>
+<h3>Group: @groupBy.Text</h3>
+<h3>Value: @groupBy.Value.Text</h3>
 <table>
     <tbody>
+        <tr>
+            @foreach (var header in groupBy.GetHeaders())
+            {
+                <th>@header</th>
+            }
+        </tr>
         @foreach (var item in data.Units)
         {
             <tr>
@@ -34,5 +47,24 @@
 </table>
 
 @code {
+    UnitSelectList groupBy => unitSelectLists.GroupByList;
     public string ProductName => Assembly.GetEntryAssembly()?.GetCustomAttribute<AssemblyProductAttribute>()?.Product;
+
+    void groupingUpdated(object sender, UnitSelectListChangedEventArgs args)
+    {
+        base.StateHasChanged();
+    }
+
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        groupBy.SelectedChanged += groupingUpdated;
+    }
+
+    bool disposed;
+    public void Dispose()
+    {
+        groupBy.SelectedChanged -= groupingUpdated;
+    }
 }

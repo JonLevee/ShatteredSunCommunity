@@ -4,11 +4,9 @@ using System.Text;
 using NLua;
 using ShatteredSunCommunity.MiscClasses;
 using ShatteredSunCommunity.Models;
-using System.Text.Json.Serialization;
 using System.Diagnostics;
 using ShatteredSunCommunity.Extensions;
 using ShatteredSunCommunity.Conversion;
-using System.Runtime.CompilerServices;
 
 namespace GenerateResourceZip
 {
@@ -184,33 +182,6 @@ namespace GenerateResourceZip
                     //File.WriteAllText("unitData.json", JsonSerializer.Serialize(data, JsonHelper.JsonOptions));
                 }
             }
-            var tags = data
-                .Units
-                .SelectMany(u => u["Tags"].AsStringArray)
-                .Distinct()
-                .Order()
-                .ToArray();
-            var techTiers = tags
-                .Where(JsonHelper.TECHTIERS.Contains)
-                .Order()
-                .ToArray();
-            var movementTypes = data
-                .Units
-                .SelectMany(u => u.Values.Where(v => v.Name == "MovementType").Select(v => v.Text))
-                .Distinct()
-                .Order()
-                .ToArray();
-            var factions = localData.Factions.Select(f => f.Value.Name);
-            var generalOrders = data
-                .Units;
-
-            data.GroupByList.Add(new UnitGroupBy("Faction", "Faction", factions));
-            data.GroupByList.Add(new UnitGroupBy("Tags", "Tech", techTiers));
-
-            data.FilterList.Add(new UnitFilter("Faction", "Faction", factions));
-            data.FilterList.Add(new UnitFilter("Tags", "Tech", techTiers));
-            data.FilterList.Add(new UnitFilter("Tags", "Tags", tags));
-            data.FilterList.Add(new UnitFilter("MovementType", "MovementType", movementTypes));
 
             var maxGroups = data.Units.SelectMany(u => u.Values.Select(v => v.Groups.Length)).Max();
             if (maxGroups > JsonHelper.ExpectedMaxGroups)
