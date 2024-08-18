@@ -2,8 +2,10 @@
 using ShatteredSunCommunity.Components.Pages;
 using ShatteredSunCommunity.Conversion;
 using ShatteredSunCommunity.Extensions;
+using ShatteredSunCommunity.MiscClasses;
 using ShatteredSunCommunity.Models;
 using ShatteredSunCommunity.UnitSelect;
+using ShatteredSunCommunity.UnitSelect.Definitions;
 using System;
 using System.Diagnostics;
 using System.Reflection;
@@ -85,7 +87,11 @@ namespace ShatteredSunCommunity
             }
 
             services.AddSingleton(GetSanctuarySunData);
-            services.AddScoped(GetUnitSelectLists);
+            services.AddSingleton<UnitGroupByDefinitions>(UnitDefinitionsFactory.GetGroupByDefinitions);
+            services.AddSingleton<UnitFilterDefinitions>(UnitDefinitionsFactory.GetFilterDefinitions);
+            services.AddScoped<UnitSelectListFilter>();
+            services.AddScoped<UnitSelectListGroupBy>();
+            services.AddScoped<UnitSelectLists>();
         }
 
         private static SanctuarySunData GetSanctuarySunData(IServiceProvider provider)
@@ -95,39 +101,6 @@ namespace ShatteredSunCommunity
             var instance = JsonSerializer.Deserialize<SanctuarySunData>(json, JsonHelper.JsonOptions);
             return instance;
 
-        }
-
-        private static UnitSelectLists GetUnitSelectLists(IServiceProvider provider)
-        {
-            var data = provider.GetService<SanctuarySunData>();
-            IEnumerable<T> getDistinct<T>(string key, Func<UnitField,T> getValue) => data
-                .Units
-                .Where(u => u.ContainsKey(key))
-                .Select(u => getValue(u[key]))
-                .Distinct()
-                .Order();
-            IEnumerable<string> getDistinctFromArray(string key) => data
-                .Units
-                .Where(u => u.ContainsKey(key))
-                .SelectMany(u => u[key].AsStringArray)
-                .Distinct()
-                .Order();
-            var tags = new UnitSelectItem("Tags", "Tags", getDistinct("Tags", f=>f.Text));
-            var techTiers = new UnitSelectItem("Tech", "Tags", getDistinct("Tags", f => f.Text)
-                .Where(JsonHelper.TECHTIERS.Contains));
-            var movementTypes = new UnitSelectItem("MovementType", "MovementType", getDistinct("MovementType", f=>f.Text));
-            var factions = new UnitSelectItem("Faction", "Faction", getDistinct("Faction", f => f.Text));
-            var generalOrders = new UnitSelectItem("Orders", "GeneralOrders", getDistinctFromArray("GeneralOrders"));
-
-            var filterList = new UnitSelectLists();
-            filterList.FilterList.Add(tags);
-            filterList.FilterList.Add(techTiers);
-            filterList.FilterList.Add(movementTypes);
-            filterList.FilterList.Add(factions);
-            filterList.FilterList.Add(generalOrders);
-            filterList.GroupByList.Add(techTiers);
-            filterList.GroupByList.Add(factions);
-            return filterList;
         }
 
         public static T Get<T>() where T : class

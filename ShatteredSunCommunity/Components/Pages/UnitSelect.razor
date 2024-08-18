@@ -1,0 +1,53 @@
+﻿@using ShatteredSunCommunity.Models
+@using ShatteredSunCommunity.UnitSelect
+@using System.ComponentModel
+@inject UnitSelectLists select
+<table>
+    <tr>
+        <th>Filter:</th>
+        <th>Group By:</th>
+    </tr>
+    @for (int iRow = 0; iRow < select.Count; ++iRow)
+    {
+        var filter = select.Filters[iRow];
+        var groupBy = select.GroupBy[iRow];
+        <tr>
+            <td>
+                <select @bind="filter.Text">
+                    @foreach (var item in filter.Values)
+                    {
+                        <option value="@item">@item</option>
+                    }
+                </select>
+            </td>
+            <td>
+                <select @bind="groupBy.Text">
+                    @foreach (var item in groupBy.Values)
+                    {
+                        <option value="@item">@item</option>
+                    }
+                </select>
+
+            </td>
+        </tr>
+    }
+</table>
+
+@code {
+    void selectUpdated(object sender, PropertyChangingEventArgs args)
+    {
+        base.StateHasChanged();
+    }
+
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        select.PropertyChanging += selectUpdated;
+    }
+
+    public void Dispose()
+    {
+        select.PropertyChanging -= selectUpdated;
+    }
+}

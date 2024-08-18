@@ -4,8 +4,9 @@
 @using ShatteredSunCommunity.UnitSelect
 @using Components.Pages
 @using System.Reflection
+@using System.ComponentModel
 @inject Models.SanctuarySunData data
-@inject UnitSelectLists unitSelectLists
+@inject UnitSelectLists select
 @rendermode InteractiveServer
 @implements IDisposable
 
@@ -19,18 +20,10 @@
 
 <h1 class="unitView">UnitView</h1>
 <h2>@ProductName</h2>
-<UnitGrouping GroupBy="@groupBy" />
-<h3>GroupSelected: @groupBy.IsSelected</h3>
-<h3>ValueSelected: @groupBy.IsValueSelected</h3>
-<h3>Group: @groupBy.Text</h3>
-<h3>Value: @groupBy.Value.Text</h3>
+<UnitSelect />
 <table>
     <tbody>
         <tr>
-            @foreach (var header in groupBy.GetHeaders())
-            {
-                <th>@header</th>
-            }
         </tr>
         @foreach (var item in data.Units)
         {
@@ -47,10 +40,10 @@
 </table>
 
 @code {
-    UnitSelectList groupBy => unitSelectLists.GroupByList;
+    UnitSelectListGroupBy groupBy => select.GroupBy;
     public string ProductName => Assembly.GetEntryAssembly()?.GetCustomAttribute<AssemblyProductAttribute>()?.Product;
 
-    void groupingUpdated(object sender, UnitSelectListChangedEventArgs args)
+    void selectUpdated(object sender, PropertyChangingEventArgs args)
     {
         base.StateHasChanged();
     }
@@ -59,12 +52,11 @@
     protected override void OnInitialized()
     {
         base.OnInitialized();
-        groupBy.SelectedChanged += groupingUpdated;
+        select.PropertyChanging += selectUpdated;
     }
 
-    bool disposed;
     public void Dispose()
     {
-        groupBy.SelectedChanged -= groupingUpdated;
+        select.PropertyChanging -= selectUpdated;
     }
 }

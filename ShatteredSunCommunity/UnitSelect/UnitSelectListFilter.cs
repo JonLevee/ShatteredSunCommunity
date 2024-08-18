@@ -15,28 +15,26 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace ShatteredSunCommunity.UnitSelect
 {
-    public class UnitSelectLists : INotifyPropertyChanging, IDisposable
+    public class UnitSelectListFilter : INotifyPropertyChanging, IDisposable
     {
+        private readonly List<UnitSelectListFilterItem> _items = new List<UnitSelectListFilterItem>();
+        private readonly UnitGroupByDefinitions definitions;
         public event PropertyChangingEventHandler? PropertyChanging;
 
-        public UnitSelectListGroupBy GroupBy { get; }
-        public UnitSelectListFilter Filters { get; }
+        public int Count => _items.Count;
 
-        public int Count => GroupBy.Count;
-        public UnitSelectLists(
-            UnitSelectListGroupBy unitGroupBy,
-            UnitSelectListFilter filters)
+        public UnitSelectListFilterItem this[int index]
         {
-            GroupBy = unitGroupBy;
-            Filters = filters;
-
-            GroupBy.PropertyChanging += PropertyChanging;
-            Filters.PropertyChanging += PropertyChanging;
+            get { return index < _items.Count ? _items[index] : UnitSelectListFilterItem.Empty; }
         }
+
         public void Dispose()
         {
-            GroupBy.PropertyChanging -= PropertyChanging;
-            Filters.PropertyChanging -= PropertyChanging;
+            foreach (var item in _items)
+            {
+                item.PropertyChanging -= PropertyChanging;
+            }
         }
+
     }
 }
