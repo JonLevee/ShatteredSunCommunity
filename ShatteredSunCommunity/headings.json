@@ -1,0 +1,89 @@
+{
+  "Rows": [
+    {
+      "Group": "Faction",
+      "Columns": [
+        {
+          "ColSpan": 4,
+          "Name": "Chosen",
+          "AggregateName": "Chosen"
+        },
+        {
+          "ColSpan": 4,
+          "Name": "EDA",
+          "AggregateName": "EDA"
+        },
+        {
+          "ColSpan": 4,
+          "Name": "Guard",
+          "AggregateName": "Guard"
+        }
+      ]
+    },
+    {
+      "Group": "Tech",
+      "Columns": [
+        {
+          "ColSpan": 1,
+          "Name": "TECH1",
+          "AggregateName": "Chosen:TECH1"
+        },
+        {
+          "ColSpan": 1,
+          "Name": "TECH2",
+          "AggregateName": "Chosen:TECH2"
+        },
+        {
+          "ColSpan": 1,
+          "Name": "TECH3",
+          "AggregateName": "Chosen:TECH3"
+        },
+        {
+          "ColSpan": 1,
+          "Name": "TECH4",
+          "AggregateName": "Chosen:TECH4"
+        },
+        {
+          "ColSpan": 1,
+          "Name": "TECH1",
+          "AggregateName": "EDA:TECH1"
+        },
+        {
+          "ColSpan": 1,
+          "Name": "TECH2",
+          "AggregateName": "EDA:TECH2"
+        },
+        {
+          "ColSpan": 1,
+          "Name": "TECH3",
+          "AggregateName": "EDA:TECH3"
+        },
+        {
+          "ColSpan": 1,
+          "Name": "TECH4",
+          "AggregateName": "EDA:TECH4"
+        },
+        {
+          "ColSpan": 1,
+          "Name": "TECH1",
+          "AggregateName": "Guard:TECH1"
+        },
+        {
+          "ColSpan": 1,
+          "Name": "TECH2",
+          "AggregateName": "Guard:TECH2"
+        },
+        {
+          "ColSpan": 1,
+          "Name": "TECH3",
+          "AggregateName": "Guard:TECH3"
+        },
+        {
+          "ColSpan": 1,
+          "Name": "TECH4",
+          "AggregateName": "Guard:TECH4"
+        }
+      ]
+    }
+  ]
+}

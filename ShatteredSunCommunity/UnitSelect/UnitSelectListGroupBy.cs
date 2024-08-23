@@ -7,6 +7,8 @@ using System.Runtime.CompilerServices;
 using System.Text.Json.Nodes;
 using System.Text.Json.Serialization;
 using Microsoft.AspNetCore.DataProtection.KeyManagement;
+using Microsoft.AspNetCore.Mvc.Filters;
+using Microsoft.Extensions.Options;
 using ShatteredSunCommunity;
 using ShatteredSunCommunity.Conversion;
 using ShatteredSunCommunity.MiscClasses;
@@ -17,38 +19,77 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace ShatteredSunCommunity.UnitSelect
 {
-
-    public class UnitSelectListGroupBy : INotifyPropertyChanging, IDisposable
+    public class UnitSelectListGroupBy : IDisposable
     {
-        private readonly List<UnitSelectListGroupByItem> _items = new List<UnitSelectListGroupByItem>();
+        private readonly List<string> _allSelectValues;
+        private readonly List<UnitSelectListGroupByItem> _visibleSelectValues;
         private readonly UnitGroupByDefinitions definitions;
-        public event PropertyChangingEventHandler? PropertyChanging;
+        private readonly SelectionState selectionState;
 
-        public int Count => _items.Count;
+        public int Count => _allSelectValues.Count - 1;
 
-        public UnitSelectListGroupBy(UnitGroupByDefinitions definitions)
+        public IEnumerable<UnitSelectListGroupByItem> Items => _visibleSelectValues;
+        private UnitSelectListGroupByItem NewEmptyItem() => new UnitSelectListGroupByItem(this, UnitSelectListGroupByItem.Empty);
+
+        public UnitSelectListGroupBy(UnitGroupByDefinitions definitions, SelectionState selectionState)
         {
             this.definitions = definitions;
-            foreach (var definition in definitions)
-            {
-                var item = new UnitSelectListGroupByItem(definitions);
-                item.PropertyChanging += PropertyChanging;
-                _items.Add(item);
-            }
+            this.selectionState = selectionState;
+            _allSelectValues = definitions
+                .Select(d => d.Name)
+                .ToList();
+            _allSelectValues.Insert(0, UnitSelectListGroupByItem.Empty);
+            _visibleSelectValues = new List<UnitSelectListGroupByItem>();
+            RecalculateOptions();
         }
 
-        public UnitSelectListGroupByItem this[int index]
+        private void OnSelectedChanged(object sender, PropertyChangedEventArgs args)
         {
-            get { return index < _items.Count ? _items[index] : UnitSelectListGroupByItem.Empty; }
+            var changedArgs = (UnitSelectListGroupByItemChangedEventArgs)args;
+            var item = changedArgs.Instance;
+            if (item.Selected == UnitSelectListGroupByItem.Empty)
+            {
+                item.PropertyChanged -= OnSelectedChanged;
+                _visibleSelectValues.Remove(item);
+            }
+            RecalculateOptions();
+            selectionState.OnSelectionStateChanged();
+        }
+
+        private void RecalculateOptions()
+        {
+            var header = "Group by";
+            if (_visibleSelectValues.LastOrDefault()?.Selected != UnitSelectListGroupByItem.Empty)
+            {
+                var item = NewEmptyItem();
+                item.PropertyChanged += OnSelectedChanged;
+                _visibleSelectValues.Add(item);
+            }
+            var options = _allSelectValues.ToList();
+            for (int i = 0; i < _visibleSelectValues.Count; i++)
+            {
+                var selected = _visibleSelectValues[i];
+                if (options.Contains(selected.Selected))
+                {
+                    selected.Options.Clear();
+                    selected.Options.AddRange(options);
+                    options.Remove(selected.Selected);
+                    selected.Header = header;
+                    header = "Then by";
+                }
+                else
+                {
+                    selected.PropertyChanged -= OnSelectedChanged;
+                    _visibleSelectValues.Remove(selected);
+                    RecalculateOptions();
+                    return;
+                }
+            }
         }
 
         public void Dispose()
         {
-            foreach (var item in _items)
-            {
-                item.PropertyChanging -= PropertyChanging;
-            }
+            _visibleSelectValues.ForEach(item => item.PropertyChanged -= OnSelectedChanged);
         }
-
     }
 }

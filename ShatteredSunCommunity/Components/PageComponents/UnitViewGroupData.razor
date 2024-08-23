@@ -1,0 +1,38 @@
+﻿@using ShatteredSunCommunity.Components.Pages
+@using ShatteredSunCommunity.UnitSelect
+@inject Models.SanctuarySunData data
+@inject SelectionState selectionState
+<h3>UnitViewGroupData</h3>
+<table>
+    <tbody>
+        @foreach (var item in data.Units)
+        {
+            <tr>
+                <td>
+                    <UnitViewData Item=@item />
+                </td>
+            </tr>
+            <tr>
+                <td><hr /></td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@code {
+    void selectUpdated(object sender, EventArgs args)
+    {
+        base.StateHasChanged();
+    }
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        selectionState.SelectionStateChanged += selectUpdated;
+    }
+
+    public void Dispose()
+    {
+        selectionState.SelectionStateChanged -= selectUpdated;
+    }
+}

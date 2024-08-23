@@ -1,6 +1,7 @@
 ﻿using System.Collections.Frozen;
 using System.ComponentModel;
 using System.Diagnostics;
+using System.Diagnostics.Contracts;
 using System.Runtime.CompilerServices;
 using System.Text.Json.Nodes;
 using System.Text.Json.Serialization;
@@ -15,36 +16,49 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace ShatteredSunCommunity.UnitSelect
 {
-    public class UnitSelectListGroupByItem : INotifyPropertyChanging
+    public class UnitSelectListGroupByItemChangedEventArgs : PropertyChangedEventArgs
     {
-        public static readonly UnitSelectListGroupByItem Empty = new UnitSelectListGroupByItem(null);
-        private string _text;
-        private UnitGroupByDefinitions definitions;
-
-        public UnitSelectListGroupByItem(UnitGroupByDefinitions definitions)
+        public UnitSelectListGroupByItemChangedEventArgs(UnitSelectListGroupByItem instance, string propertyName, string previousValue) : base(propertyName)
         {
-            this.definitions = definitions;
-            Values.AddRange(definitions.Select(d=>d.Name));
+            Instance = instance;
+            PreviousValue = previousValue;
         }
 
-        public event PropertyChangingEventHandler? PropertyChanging;
+        public UnitSelectListGroupByItem Instance { get; }
+        public string PreviousValue { get; }
+    }
+    public class UnitSelectListGroupByItem : INotifyPropertyChanged
+    {
+        public static readonly string Empty = "-- select group by --";
+        private readonly UnitSelectListGroupBy parent;
+        private string _selected;
 
-        public string Text
+        public event PropertyChangedEventHandler? PropertyChanged;
+
+        public List<string> Options { get; }
+        public string Header { get; set; }
+
+        public UnitSelectListGroupByItem(UnitSelectListGroupBy parent, string selected)
         {
-            get => _text;
-            set => Set(ref _text, value);
+            this.parent = parent;
+            _selected = selected;
+            Options = new List<string>();
         }
 
-        public List<string> Values { get; } = new List<string>();
-
-        private void Set(
-            ref string backingValue,
-            string value,
-            [CallerMemberName]
-            string name = null)
+        public void SetSelected(string selected)
         {
-            backingValue = value;
-            PropertyChanging?.Invoke(this, new PropertyChangingEventArgs(name));
+            _selected = selected;
+        }
+
+        public string Selected
+        {
+            get => _selected;
+            set
+            {
+                var previousValue = _selected;
+                _selected = value;
+                PropertyChanged?.Invoke(this, new UnitSelectListGroupByItemChangedEventArgs(this, nameof(Selected), previousValue));
+            }
         }
     }
 }

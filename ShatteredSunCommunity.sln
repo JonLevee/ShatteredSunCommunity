@@ -5,7 +5,7 @@ VisualStudioVersion = 17.10.35122.118
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShatteredSunCommunity", "ShatteredSunCommunity\ShatteredSunCommunity.csproj", "{83890E89-BF98-4390-A1CE-D8538E00E2DD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GenerateResourceZip", "GenerateResourceZip\GenerateResourceZip.csproj", "{314ECEDB-2648-479D-B8DF-995C5DC87E1B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GenerateResourceZip", "GenerateResourceZip\GenerateResourceZip.csproj", "{314ECEDB-2648-479D-B8DF-995C5DC87E1B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

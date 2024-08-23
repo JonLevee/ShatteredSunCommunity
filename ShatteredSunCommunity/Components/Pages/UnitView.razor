@@ -1,12 +1,14 @@
 ﻿@page "/unitView"
 @inherits LayoutComponentBase
+@using ShatteredSunCommunity.Components.PageComponents
 @using ShatteredSunCommunity.Models
 @using ShatteredSunCommunity.UnitSelect
 @using Components.Pages
+@using Components.PageComponents
 @using System.Reflection
 @using System.ComponentModel
 @inject Models.SanctuarySunData data
-@inject UnitSelectLists select
+@inject SelectionState selectionState
 @rendermode InteractiveServer
 @implements IDisposable
 
@@ -20,43 +22,43 @@
 
 <h1 class="unitView">UnitView</h1>
 <h2>@ProductName</h2>
-<UnitSelect />
 <table>
     <tbody>
         <tr>
+            <td>
+                <UnitSelect />
+            </td>
+            <td>
+                <UnitViewGroupHeaders />
+            </td>
         </tr>
-        @foreach (var item in data.Units)
-        {
-            <tr>
-                <td>
-                    <UnitViewData Item=@item />
-                </td>
-            </tr>
-            <tr>
-                <td><hr/></td>
-            </tr>
-        }
+        <tr>
+            <td></td>
+            <td>
+                <UnitViewGroupData />
+
+            </td>
+        </tr>
     </tbody>
 </table>
 
+
 @code {
-    UnitSelectListGroupBy groupBy => select.GroupBy;
     public string ProductName => Assembly.GetEntryAssembly()?.GetCustomAttribute<AssemblyProductAttribute>()?.Product;
 
-    void selectUpdated(object sender, PropertyChangingEventArgs args)
+    void selectUpdated(object sender, EventArgs args)
     {
         base.StateHasChanged();
     }
 
-
     protected override void OnInitialized()
     {
         base.OnInitialized();
-        select.PropertyChanging += selectUpdated;
+        selectionState.SelectionStateChanged += selectUpdated;
     }
 
-    public void Dispose()
+        public void Dispose()
     {
-        select.PropertyChanging -= selectUpdated;
+        selectionState.SelectionStateChanged -= selectUpdated;
     }
 }

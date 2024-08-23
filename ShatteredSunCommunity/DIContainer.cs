@@ -86,6 +86,8 @@ namespace ShatteredSunCommunity
                 services.Add(descriptor);
             }
 
+
+            services.AddScoped<SelectionState>();
             services.AddSingleton(GetSanctuarySunData);
             services.AddSingleton<UnitGroupByDefinitions>(UnitDefinitionsFactory.GetGroupByDefinitions);
             services.AddSingleton<UnitFilterDefinitions>(UnitDefinitionsFactory.GetFilterDefinitions);

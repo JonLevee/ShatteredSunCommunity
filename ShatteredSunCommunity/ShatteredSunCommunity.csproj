@@ -18,14 +18,14 @@
 
 	<ItemGroup>
 		<None Remove="Components\Pages\UnitView.razor.css" />
-		<None Remove="Components\Pages\UnitViewData.razor.css" />
+		<None Remove="Components\PageComponents\UnitViewData.razor.css" />
 	</ItemGroup>
 
 	<ItemGroup>
 		<Content Include="Components\Pages\UnitView.razor.css">
 			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</Content>
-		<Content Include="Components\Pages\UnitViewData.razor.css">
+		<Content Include="Components\PageComponents\UnitViewData.razor.css">
 			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</Content>
 	</ItemGroup>

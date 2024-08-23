@@ -27,7 +27,6 @@
     </tr>
     @foreach(var field in Item.Values.Where(v=>!v.IsHeader))
     {
-        // colspan="@(4-groups.Count)"
         var groups = field.Groups.ToList();
         if (field.UnitFieldType != UnitFieldTypeEnum.StringArray)
         {

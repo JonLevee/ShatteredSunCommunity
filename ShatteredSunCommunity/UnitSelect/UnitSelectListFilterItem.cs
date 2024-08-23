@@ -30,6 +30,11 @@ namespace ShatteredSunCommunity.UnitSelect
 
         public List<string> Values { get; } = new List<string>();
 
+        public UnitSelectListFilterItem()
+        {
+
+        }
+
         private void Set(
             ref string backingValue,
             string value,
