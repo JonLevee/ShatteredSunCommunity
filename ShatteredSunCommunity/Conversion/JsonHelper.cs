@@ -9,9 +9,15 @@ namespace ShatteredSunCommunity.Conversion
 {
     public class JsonHelper
     {
+        /// <summary>
+        /// The max expected number of path parts that are used to collect unit data.
+        /// </summary>
         public static readonly int ExpectedMaxGroups = 3;
-        public static readonly string[] TECHTIERS = Enumerable.Range(1, 9).Select(i => $"TECH{i}").ToArray();
 
+        /// <summary>
+        /// All possible tech tiers
+        /// </summary>
+        public static readonly string[] TECHTIERS = Enumerable.Range(1, 9).Select(i => $"TECH{i}").ToArray();
 
         public static readonly JsonSerializerOptions JsonOptions = new()
         {

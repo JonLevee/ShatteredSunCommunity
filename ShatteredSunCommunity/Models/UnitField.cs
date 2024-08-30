@@ -17,7 +17,12 @@ namespace ShatteredSunCommunity.Models
 
         public string Path { get; set; }
         public string Name { get; set; }
-        public string[] Groups { get; set; }
+
+        /// <summary>
+        /// for grouping and filtering
+        /// </summary>
+        public string DisplayName { get; set; }
+        public string[] PathParts { get; set; }
         public bool IsImage { get; set; }
         public bool IsHeader { get; set; }
 
@@ -48,12 +53,14 @@ namespace ShatteredSunCommunity.Models
             bool isImage = false,
             bool isHeader = false,
             bool requireValidPath = true,
+            string? displayName = null,
             Action<JsonConversionLocalData, UnitData, UnitField, JsonNode>? onCreate = null)
         {
             Path = path;
             UnitFieldType = unitFieldType;
             IsImage = isImage;
             IsHeader = isHeader;
+            DisplayName = displayName;
             RequireValidPath = requireValidPath;
             this.onCreate = onCreate;
         }

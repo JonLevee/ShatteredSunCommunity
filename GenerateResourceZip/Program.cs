@@ -7,6 +7,8 @@ using ShatteredSunCommunity.Models;
 using System.Diagnostics;
 using ShatteredSunCommunity.Extensions;
 using ShatteredSunCommunity.Conversion;
+using ShatteredSunCommunity.UnitSelect.Definitions;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace GenerateResourceZip
 {
@@ -61,7 +63,7 @@ namespace GenerateResourceZip
                 new UnitField("general/displayName", UnitFieldTypeEnum.String, isHeader: true),
                 new UnitField("general/iconUI", UnitFieldTypeEnum.Image, isImage: true, isHeader: true),
                 new UnitField("general/name", UnitFieldTypeEnum.String, isHeader: true),
-                new UnitField("general/orders", UnitFieldTypeEnum.StringArray, onCreate: (ld, ud, uf, node) => {
+                new UnitField("general/orders", UnitFieldTypeEnum.StringArray, displayName: "Orders", onCreate: (ld, ud, uf, node) => {
                     uf.Text = MakeTextFromArray(((JsonObject)node)
                         .Where(kv => ((bool?)kv.Value).GetValueOrDefault())
                         .Select(kv => kv.Key));
@@ -183,7 +185,24 @@ namespace GenerateResourceZip
                 }
             }
 
-            var maxGroups = data.Units.SelectMany(u => u.Values.Select(v => v.Groups.Length)).Max();
+            data.GroupByFields.AddRange(
+            [
+                createUnitGroupingField("Faction", data.GetDistinct("Faction", f => f.Text))
+            ]);
+
+            data.GroupByFields.Sort((l, r) => l.DisplayName.CompareTo(r.DisplayName));
+
+            data.SortFields.AddRange(
+            [
+                createUnitGroupingField("Adjacency", data.GetDistinct("Adjacency", f => f.Text)),
+                createUnitGroupingField("MovementType", data.GetDistinct("MovementType", f => f.Text)),
+                createUnitGroupingField("GeneralOrders", data.GetDistinctFromArray("GeneralOrders"), "Orders"),
+                createUnitGroupingField("Tags", data.GetDistinctFromArray("Tags")),
+                createUnitGroupingField("Tech", data.GetDistinctFromArray("Tags").Where(JsonHelper.TECHTIERS.Contains)),
+            ]);
+            data.SortFields.Sort((l, r) => l.DisplayName.CompareTo(r.DisplayName));
+
+            var maxGroups = data.Units.SelectMany(u => u.Values.Select(v => v.PathParts.Length)).Max();
             if (maxGroups > JsonHelper.ExpectedMaxGroups)
                 throw new InvalidOperationException($"max group count of {maxGroups} exceeds expected {JsonHelper.ExpectedMaxGroups}");
             var outputPath = "../../../../ShatteredSunCommunity/ShatteredSunUnitData.json";
@@ -222,10 +241,11 @@ namespace GenerateResourceZip
             {
                 return;
             }
-            var groups = pathParts.Select(p => p.Substring(0, 1).ToUpper() + p.Substring(1)).ToArray();
+            var pascalCasedPathParts = pathParts.Select(p => p.Substring(0, 1).ToUpper() + p.Substring(1)).ToArray();
             field.Path = string.Join("/", pathParts);
-            field.Name = string.Concat(groups);
-            field.Groups = groups;
+            field.Name = string.Concat(pascalCasedPathParts);
+            field.DisplayName = field.DisplayName ?? pascalCasedPathParts.Last();
+            field.PathParts = pascalCasedPathParts;
             field.Text = node.ToStringNullSafe();
             field.OnCreate(ld, unit, node);
             if (VerifyUnitFieldType)
@@ -262,15 +282,17 @@ namespace GenerateResourceZip
             Add(ld, unit, node, field, pathParts, 0);
         }
 
-        private object GetClass(JsonNode node)
+        private UnitGroupingField createUnitGroupingField(string fieldName, SanctuarySunData data)
         {
-            return node
-                .AsArray()
-                .Cast<JsonValue>()
-                .Select(v => v.GetValue<string>())
-                .Where(s => !s.StartsWith("unitsFinalized"))
-                .Single();
+            data.GetDistinct("Adjacency", f => f.Text)
+            return new UnitGroupingField
+            {
+                DisplayName = displayName ?? fieldName,
+                FieldName = fieldName,
+                Values = values.ToList()
+            };
         }
+
 
         private IDisposable GetLuaTable(string relativePath, string tableName, out LuaTable table)
         {

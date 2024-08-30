@@ -27,7 +27,7 @@
     </tr>
     @foreach(var field in Item.Values.Where(v=>!v.IsHeader))
     {
-        var groups = field.Groups.ToList();
+        var groups = field.PathParts.ToList();
         if (field.UnitFieldType != UnitFieldTypeEnum.StringArray)
         {
             while (groups.Count < JsonHelper.ExpectedMaxGroups)

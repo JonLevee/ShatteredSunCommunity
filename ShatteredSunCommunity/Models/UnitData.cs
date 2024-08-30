@@ -7,11 +7,9 @@ namespace ShatteredSunCommunity.Models
     [DebuggerDisplay("[{Name}] {DisplayName}")]
     public class UnitData : Dictionary<string, UnitField>
     {
-        [JsonIgnore]
-        public string Name => this["GeneralName"].Text;
-
-        [JsonIgnore]
-        public string DisplayName => this["GeneralDisplayName"].Text;
+        public UnitData() : base(StringComparer.OrdinalIgnoreCase)
+        {
+        }
     }
 
 }
