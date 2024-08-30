@@ -4,8 +4,6 @@ using ShatteredSunCommunity.Conversion;
 using ShatteredSunCommunity.Extensions;
 using ShatteredSunCommunity.MiscClasses;
 using ShatteredSunCommunity.Models;
-using ShatteredSunCommunity.UnitSelect;
-using ShatteredSunCommunity.UnitSelect.Definitions;
 using System;
 using System.Diagnostics;
 using System.Reflection;
@@ -87,13 +85,7 @@ namespace ShatteredSunCommunity
             }
 
 
-            services.AddScoped<SelectionState>();
             services.AddSingleton(GetSanctuarySunData);
-            services.AddSingleton<UnitGroupByDefinitions>(UnitDefinitionsFactory.GetGroupByDefinitions);
-            services.AddSingleton<UnitFilterDefinitions>(UnitDefinitionsFactory.GetFilterDefinitions);
-            services.AddScoped<UnitSelectListFilter>();
-            services.AddScoped<UnitSelectListGroupBy>();
-            services.AddScoped<UnitSelectLists>();
         }
 
         private static SanctuarySunData GetSanctuarySunData(IServiceProvider provider)
@@ -101,6 +93,20 @@ namespace ShatteredSunCommunity
             var file = "ShatteredSunUnitData.json";
             var json = File.ReadAllText(file);
             var instance = JsonSerializer.Deserialize<SanctuarySunData>(json, JsonHelper.JsonOptions);
+            foreach (var unit in instance.Units)
+            {
+                foreach (var field in unit.Values)
+                {
+                    var groups = field.PathParts.ToList();
+                    if (field.UnitFieldType != UnitFieldTypeEnum.StringArray)
+                    {
+                        while (groups.Count < JsonHelper.ExpectedMaxGroups)
+                            groups.Insert(1, string.Empty);
+                    }
+                    field.GroupParts = groups.ToArray();
+                    field.ColSpan = JsonHelper.ExpectedMaxGroups - groups.Count + 1;
+                }
+            }
             return instance;
 
         }

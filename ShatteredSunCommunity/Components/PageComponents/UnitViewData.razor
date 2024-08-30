@@ -27,18 +27,12 @@
     </tr>
     @foreach(var field in Item.Values.Where(v=>!v.IsHeader))
     {
-        var groups = field.PathParts.ToList();
-        if (field.UnitFieldType != UnitFieldTypeEnum.StringArray)
-        {
-            while (groups.Count < JsonHelper.ExpectedMaxGroups)
-                groups.Insert(1, string.Empty);
-        }
         <tr class="unitRow">
-            @foreach(var group in groups)
+            @foreach(var group in field.GroupParts)
             {
                 <td class="unitCol">@group</td>
             }
-            <td class="unitCol" colspan="@(JsonHelper.ExpectedMaxGroups-groups.Count+1)">@field.Text</td>
+            <td class="unitCol" colspan="@field.ColSpan">@field.Text</td>
         </tr>
     }
 </table>

@@ -1,7 +1,5 @@
 ﻿@using ShatteredSunCommunity.Components.Pages
-@using ShatteredSunCommunity.UnitSelect
 @inject Models.SanctuarySunData data
-@inject SelectionState selectionState
 <h3>UnitViewGroupData</h3>
 <table>
     <tbody>
@@ -28,11 +26,9 @@
     protected override void OnInitialized()
     {
         base.OnInitialized();
-        selectionState.SelectionStateChanged += selectUpdated;
     }
 
     public void Dispose()
     {
-        selectionState.SelectionStateChanged -= selectUpdated;
     }
 }

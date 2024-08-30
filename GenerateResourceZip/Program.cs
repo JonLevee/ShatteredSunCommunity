@@ -7,8 +7,6 @@ using ShatteredSunCommunity.Models;
 using System.Diagnostics;
 using ShatteredSunCommunity.Extensions;
 using ShatteredSunCommunity.Conversion;
-using ShatteredSunCommunity.UnitSelect.Definitions;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace GenerateResourceZip
 {
@@ -185,23 +183,6 @@ namespace GenerateResourceZip
                 }
             }
 
-            data.GroupByFields.AddRange(
-            [
-                createUnitGroupingField("Faction", data.GetDistinct("Faction", f => f.Text))
-            ]);
-
-            data.GroupByFields.Sort((l, r) => l.DisplayName.CompareTo(r.DisplayName));
-
-            data.SortFields.AddRange(
-            [
-                createUnitGroupingField("Adjacency", data.GetDistinct("Adjacency", f => f.Text)),
-                createUnitGroupingField("MovementType", data.GetDistinct("MovementType", f => f.Text)),
-                createUnitGroupingField("GeneralOrders", data.GetDistinctFromArray("GeneralOrders"), "Orders"),
-                createUnitGroupingField("Tags", data.GetDistinctFromArray("Tags")),
-                createUnitGroupingField("Tech", data.GetDistinctFromArray("Tags").Where(JsonHelper.TECHTIERS.Contains)),
-            ]);
-            data.SortFields.Sort((l, r) => l.DisplayName.CompareTo(r.DisplayName));
-
             var maxGroups = data.Units.SelectMany(u => u.Values.Select(v => v.PathParts.Length)).Max();
             if (maxGroups > JsonHelper.ExpectedMaxGroups)
                 throw new InvalidOperationException($"max group count of {maxGroups} exceeds expected {JsonHelper.ExpectedMaxGroups}");
@@ -281,18 +262,6 @@ namespace GenerateResourceZip
             var pathParts = field.Path.Split('/').ToList();
             Add(ld, unit, node, field, pathParts, 0);
         }
-
-        private UnitGroupingField createUnitGroupingField(string fieldName, SanctuarySunData data)
-        {
-            data.GetDistinct("Adjacency", f => f.Text)
-            return new UnitGroupingField
-            {
-                DisplayName = displayName ?? fieldName,
-                FieldName = fieldName,
-                Values = values.ToList()
-            };
-        }
-
 
         private IDisposable GetLuaTable(string relativePath, string tableName, out LuaTable table)
         {

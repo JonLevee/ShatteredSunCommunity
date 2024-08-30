@@ -23,6 +23,10 @@ namespace ShatteredSunCommunity.Models
         /// </summary>
         public string DisplayName { get; set; }
         public string[] PathParts { get; set; }
+        [JsonIgnore]
+        public string[] GroupParts { get; set; }
+        [JsonIgnore]
+        public int ColSpan { get; set; }
         public bool IsImage { get; set; }
         public bool IsHeader { get; set; }
 

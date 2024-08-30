@@ -2,13 +2,11 @@
 @inherits LayoutComponentBase
 @using ShatteredSunCommunity.Components.PageComponents
 @using ShatteredSunCommunity.Models
-@using ShatteredSunCommunity.UnitSelect
 @using Components.Pages
 @using Components.PageComponents
 @using System.Reflection
 @using System.ComponentModel
 @inject Models.SanctuarySunData data
-@inject SelectionState selectionState
 @rendermode InteractiveServer
 @implements IDisposable
 
@@ -26,10 +24,8 @@
     <tbody>
         <tr>
             <td>
-                <UnitSelect />
             </td>
             <td>
-                <UnitViewGroupHeaders />
             </td>
         </tr>
         <tr>
@@ -54,11 +50,9 @@
     protected override void OnInitialized()
     {
         base.OnInitialized();
-        selectionState.SelectionStateChanged += selectUpdated;
     }
 
         public void Dispose()
     {
-        selectionState.SelectionStateChanged -= selectUpdated;
     }
 }
