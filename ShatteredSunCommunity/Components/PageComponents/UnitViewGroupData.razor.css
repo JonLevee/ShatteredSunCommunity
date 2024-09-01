@@ -15,8 +15,3 @@ table.unitTable {
 td.unitCol {
     width: 120px;
 }
-
-th {
-    position: sticky;
-    top: 0;
-}

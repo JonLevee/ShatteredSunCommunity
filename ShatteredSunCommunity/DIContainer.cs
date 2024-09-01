@@ -1,5 +1,6 @@
 ﻿using NLog;
 using ShatteredSunCommunity.Components.Pages;
+using ShatteredSunCommunity.Components.PageSupport;
 using ShatteredSunCommunity.Conversion;
 using ShatteredSunCommunity.Extensions;
 using ShatteredSunCommunity.MiscClasses;
@@ -10,6 +11,7 @@ using System.Reflection;
 using System.Text.Json;
 using System.Text.Json.Nodes;
 using System.Text.Json.Serialization;
+using System.Text.RegularExpressions;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 using LogLevel = NLog.LogLevel;
 
@@ -86,6 +88,21 @@ namespace ShatteredSunCommunity
 
 
             services.AddSingleton(GetSanctuarySunData);
+            services.AddScoped(GetUnitViewFilters);
+        }
+
+        private static UnitViewFilters GetUnitViewFilters(IServiceProvider provider)
+        {
+            var data = provider.GetService<SanctuarySunData>();
+            var instance = new UnitViewFilters()
+            {
+                GroupBy =
+                {
+                    { "faction", data.GetDistinct("faction", f=>f.Text) },
+                    { "tier", data.GetDistinct("tier", f => f.Text) },
+                }
+            };
+            return instance;
         }
 
         private static SanctuarySunData GetSanctuarySunData(IServiceProvider provider)

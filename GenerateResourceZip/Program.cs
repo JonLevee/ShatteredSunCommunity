@@ -80,6 +80,10 @@ namespace GenerateResourceZip
                     var tpId = ud["GeneralTpId"].Text;
                     uf.Text = ld.Factions[tpId.Substring(0, 2)].Name;
                 }),
+                new UnitField("tier", UnitFieldTypeEnum.String, isHeader: true, requireValidPath: false, onCreate: (ld, ud, uf, node) => {
+                    // we need access to tags above
+                    uf.Text = ud["tags"].AsStringArray.Intersect(JsonHelper.TECHTIERS).Single();
+                }),
                 new UnitField("enabled", UnitFieldTypeEnum.Bool, isHeader: true, requireValidPath: false, onCreate: (ld, ud, uf, node) =>
                 {
                     var tpId = ud["GeneralTpId"].Text;

@@ -118,7 +118,7 @@
         ],
         "IsImage": false,
         "IsHeader": false,
-        "Text": "Patrol, Stop, Assist, Move, Attack",
+        "Text": "Patrol, Move, Attack, Stop, Assist",
         "UnitFieldType": "StringArray"
       },
       "GeneralTpId": {
@@ -247,6 +247,18 @@
         "IsImage": false,
         "IsHeader": true,
         "Text": "Chosen",
+        "UnitFieldType": "String"
+      },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH1",
         "UnitFieldType": "String"
       },
       "Enabled": {
@@ -380,7 +392,7 @@
         ],
         "IsImage": false,
         "IsHeader": false,
-        "Text": "Attack, Assist, Patrol, Stop, Move",
+        "Text": "Patrol, Move, Attack, Stop, Assist",
         "UnitFieldType": "StringArray"
       },
       "GeneralTpId": {
@@ -509,6 +521,18 @@
         "IsImage": false,
         "IsHeader": true,
         "Text": "Chosen",
+        "UnitFieldType": "String"
+      },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH1",
         "UnitFieldType": "String"
       },
       "Enabled": {
@@ -642,7 +666,7 @@
         ],
         "IsImage": false,
         "IsHeader": false,
-        "Text": "Assist, Patrol, Stop, Move",
+        "Text": "Stop, Move, Patrol, Assist",
         "UnitFieldType": "StringArray"
       },
       "GeneralTpId": {
@@ -786,6 +810,18 @@
         "Text": "Chosen",
         "UnitFieldType": "String"
       },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH1",
+        "UnitFieldType": "String"
+      },
       "Enabled": {
         "Path": "enabled",
         "Name": "Enabled",
@@ -917,7 +953,7 @@
         ],
         "IsImage": false,
         "IsHeader": false,
-        "Text": "Attack, Assist, Patrol, Stop, Move",
+        "Text": "Patrol, Move, Attack, Stop, Assist",
         "UnitFieldType": "StringArray"
       },
       "GeneralTpId": {
@@ -1033,6 +1069,18 @@
         "IsImage": false,
         "IsHeader": true,
         "Text": "Chosen",
+        "UnitFieldType": "String"
+      },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH2",
         "UnitFieldType": "String"
       },
       "Enabled": {
@@ -1166,7 +1214,7 @@
         ],
         "IsImage": false,
         "IsHeader": false,
-        "Text": "Stop, Assist, Move, Patrol",
+        "Text": "Move, Stop, Assist, Patrol",
         "UnitFieldType": "StringArray"
       },
       "GeneralTpId": {
@@ -1310,6 +1358,18 @@
         "Text": "Chosen",
         "UnitFieldType": "String"
       },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH2",
+        "UnitFieldType": "String"
+      },
       "Enabled": {
         "Path": "enabled",
         "Name": "Enabled",
@@ -1441,7 +1501,7 @@
         ],
         "IsImage": false,
         "IsHeader": false,
-        "Text": "Assist, Attack, Patrol, Stop, Move",
+        "Text": "Stop, Assist, Move, Patrol, Attack",
         "UnitFieldType": "StringArray"
       },
       "GeneralTpId": {
@@ -1570,6 +1630,18 @@
         "IsImage": false,
         "IsHeader": true,
         "Text": "Chosen",
+        "UnitFieldType": "String"
+      },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH3",
         "UnitFieldType": "String"
       },
       "Enabled": {
@@ -1703,7 +1775,7 @@
         ],
         "IsImage": false,
         "IsHeader": false,
-        "Text": "Attack, Assist, Patrol, Stop, Move",
+        "Text": "Stop, Assist, Move, Patrol, Attack",
         "UnitFieldType": "StringArray"
       },
       "GeneralTpId": {
@@ -1819,6 +1891,18 @@
         "IsImage": false,
         "IsHeader": true,
         "Text": "Chosen",
+        "UnitFieldType": "String"
+      },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH3",
         "UnitFieldType": "String"
       },
       "Enabled": {
@@ -1952,7 +2036,7 @@
         ],
         "IsImage": false,
         "IsHeader": false,
-        "Text": "Attack, Assist, Patrol, Stop, Move",
+        "Text": "Stop, Assist, Move, Patrol, Attack",
         "UnitFieldType": "StringArray"
       },
       "GeneralTpId": {
@@ -2081,6 +2165,18 @@
         "IsImage": false,
         "IsHeader": true,
         "Text": "Chosen",
+        "UnitFieldType": "String"
+      },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH3",
         "UnitFieldType": "String"
       },
       "Enabled": {
@@ -2214,7 +2310,7 @@
         ],
         "IsImage": false,
         "IsHeader": false,
-        "Text": "Patrol, Stop, Assist, Move",
+        "Text": "Move, Stop, Assist, Patrol",
         "UnitFieldType": "StringArray"
       },
       "GeneralTpId": {
@@ -2358,6 +2454,18 @@
         "Text": "Chosen",
         "UnitFieldType": "String"
       },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH3",
+        "UnitFieldType": "String"
+      },
       "Enabled": {
         "Path": "enabled",
         "Name": "Enabled",
@@ -2489,7 +2597,7 @@
         ],
         "IsImage": false,
         "IsHeader": false,
-        "Text": "Attack, Assist, Patrol, Stop, Move",
+        "Text": "Stop, Assist, Move, Patrol, Attack",
         "UnitFieldType": "StringArray"
       },
       "GeneralTpId": {
@@ -2605,6 +2713,18 @@
         "IsImage": false,
         "IsHeader": true,
         "Text": "Chosen",
+        "UnitFieldType": "String"
+      },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH4",
         "UnitFieldType": "String"
       },
       "Enabled": {
@@ -2847,7 +2967,7 @@
         ],
         "IsImage": false,
         "IsHeader": false,
-        "Text": "Pause, Capture, Assist, Stop, Attack, Repair, Move, Harvest, Patrol",
+        "Text": "Stop, Assist, Patrol, Capture, Harvest, Move, Repair, Pause, Attack",
         "UnitFieldType": "StringArray"
       },
       "GeneralTpId": {
@@ -2950,6 +3070,18 @@
         "IsImage": false,
         "IsHeader": true,
         "Text": "Chosen",
+        "UnitFieldType": "String"
+      },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH1",
         "UnitFieldType": "String"
       },
       "Enabled": {
@@ -3083,7 +3215,7 @@
         ],
         "IsImage": false,
         "IsHeader": false,
-        "Text": "Attack, Assist, Patrol, Stop, Move",
+        "Text": "Stop, Assist, Move, Patrol, Attack",
         "UnitFieldType": "StringArray"
       },
       "GeneralTpId": {
@@ -3186,6 +3318,18 @@
         "IsImage": false,
         "IsHeader": true,
         "Text": "Chosen",
+        "UnitFieldType": "String"
+      },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH1",
         "UnitFieldType": "String"
       },
       "Enabled": {
@@ -3319,7 +3463,7 @@
         ],
         "IsImage": false,
         "IsHeader": false,
-        "Text": "Attack, Assist, Patrol, Stop, Move",
+        "Text": "Stop, Assist, Move, Patrol, Attack",
         "UnitFieldType": "StringArray"
       },
       "GeneralTpId": {
@@ -3422,6 +3566,18 @@
         "IsImage": false,
         "IsHeader": true,
         "Text": "Chosen",
+        "UnitFieldType": "String"
+      },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH1",
         "UnitFieldType": "String"
       },
       "Enabled": {
@@ -3555,7 +3711,7 @@
         ],
         "IsImage": false,
         "IsHeader": false,
-        "Text": "Attack, Assist, Patrol, Stop, Move",
+        "Text": "Stop, Assist, Move, Patrol, Attack",
         "UnitFieldType": "StringArray"
       },
       "GeneralTpId": {
@@ -3658,6 +3814,18 @@
         "IsImage": false,
         "IsHeader": true,
         "Text": "Chosen",
+        "UnitFieldType": "String"
+      },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH1",
         "UnitFieldType": "String"
       },
       "Enabled": {
@@ -3791,7 +3959,7 @@
         ],
         "IsImage": false,
         "IsHeader": false,
-        "Text": "Attack, Assist, Patrol, Stop, Move",
+        "Text": "Stop, Assist, Move, Patrol, Attack",
         "UnitFieldType": "StringArray"
       },
       "GeneralTpId": {
@@ -3894,6 +4062,18 @@
         "IsImage": false,
         "IsHeader": true,
         "Text": "Chosen",
+        "UnitFieldType": "String"
+      },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH1",
         "UnitFieldType": "String"
       },
       "Enabled": {
@@ -4066,7 +4246,7 @@
         ],
         "IsImage": false,
         "IsHeader": false,
-        "Text": "Pause, Capture, Assist, Repair, Harvest, Stop, Patrol, Move",
+        "Text": "Capture, Stop, Assist, Repair, Move, Pause, Patrol, Harvest",
         "UnitFieldType": "StringArray"
       },
       "GeneralTpId": {
@@ -4169,6 +4349,18 @@
         "IsImage": false,
         "IsHeader": true,
         "Text": "Chosen",
+        "UnitFieldType": "String"
+      },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH1",
         "UnitFieldType": "String"
       },
       "Enabled": {
@@ -4302,7 +4494,7 @@
         ],
         "IsImage": false,
         "IsHeader": false,
-        "Text": "Patrol, Stop, Assist, Move",
+        "Text": "Move, Stop, Assist, Patrol",
         "UnitFieldType": "StringArray"
       },
       "GeneralTpId": {
@@ -4418,6 +4610,18 @@
         "IsImage": false,
         "IsHeader": true,
         "Text": "Chosen",
+        "UnitFieldType": "String"
+      },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH1",
         "UnitFieldType": "String"
       },
       "Enabled": {
@@ -4551,7 +4755,7 @@
         ],
         "IsImage": false,
         "IsHeader": false,
-        "Text": "Attack, Assist, Patrol, Stop, Move",
+        "Text": "Stop, Assist, Move, Patrol, Attack",
         "UnitFieldType": "StringArray"
       },
       "GeneralTpId": {
@@ -4654,6 +4858,18 @@
         "IsImage": false,
         "IsHeader": true,
         "Text": "Chosen",
+        "UnitFieldType": "String"
+      },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH2",
         "UnitFieldType": "String"
       },
       "Enabled": {
@@ -4787,7 +5003,7 @@
         ],
         "IsImage": false,
         "IsHeader": false,
-        "Text": "Attack, Assist, Patrol, Stop, Move",
+        "Text": "Stop, Assist, Move, Patrol, Attack",
         "UnitFieldType": "StringArray"
       },
       "GeneralTpId": {
@@ -4890,6 +5106,18 @@
         "IsImage": false,
         "IsHeader": true,
         "Text": "Chosen",
+        "UnitFieldType": "String"
+      },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH2",
         "UnitFieldType": "String"
       },
       "Enabled": {
@@ -5023,7 +5251,7 @@
         ],
         "IsImage": false,
         "IsHeader": false,
-        "Text": "Attack, Assist, Patrol, Stop, Move",
+        "Text": "Stop, Assist, Move, Patrol, Attack",
         "UnitFieldType": "StringArray"
       },
       "GeneralTpId": {
@@ -5126,6 +5354,18 @@
         "IsImage": false,
         "IsHeader": true,
         "Text": "Chosen",
+        "UnitFieldType": "String"
+      },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH2",
         "UnitFieldType": "String"
       },
       "Enabled": {
@@ -5298,7 +5538,7 @@
         ],
         "IsImage": false,
         "IsHeader": false,
-        "Text": "Pause, Capture, Assist, Repair, Harvest, Stop, Patrol, Move",
+        "Text": "Capture, Stop, Assist, Repair, Move, Pause, Patrol, Harvest",
         "UnitFieldType": "StringArray"
       },
       "GeneralTpId": {
@@ -5401,6 +5641,18 @@
         "IsImage": false,
         "IsHeader": true,
         "Text": "Chosen",
+        "UnitFieldType": "String"
+      },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH2",
         "UnitFieldType": "String"
       },
       "Enabled": {
@@ -5534,7 +5786,7 @@
         ],
         "IsImage": false,
         "IsHeader": false,
-        "Text": "Attack, Assist, Patrol, Stop, Move",
+        "Text": "Stop, Assist, Move, Patrol, Attack",
         "UnitFieldType": "StringArray"
       },
       "GeneralTpId": {
@@ -5637,6 +5889,18 @@
         "IsImage": false,
         "IsHeader": true,
         "Text": "Chosen",
+        "UnitFieldType": "String"
+      },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH3",
         "UnitFieldType": "String"
       },
       "Enabled": {
@@ -5770,7 +6034,7 @@
         ],
         "IsImage": false,
         "IsHeader": false,
-        "Text": "Attack, Assist, Patrol, Stop, Move",
+        "Text": "Stop, Assist, Move, Patrol, Attack",
         "UnitFieldType": "StringArray"
       },
       "GeneralTpId": {
@@ -5873,6 +6137,18 @@
         "IsImage": false,
         "IsHeader": true,
         "Text": "Chosen",
+        "UnitFieldType": "String"
+      },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH3",
         "UnitFieldType": "String"
       },
       "Enabled": {
@@ -6045,7 +6321,7 @@
         ],
         "IsImage": false,
         "IsHeader": false,
-        "Text": "Pause, Capture, Assist, Repair, Harvest, Stop, Patrol, Move",
+        "Text": "Capture, Stop, Assist, Repair, Move, Pause, Patrol, Harvest",
         "UnitFieldType": "StringArray"
       },
       "GeneralTpId": {
@@ -6148,6 +6424,18 @@
         "IsImage": false,
         "IsHeader": true,
         "Text": "Chosen",
+        "UnitFieldType": "String"
+      },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH3",
         "UnitFieldType": "String"
       },
       "Enabled": {
@@ -6281,7 +6569,7 @@
         ],
         "IsImage": false,
         "IsHeader": false,
-        "Text": "Patrol, Stop, Assist, Move",
+        "Text": "Move, Stop, Assist, Patrol",
         "UnitFieldType": "StringArray"
       },
       "GeneralTpId": {
@@ -6397,6 +6685,18 @@
         "IsImage": false,
         "IsHeader": true,
         "Text": "Chosen",
+        "UnitFieldType": "String"
+      },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH3",
         "UnitFieldType": "String"
       },
       "Enabled": {
@@ -6530,7 +6830,7 @@
         ],
         "IsImage": false,
         "IsHeader": false,
-        "Text": "Attack, Assist, Patrol, Stop, Move",
+        "Text": "Stop, Assist, Move, Patrol, Attack",
         "UnitFieldType": "StringArray"
       },
       "GeneralTpId": {
@@ -6633,6 +6933,18 @@
         "IsImage": false,
         "IsHeader": true,
         "Text": "Chosen",
+        "UnitFieldType": "String"
+      },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH3",
         "UnitFieldType": "String"
       },
       "Enabled": {
@@ -6766,7 +7078,7 @@
         ],
         "IsImage": false,
         "IsHeader": false,
-        "Text": "Attack, Assist, Patrol, Stop, Move",
+        "Text": "Stop, Assist, Move, Patrol, Attack",
         "UnitFieldType": "StringArray"
       },
       "GeneralTpId": {
@@ -6869,6 +7181,18 @@
         "IsImage": false,
         "IsHeader": true,
         "Text": "Chosen",
+        "UnitFieldType": "String"
+      },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH4",
         "UnitFieldType": "String"
       },
       "Enabled": {
@@ -7002,7 +7326,7 @@
         ],
         "IsImage": false,
         "IsHeader": false,
-        "Text": "Attack, Assist, Patrol, Stop, Move",
+        "Text": "Stop, Assist, Move, Patrol, Attack",
         "UnitFieldType": "StringArray"
       },
       "GeneralTpId": {
@@ -7105,6 +7429,18 @@
         "IsImage": false,
         "IsHeader": true,
         "Text": "Chosen",
+        "UnitFieldType": "String"
+      },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH4",
         "UnitFieldType": "String"
       },
       "Enabled": {
@@ -7238,7 +7574,7 @@
         ],
         "IsImage": false,
         "IsHeader": false,
-        "Text": "Attack, Assist, Patrol, Stop, Move",
+        "Text": "Stop, Assist, Move, Patrol, Attack",
         "UnitFieldType": "StringArray"
       },
       "GeneralTpId": {
@@ -7341,6 +7677,18 @@
         "IsImage": false,
         "IsHeader": true,
         "Text": "Chosen",
+        "UnitFieldType": "String"
+      },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH4",
         "UnitFieldType": "String"
       },
       "Enabled": {
@@ -7474,7 +7822,7 @@
         ],
         "IsImage": false,
         "IsHeader": false,
-        "Text": "Attack, Stop",
+        "Text": "Stop, Attack",
         "UnitFieldType": "StringArray"
       },
       "GeneralTpId": {
@@ -7525,6 +7873,18 @@
         "IsImage": false,
         "IsHeader": true,
         "Text": "Chosen",
+        "UnitFieldType": "String"
+      },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH1",
         "UnitFieldType": "String"
       },
       "Enabled": {
@@ -7658,7 +8018,7 @@
         ],
         "IsImage": false,
         "IsHeader": false,
-        "Text": "Attack, Stop",
+        "Text": "Stop, Attack",
         "UnitFieldType": "StringArray"
       },
       "GeneralTpId": {
@@ -7709,6 +8069,18 @@
         "IsImage": false,
         "IsHeader": true,
         "Text": "Chosen",
+        "UnitFieldType": "String"
+      },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH1",
         "UnitFieldType": "String"
       },
       "Enabled": {
@@ -7894,7 +8266,7 @@
         ],
         "IsImage": false,
         "IsHeader": false,
-        "Text": "Pause, Repair, Assist, Harvest, Stop",
+        "Text": "Stop, Assist, Pause, Repair, Harvest",
         "UnitFieldType": "StringArray"
       },
       "GeneralTpId": {
@@ -7945,6 +8317,18 @@
         "IsImage": false,
         "IsHeader": true,
         "Text": "Chosen",
+        "UnitFieldType": "String"
+      },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH1",
         "UnitFieldType": "String"
       },
       "Enabled": {
@@ -8170,6 +8554,18 @@
         "Text": "Chosen",
         "UnitFieldType": "String"
       },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH1",
+        "UnitFieldType": "String"
+      },
       "Enabled": {
         "Path": "enabled",
         "Name": "Enabled",
@@ -8391,6 +8787,18 @@
         "IsImage": false,
         "IsHeader": true,
         "Text": "Chosen",
+        "UnitFieldType": "String"
+      },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH1",
         "UnitFieldType": "String"
       },
       "Enabled": {
@@ -8642,6 +9050,18 @@
         "Text": "Chosen",
         "UnitFieldType": "String"
       },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH1",
+        "UnitFieldType": "String"
+      },
       "Enabled": {
         "Path": "enabled",
         "Name": "Enabled",
@@ -8837,6 +9257,18 @@
         "IsImage": false,
         "IsHeader": true,
         "Text": "Chosen",
+        "UnitFieldType": "String"
+      },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH1",
         "UnitFieldType": "String"
       },
       "Enabled": {
@@ -9036,6 +9468,18 @@
         "Text": "Chosen",
         "UnitFieldType": "String"
       },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH1",
+        "UnitFieldType": "String"
+      },
       "Enabled": {
         "Path": "enabled",
         "Name": "Enabled",
@@ -9231,6 +9675,18 @@
         "IsImage": false,
         "IsHeader": true,
         "Text": "Chosen",
+        "UnitFieldType": "String"
+      },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH1",
         "UnitFieldType": "String"
       },
       "Enabled": {
@@ -9483,6 +9939,18 @@
         "Text": "Chosen",
         "UnitFieldType": "String"
       },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH1",
+        "UnitFieldType": "String"
+      },
       "Enabled": {
         "Path": "enabled",
         "Name": "Enabled",
@@ -9704,6 +10172,18 @@
         "IsImage": false,
         "IsHeader": true,
         "Text": "Chosen",
+        "UnitFieldType": "String"
+      },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH1",
         "UnitFieldType": "String"
       },
       "Enabled": {
@@ -9929,6 +10409,18 @@
         "Text": "Chosen",
         "UnitFieldType": "String"
       },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH1",
+        "UnitFieldType": "String"
+      },
       "Enabled": {
         "Path": "enabled",
         "Name": "Enabled",
@@ -10152,6 +10644,18 @@
         "Text": "Chosen",
         "UnitFieldType": "String"
       },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH1",
+        "UnitFieldType": "String"
+      },
       "Enabled": {
         "Path": "enabled",
         "Name": "Enabled",
@@ -10323,6 +10827,18 @@
         "Text": "Chosen",
         "UnitFieldType": "String"
       },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH1",
+        "UnitFieldType": "String"
+      },
       "Enabled": {
         "Path": "enabled",
         "Name": "Enabled",
@@ -10454,7 +10970,7 @@
         ],
         "IsImage": false,
         "IsHeader": false,
-        "Text": "Attack, Stop",
+        "Text": "Stop, Attack",
         "UnitFieldType": "StringArray"
       },
       "GeneralTpId": {
@@ -10505,6 +11021,18 @@
         "IsImage": false,
         "IsHeader": true,
         "Text": "Chosen",
+        "UnitFieldType": "String"
+      },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH2",
         "UnitFieldType": "String"
       },
       "Enabled": {
@@ -10638,7 +11166,7 @@
         ],
         "IsImage": false,
         "IsHeader": false,
-        "Text": "Attack, Assist, Patrol, Stop, Move",
+        "Text": "Stop, Assist, Move, Patrol, Attack",
         "UnitFieldType": "StringArray"
       },
       "GeneralTpId": {
@@ -10689,6 +11217,18 @@
         "IsImage": false,
         "IsHeader": true,
         "Text": "Chosen",
+        "UnitFieldType": "String"
+      },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH2",
         "UnitFieldType": "String"
       },
       "Enabled": {
@@ -10822,7 +11362,7 @@
         ],
         "IsImage": false,
         "IsHeader": false,
-        "Text": "Attack, Stop",
+        "Text": "Stop, Attack",
         "UnitFieldType": "StringArray"
       },
       "GeneralTpId": {
@@ -10873,6 +11413,18 @@
         "IsImage": false,
         "IsHeader": true,
         "Text": "Chosen",
+        "UnitFieldType": "String"
+      },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH2",
         "UnitFieldType": "String"
       },
       "Enabled": {
@@ -11169,6 +11721,18 @@
         "Text": "Chosen",
         "UnitFieldType": "String"
       },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH2",
+        "UnitFieldType": "String"
+      },
       "Enabled": {
         "Path": "enabled",
         "Name": "Enabled",
@@ -11352,7 +11916,7 @@
         ],
         "IsImage": false,
         "IsHeader": false,
-        "Text": "Pause, Repair, Assist, Harvest, Stop",
+        "Text": "Stop, Assist, Pause, Repair, Harvest",
         "UnitFieldType": "StringArray"
       },
       "GeneralTpId": {
@@ -11403,6 +11967,18 @@
         "IsImage": false,
         "IsHeader": true,
         "Text": "Chosen",
+        "UnitFieldType": "String"
+      },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH2",
         "UnitFieldType": "String"
       },
       "Enabled": {
@@ -11628,6 +12204,18 @@
         "Text": "Chosen",
         "UnitFieldType": "String"
       },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH2",
+        "UnitFieldType": "String"
+      },
       "Enabled": {
         "Path": "enabled",
         "Name": "Enabled",
@@ -11849,6 +12437,18 @@
         "IsImage": false,
         "IsHeader": true,
         "Text": "Chosen",
+        "UnitFieldType": "String"
+      },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH2",
         "UnitFieldType": "String"
       },
       "Enabled": {
@@ -12100,6 +12700,18 @@
         "Text": "Chosen",
         "UnitFieldType": "String"
       },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH2",
+        "UnitFieldType": "String"
+      },
       "Enabled": {
         "Path": "enabled",
         "Name": "Enabled",
@@ -12295,6 +12907,18 @@
         "IsImage": false,
         "IsHeader": true,
         "Text": "Chosen",
+        "UnitFieldType": "String"
+      },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH2",
         "UnitFieldType": "String"
       },
       "Enabled": {
@@ -12547,6 +13171,18 @@
         "Text": "Chosen",
         "UnitFieldType": "String"
       },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH2",
+        "UnitFieldType": "String"
+      },
       "Enabled": {
         "Path": "enabled",
         "Name": "Enabled",
@@ -12746,6 +13382,18 @@
         "Text": "Chosen",
         "UnitFieldType": "String"
       },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH2",
+        "UnitFieldType": "String"
+      },
       "Enabled": {
         "Path": "enabled",
         "Name": "Enabled",
@@ -12915,6 +13563,18 @@
         "IsImage": false,
         "IsHeader": true,
         "Text": "Chosen",
+        "UnitFieldType": "String"
+      },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH2",
         "UnitFieldType": "String"
       },
       "Enabled": {
@@ -13088,6 +13748,18 @@
         "Text": "Chosen",
         "UnitFieldType": "String"
       },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH2",
+        "UnitFieldType": "String"
+      },
       "Enabled": {
         "Path": "enabled",
         "Name": "Enabled",
@@ -13259,6 +13931,18 @@
         "Text": "Chosen",
         "UnitFieldType": "String"
       },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH2",
+        "UnitFieldType": "String"
+      },
       "Enabled": {
         "Path": "enabled",
         "Name": "Enabled",
@@ -13390,7 +14074,7 @@
         ],
         "IsImage": false,
         "IsHeader": false,
-        "Text": "Attack, Stop",
+        "Text": "Stop, Attack",
         "UnitFieldType": "StringArray"
       },
       "GeneralTpId": {
@@ -13441,6 +14125,18 @@
         "IsImage": false,
         "IsHeader": true,
         "Text": "Chosen",
+        "UnitFieldType": "String"
+      },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH3",
         "UnitFieldType": "String"
       },
       "Enabled": {
@@ -13574,7 +14270,7 @@
         ],
         "IsImage": false,
         "IsHeader": false,
-        "Text": "Attack, Assist, Patrol, Stop, Move",
+        "Text": "Stop, Assist, Move, Patrol, Attack",
         "UnitFieldType": "StringArray"
       },
       "GeneralTpId": {
@@ -13625,6 +14321,18 @@
         "IsImage": false,
         "IsHeader": true,
         "Text": "Chosen",
+        "UnitFieldType": "String"
+      },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH3",
         "UnitFieldType": "String"
       },
       "Enabled": {
@@ -13798,6 +14506,18 @@
         "Text": "Chosen",
         "UnitFieldType": "String"
       },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH3",
+        "UnitFieldType": "String"
+      },
       "Enabled": {
         "Path": "enabled",
         "Name": "Enabled",
@@ -13929,7 +14649,7 @@
         ],
         "IsImage": false,
         "IsHeader": false,
-        "Text": "Attack, Stop",
+        "Text": "Stop, Attack",
         "UnitFieldType": "StringArray"
       },
       "GeneralTpId": {
@@ -13980,6 +14700,18 @@
         "IsImage": false,
         "IsHeader": true,
         "Text": "Chosen",
+        "UnitFieldType": "String"
+      },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH3",
         "UnitFieldType": "String"
       },
       "Enabled": {
@@ -14237,6 +14969,18 @@
         "Text": "Chosen",
         "UnitFieldType": "String"
       },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH3",
+        "UnitFieldType": "String"
+      },
       "Enabled": {
         "Path": "enabled",
         "Name": "Enabled",
@@ -14406,6 +15150,18 @@
         "IsImage": false,
         "IsHeader": true,
         "Text": "Chosen",
+        "UnitFieldType": "String"
+      },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH3",
         "UnitFieldType": "String"
       },
       "Enabled": {
@@ -14578,7 +15334,7 @@
         ],
         "IsImage": false,
         "IsHeader": false,
-        "Text": "Pause, Repair, Assist, Harvest, Stop",
+        "Text": "Stop, Assist, Pause, Repair, Harvest",
         "UnitFieldType": "StringArray"
       },
       "GeneralTpId": {
@@ -14629,6 +15385,18 @@
         "IsImage": false,
         "IsHeader": true,
         "Text": "Chosen",
+        "UnitFieldType": "String"
+      },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH3",
         "UnitFieldType": "String"
       },
       "Enabled": {
@@ -14841,6 +15609,18 @@
         "Text": "Chosen",
         "UnitFieldType": "String"
       },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH3",
+        "UnitFieldType": "String"
+      },
       "Enabled": {
         "Path": "enabled",
         "Name": "Enabled",
@@ -15051,6 +15831,18 @@
         "Text": "Chosen",
         "UnitFieldType": "String"
       },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH3",
+        "UnitFieldType": "String"
+      },
       "Enabled": {
         "Path": "enabled",
         "Name": "Enabled",
@@ -15246,6 +16038,18 @@
         "IsImage": false,
         "IsHeader": true,
         "Text": "Chosen",
+        "UnitFieldType": "String"
+      },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH3",
         "UnitFieldType": "String"
       },
       "Enabled": {
@@ -15459,6 +16263,18 @@
         "Text": "Chosen",
         "UnitFieldType": "String"
       },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH3",
+        "UnitFieldType": "String"
+      },
       "Enabled": {
         "Path": "enabled",
         "Name": "Enabled",
@@ -15654,6 +16470,18 @@
         "IsImage": false,
         "IsHeader": true,
         "Text": "Chosen",
+        "UnitFieldType": "String"
+      },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH3",
         "UnitFieldType": "String"
       },
       "Enabled": {
@@ -15854,6 +16682,18 @@
         "Text": "Chosen",
         "UnitFieldType": "String"
       },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH3",
+        "UnitFieldType": "String"
+      },
       "Enabled": {
         "Path": "enabled",
         "Name": "Enabled",
@@ -15985,7 +16825,7 @@
         ],
         "IsImage": false,
         "IsHeader": false,
-        "Text": "Attack, Assist, Patrol, Stop, Move",
+        "Text": "Stop, Assist, Move, Patrol, Attack",
         "UnitFieldType": "StringArray"
       },
       "GeneralTpId": {
@@ -16114,6 +16954,18 @@
         "IsImage": false,
         "IsHeader": true,
         "Text": "EDA",
+        "UnitFieldType": "String"
+      },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH1",
         "UnitFieldType": "String"
       },
       "Enabled": {
@@ -16247,7 +17099,7 @@
         ],
         "IsImage": false,
         "IsHeader": false,
-        "Text": "Attack, Assist, Patrol, Stop, Move",
+        "Text": "Stop, Assist, Move, Patrol, Attack",
         "UnitFieldType": "StringArray"
       },
       "GeneralTpId": {
@@ -16376,6 +17228,18 @@
         "IsImage": false,
         "IsHeader": true,
         "Text": "EDA",
+        "UnitFieldType": "String"
+      },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH1",
         "UnitFieldType": "String"
       },
       "Enabled": {
@@ -16509,7 +17373,7 @@
         ],
         "IsImage": false,
         "IsHeader": false,
-        "Text": "Patrol, Stop, Assist, Move",
+        "Text": "Move, Stop, Assist, Patrol",
         "UnitFieldType": "StringArray"
       },
       "GeneralTpId": {
@@ -16638,6 +17502,18 @@
         "IsImage": false,
         "IsHeader": true,
         "Text": "EDA",
+        "UnitFieldType": "String"
+      },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH1",
         "UnitFieldType": "String"
       },
       "Enabled": {
@@ -16771,7 +17647,7 @@
         ],
         "IsImage": false,
         "IsHeader": false,
-        "Text": "Attack, Assist, Patrol, Stop, Move",
+        "Text": "Stop, Assist, Move, Patrol, Attack",
         "UnitFieldType": "StringArray"
       },
       "GeneralTpId": {
@@ -16887,6 +17763,18 @@
         "IsImage": false,
         "IsHeader": true,
         "Text": "EDA",
+        "UnitFieldType": "String"
+      },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH2",
         "UnitFieldType": "String"
       },
       "Enabled": {
@@ -17020,7 +17908,7 @@
         ],
         "IsImage": false,
         "IsHeader": false,
-        "Text": "Attack, Assist, Patrol, Stop, Move",
+        "Text": "Stop, Assist, Move, Patrol, Attack",
         "UnitFieldType": "StringArray"
       },
       "GeneralTpId": {
@@ -17149,6 +18037,18 @@
         "IsImage": false,
         "IsHeader": true,
         "Text": "EDA",
+        "UnitFieldType": "String"
+      },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH3",
         "UnitFieldType": "String"
       },
       "Enabled": {
@@ -17282,7 +18182,7 @@
         ],
         "IsImage": false,
         "IsHeader": false,
-        "Text": "Attack, Assist, Patrol, Stop, Move",
+        "Text": "Stop, Assist, Move, Patrol, Attack",
         "UnitFieldType": "StringArray"
       },
       "GeneralTpId": {
@@ -17398,6 +18298,18 @@
         "IsImage": false,
         "IsHeader": true,
         "Text": "EDA",
+        "UnitFieldType": "String"
+      },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH3",
         "UnitFieldType": "String"
       },
       "Enabled": {
@@ -17531,7 +18443,7 @@
         ],
         "IsImage": false,
         "IsHeader": false,
-        "Text": "Attack, Assist, Patrol, Stop, Move",
+        "Text": "Stop, Assist, Move, Patrol, Attack",
         "UnitFieldType": "StringArray"
       },
       "GeneralTpId": {
@@ -17660,6 +18572,18 @@
         "IsImage": false,
         "IsHeader": true,
         "Text": "EDA",
+        "UnitFieldType": "String"
+      },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH3",
         "UnitFieldType": "String"
       },
       "Enabled": {
@@ -17793,7 +18717,7 @@
         ],
         "IsImage": false,
         "IsHeader": false,
-        "Text": "Patrol, Stop, Assist, Move",
+        "Text": "Move, Stop, Assist, Patrol",
         "UnitFieldType": "StringArray"
       },
       "GeneralTpId": {
@@ -17922,6 +18846,18 @@
         "IsImage": false,
         "IsHeader": true,
         "Text": "EDA",
+        "UnitFieldType": "String"
+      },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH3",
         "UnitFieldType": "String"
       },
       "Enabled": {
@@ -18164,7 +19100,7 @@
         ],
         "IsImage": false,
         "IsHeader": false,
-        "Text": "Pause, Capture, Assist, Stop, Attack, Repair, Move, Harvest, Patrol",
+        "Text": "Stop, Assist, Patrol, Capture, Harvest, Move, Repair, Pause, Attack",
         "UnitFieldType": "StringArray"
       },
       "GeneralTpId": {
@@ -18267,6 +19203,18 @@
         "IsImage": false,
         "IsHeader": true,
         "Text": "EDA",
+        "UnitFieldType": "String"
+      },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH1",
         "UnitFieldType": "String"
       },
       "Enabled": {
@@ -18400,7 +19348,7 @@
         ],
         "IsImage": false,
         "IsHeader": false,
-        "Text": "Attack, Assist, Patrol, Stop, Move",
+        "Text": "Stop, Assist, Move, Patrol, Attack",
         "UnitFieldType": "StringArray"
       },
       "GeneralTpId": {
@@ -18503,6 +19451,18 @@
         "IsImage": false,
         "IsHeader": true,
         "Text": "EDA",
+        "UnitFieldType": "String"
+      },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH1",
         "UnitFieldType": "String"
       },
       "Enabled": {
@@ -18636,7 +19596,7 @@
         ],
         "IsImage": false,
         "IsHeader": false,
-        "Text": "Attack, Assist, Patrol, Stop, Move",
+        "Text": "Stop, Assist, Move, Patrol, Attack",
         "UnitFieldType": "StringArray"
       },
       "GeneralTpId": {
@@ -18739,6 +19699,18 @@
         "IsImage": false,
         "IsHeader": true,
         "Text": "EDA",
+        "UnitFieldType": "String"
+      },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH1",
         "UnitFieldType": "String"
       },
       "Enabled": {
@@ -18872,7 +19844,7 @@
         ],
         "IsImage": false,
         "IsHeader": false,
-        "Text": "Attack, Assist, Patrol, Stop, Move",
+        "Text": "Stop, Assist, Move, Patrol, Attack",
         "UnitFieldType": "StringArray"
       },
       "GeneralTpId": {
@@ -18975,6 +19947,18 @@
         "IsImage": false,
         "IsHeader": true,
         "Text": "EDA",
+        "UnitFieldType": "String"
+      },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH1",
         "UnitFieldType": "String"
       },
       "Enabled": {
@@ -19108,7 +20092,7 @@
         ],
         "IsImage": false,
         "IsHeader": false,
-        "Text": "Attack, Assist, Patrol, Stop, Move",
+        "Text": "Stop, Assist, Move, Patrol, Attack",
         "UnitFieldType": "StringArray"
       },
       "GeneralTpId": {
@@ -19211,6 +20195,18 @@
         "IsImage": false,
         "IsHeader": true,
         "Text": "EDA",
+        "UnitFieldType": "String"
+      },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH1",
         "UnitFieldType": "String"
       },
       "Enabled": {
@@ -19383,7 +20379,7 @@
         ],
         "IsImage": false,
         "IsHeader": false,
-        "Text": "Pause, Capture, Assist, Repair, Harvest, Stop, Patrol, Move",
+        "Text": "Capture, Stop, Assist, Repair, Move, Pause, Patrol, Harvest",
         "UnitFieldType": "StringArray"
       },
       "GeneralTpId": {
@@ -19486,6 +20482,18 @@
         "IsImage": false,
         "IsHeader": true,
         "Text": "EDA",
+        "UnitFieldType": "String"
+      },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH1",
         "UnitFieldType": "String"
       },
       "Enabled": {
@@ -19619,7 +20627,7 @@
         ],
         "IsImage": false,
         "IsHeader": false,
-        "Text": "Patrol, Stop, Assist, Move",
+        "Text": "Move, Stop, Assist, Patrol",
         "UnitFieldType": "StringArray"
       },
       "GeneralTpId": {
@@ -19735,6 +20743,18 @@
         "IsImage": false,
         "IsHeader": true,
         "Text": "EDA",
+        "UnitFieldType": "String"
+      },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH1",
         "UnitFieldType": "String"
       },
       "Enabled": {
@@ -19868,7 +20888,7 @@
         ],
         "IsImage": false,
         "IsHeader": false,
-        "Text": "Attack, Assist, Patrol, Stop, Move",
+        "Text": "Stop, Assist, Move, Patrol, Attack",
         "UnitFieldType": "StringArray"
       },
       "GeneralTpId": {
@@ -19971,6 +20991,18 @@
         "IsImage": false,
         "IsHeader": true,
         "Text": "EDA",
+        "UnitFieldType": "String"
+      },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH2",
         "UnitFieldType": "String"
       },
       "Enabled": {
@@ -20104,7 +21136,7 @@
         ],
         "IsImage": false,
         "IsHeader": false,
-        "Text": "Attack, Assist, Patrol, Stop, Move",
+        "Text": "Stop, Assist, Move, Patrol, Attack",
         "UnitFieldType": "StringArray"
       },
       "GeneralTpId": {
@@ -20207,6 +21239,18 @@
         "IsImage": false,
         "IsHeader": true,
         "Text": "EDA",
+        "UnitFieldType": "String"
+      },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH2",
         "UnitFieldType": "String"
       },
       "Enabled": {
@@ -20340,7 +21384,7 @@
         ],
         "IsImage": false,
         "IsHeader": false,
-        "Text": "Attack, Assist, Patrol, Stop, Move",
+        "Text": "Stop, Assist, Move, Patrol, Attack",
         "UnitFieldType": "StringArray"
       },
       "GeneralTpId": {
@@ -20443,6 +21487,18 @@
         "IsImage": false,
         "IsHeader": true,
         "Text": "EDA",
+        "UnitFieldType": "String"
+      },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH2",
         "UnitFieldType": "String"
       },
       "Enabled": {
@@ -20615,7 +21671,7 @@
         ],
         "IsImage": false,
         "IsHeader": false,
-        "Text": "Pause, Capture, Assist, Repair, Harvest, Stop, Patrol, Move",
+        "Text": "Capture, Stop, Assist, Repair, Move, Pause, Patrol, Harvest",
         "UnitFieldType": "StringArray"
       },
       "GeneralTpId": {
@@ -20718,6 +21774,18 @@
         "IsImage": false,
         "IsHeader": true,
         "Text": "EDA",
+        "UnitFieldType": "String"
+      },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH2",
         "UnitFieldType": "String"
       },
       "Enabled": {
@@ -20851,7 +21919,7 @@
         ],
         "IsImage": false,
         "IsHeader": false,
-        "Text": "Attack, Assist, Patrol, Stop, Move",
+        "Text": "Stop, Assist, Move, Patrol, Attack",
         "UnitFieldType": "StringArray"
       },
       "GeneralTpId": {
@@ -20954,6 +22022,18 @@
         "IsImage": false,
         "IsHeader": true,
         "Text": "EDA",
+        "UnitFieldType": "String"
+      },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH3",
         "UnitFieldType": "String"
       },
       "Enabled": {
@@ -21087,7 +22167,7 @@
         ],
         "IsImage": false,
         "IsHeader": false,
-        "Text": "Attack, Assist, Patrol, Stop, Move",
+        "Text": "Stop, Assist, Move, Patrol, Attack",
         "UnitFieldType": "StringArray"
       },
       "GeneralTpId": {
@@ -21190,6 +22270,18 @@
         "IsImage": false,
         "IsHeader": true,
         "Text": "EDA",
+        "UnitFieldType": "String"
+      },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH3",
         "UnitFieldType": "String"
       },
       "Enabled": {
@@ -21323,7 +22415,7 @@
         ],
         "IsImage": false,
         "IsHeader": false,
-        "Text": "Attack, Assist, Patrol, Stop, Move",
+        "Text": "Stop, Assist, Move, Patrol, Attack",
         "UnitFieldType": "StringArray"
       },
       "GeneralTpId": {
@@ -21426,6 +22518,18 @@
         "IsImage": false,
         "IsHeader": true,
         "Text": "EDA",
+        "UnitFieldType": "String"
+      },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH3",
         "UnitFieldType": "String"
       },
       "Enabled": {
@@ -21598,7 +22702,7 @@
         ],
         "IsImage": false,
         "IsHeader": false,
-        "Text": "Pause, Capture, Assist, Repair, Harvest, Stop, Patrol, Move",
+        "Text": "Capture, Stop, Assist, Repair, Move, Pause, Patrol, Harvest",
         "UnitFieldType": "StringArray"
       },
       "GeneralTpId": {
@@ -21701,6 +22805,18 @@
         "IsImage": false,
         "IsHeader": true,
         "Text": "EDA",
+        "UnitFieldType": "String"
+      },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH3",
         "UnitFieldType": "String"
       },
       "Enabled": {
@@ -21834,7 +22950,7 @@
         ],
         "IsImage": false,
         "IsHeader": false,
-        "Text": "Attack, Assist, Patrol, Stop, Move",
+        "Text": "Stop, Assist, Move, Patrol, Attack",
         "UnitFieldType": "StringArray"
       },
       "GeneralTpId": {
@@ -21937,6 +23053,18 @@
         "IsImage": false,
         "IsHeader": true,
         "Text": "EDA",
+        "UnitFieldType": "String"
+      },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH3",
         "UnitFieldType": "String"
       },
       "Enabled": {
@@ -22070,7 +23198,7 @@
         ],
         "IsImage": false,
         "IsHeader": false,
-        "Text": "Attack, Stop",
+        "Text": "Stop, Attack",
         "UnitFieldType": "StringArray"
       },
       "GeneralTpId": {
@@ -22121,6 +23249,18 @@
         "IsImage": false,
         "IsHeader": true,
         "Text": "EDA",
+        "UnitFieldType": "String"
+      },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH1",
         "UnitFieldType": "String"
       },
       "Enabled": {
@@ -22254,7 +23394,7 @@
         ],
         "IsImage": false,
         "IsHeader": false,
-        "Text": "Attack, Stop",
+        "Text": "Stop, Attack",
         "UnitFieldType": "StringArray"
       },
       "GeneralTpId": {
@@ -22305,6 +23445,18 @@
         "IsImage": false,
         "IsHeader": true,
         "Text": "EDA",
+        "UnitFieldType": "String"
+      },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH1",
         "UnitFieldType": "String"
       },
       "Enabled": {
@@ -22490,7 +23642,7 @@
         ],
         "IsImage": false,
         "IsHeader": false,
-        "Text": "Pause, Repair, Assist, Harvest, Stop",
+        "Text": "Stop, Assist, Pause, Repair, Harvest",
         "UnitFieldType": "StringArray"
       },
       "GeneralTpId": {
@@ -22541,6 +23693,18 @@
         "IsImage": false,
         "IsHeader": true,
         "Text": "EDA",
+        "UnitFieldType": "String"
+      },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH1",
         "UnitFieldType": "String"
       },
       "Enabled": {
@@ -22766,6 +23930,18 @@
         "Text": "EDA",
         "UnitFieldType": "String"
       },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH1",
+        "UnitFieldType": "String"
+      },
       "Enabled": {
         "Path": "enabled",
         "Name": "Enabled",
@@ -22987,6 +24163,18 @@
         "IsImage": false,
         "IsHeader": true,
         "Text": "EDA",
+        "UnitFieldType": "String"
+      },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH1",
         "UnitFieldType": "String"
       },
       "Enabled": {
@@ -23238,6 +24426,18 @@
         "Text": "EDA",
         "UnitFieldType": "String"
       },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH1",
+        "UnitFieldType": "String"
+      },
       "Enabled": {
         "Path": "enabled",
         "Name": "Enabled",
@@ -23433,6 +24633,18 @@
         "IsImage": false,
         "IsHeader": true,
         "Text": "EDA",
+        "UnitFieldType": "String"
+      },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH1",
         "UnitFieldType": "String"
       },
       "Enabled": {
@@ -23632,6 +24844,18 @@
         "Text": "EDA",
         "UnitFieldType": "String"
       },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH1",
+        "UnitFieldType": "String"
+      },
       "Enabled": {
         "Path": "enabled",
         "Name": "Enabled",
@@ -23827,6 +25051,18 @@
         "IsImage": false,
         "IsHeader": true,
         "Text": "EDA",
+        "UnitFieldType": "String"
+      },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH1",
         "UnitFieldType": "String"
       },
       "Enabled": {
@@ -24079,6 +25315,18 @@
         "Text": "EDA",
         "UnitFieldType": "String"
       },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH1",
+        "UnitFieldType": "String"
+      },
       "Enabled": {
         "Path": "enabled",
         "Name": "Enabled",
@@ -24300,6 +25548,18 @@
         "IsImage": false,
         "IsHeader": true,
         "Text": "EDA",
+        "UnitFieldType": "String"
+      },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH1",
         "UnitFieldType": "String"
       },
       "Enabled": {
@@ -24525,6 +25785,18 @@
         "Text": "EDA",
         "UnitFieldType": "String"
       },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH1",
+        "UnitFieldType": "String"
+      },
       "Enabled": {
         "Path": "enabled",
         "Name": "Enabled",
@@ -24748,6 +26020,18 @@
         "Text": "EDA",
         "UnitFieldType": "String"
       },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH1",
+        "UnitFieldType": "String"
+      },
       "Enabled": {
         "Path": "enabled",
         "Name": "Enabled",
@@ -24919,6 +26203,18 @@
         "Text": "EDA",
         "UnitFieldType": "String"
       },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH1",
+        "UnitFieldType": "String"
+      },
       "Enabled": {
         "Path": "enabled",
         "Name": "Enabled",
@@ -25050,7 +26346,7 @@
         ],
         "IsImage": false,
         "IsHeader": false,
-        "Text": "Attack, Stop",
+        "Text": "Stop, Attack",
         "UnitFieldType": "StringArray"
       },
       "GeneralTpId": {
@@ -25101,6 +26397,18 @@
         "IsImage": false,
         "IsHeader": true,
         "Text": "EDA",
+        "UnitFieldType": "String"
+      },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH2",
         "UnitFieldType": "String"
       },
       "Enabled": {
@@ -25234,7 +26542,7 @@
         ],
         "IsImage": false,
         "IsHeader": false,
-        "Text": "Attack, Assist, Patrol, Stop, Move",
+        "Text": "Stop, Assist, Move, Patrol, Attack",
         "UnitFieldType": "StringArray"
       },
       "GeneralTpId": {
@@ -25285,6 +26593,18 @@
         "IsImage": false,
         "IsHeader": true,
         "Text": "EDA",
+        "UnitFieldType": "String"
+      },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH2",
         "UnitFieldType": "String"
       },
       "Enabled": {
@@ -25418,7 +26738,7 @@
         ],
         "IsImage": false,
         "IsHeader": false,
-        "Text": "Attack, Stop",
+        "Text": "Stop, Attack",
         "UnitFieldType": "StringArray"
       },
       "GeneralTpId": {
@@ -25469,6 +26789,18 @@
         "IsImage": false,
         "IsHeader": true,
         "Text": "EDA",
+        "UnitFieldType": "String"
+      },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH2",
         "UnitFieldType": "String"
       },
       "Enabled": {
@@ -25765,6 +27097,18 @@
         "Text": "EDA",
         "UnitFieldType": "String"
       },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH2",
+        "UnitFieldType": "String"
+      },
       "Enabled": {
         "Path": "enabled",
         "Name": "Enabled",
@@ -25948,7 +27292,7 @@
         ],
         "IsImage": false,
         "IsHeader": false,
-        "Text": "Pause, Repair, Assist, Harvest, Stop",
+        "Text": "Stop, Assist, Pause, Repair, Harvest",
         "UnitFieldType": "StringArray"
       },
       "GeneralTpId": {
@@ -25999,6 +27343,18 @@
         "IsImage": false,
         "IsHeader": true,
         "Text": "EDA",
+        "UnitFieldType": "String"
+      },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH2",
         "UnitFieldType": "String"
       },
       "Enabled": {
@@ -26224,6 +27580,18 @@
         "Text": "EDA",
         "UnitFieldType": "String"
       },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH2",
+        "UnitFieldType": "String"
+      },
       "Enabled": {
         "Path": "enabled",
         "Name": "Enabled",
@@ -26445,6 +27813,18 @@
         "IsImage": false,
         "IsHeader": true,
         "Text": "EDA",
+        "UnitFieldType": "String"
+      },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH2",
         "UnitFieldType": "String"
       },
       "Enabled": {
@@ -26696,6 +28076,18 @@
         "Text": "EDA",
         "UnitFieldType": "String"
       },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH2",
+        "UnitFieldType": "String"
+      },
       "Enabled": {
         "Path": "enabled",
         "Name": "Enabled",
@@ -26891,6 +28283,18 @@
         "IsImage": false,
         "IsHeader": true,
         "Text": "EDA",
+        "UnitFieldType": "String"
+      },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH2",
         "UnitFieldType": "String"
       },
       "Enabled": {
@@ -27143,6 +28547,18 @@
         "Text": "EDA",
         "UnitFieldType": "String"
       },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH2",
+        "UnitFieldType": "String"
+      },
       "Enabled": {
         "Path": "enabled",
         "Name": "Enabled",
@@ -27312,6 +28728,18 @@
         "IsImage": false,
         "IsHeader": true,
         "Text": "EDA",
+        "UnitFieldType": "String"
+      },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH2",
         "UnitFieldType": "String"
       },
       "Enabled": {
@@ -27485,6 +28913,18 @@
         "Text": "EDA",
         "UnitFieldType": "String"
       },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH2",
+        "UnitFieldType": "String"
+      },
       "Enabled": {
         "Path": "enabled",
         "Name": "Enabled",
@@ -27654,6 +29094,18 @@
         "IsImage": false,
         "IsHeader": true,
         "Text": "EDA",
+        "UnitFieldType": "String"
+      },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH2",
         "UnitFieldType": "String"
       },
       "Enabled": {
@@ -27827,6 +29279,18 @@
         "Text": "EDA",
         "UnitFieldType": "String"
       },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH3",
+        "UnitFieldType": "String"
+      },
       "Enabled": {
         "Path": "enabled",
         "Name": "Enabled",
@@ -27958,7 +29422,7 @@
         ],
         "IsImage": false,
         "IsHeader": false,
-        "Text": "Attack, Stop",
+        "Text": "Stop, Attack",
         "UnitFieldType": "StringArray"
       },
       "GeneralTpId": {
@@ -28009,6 +29473,18 @@
         "IsImage": false,
         "IsHeader": true,
         "Text": "EDA",
+        "UnitFieldType": "String"
+      },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH3",
         "UnitFieldType": "String"
       },
       "Enabled": {
@@ -28266,6 +29742,18 @@
         "Text": "EDA",
         "UnitFieldType": "String"
       },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH3",
+        "UnitFieldType": "String"
+      },
       "Enabled": {
         "Path": "enabled",
         "Name": "Enabled",
@@ -28435,6 +29923,18 @@
         "IsImage": false,
         "IsHeader": true,
         "Text": "EDA",
+        "UnitFieldType": "String"
+      },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH3",
         "UnitFieldType": "String"
       },
       "Enabled": {
@@ -28607,7 +30107,7 @@
         ],
         "IsImage": false,
         "IsHeader": false,
-        "Text": "Pause, Repair, Assist, Harvest, Stop",
+        "Text": "Stop, Assist, Pause, Repair, Harvest",
         "UnitFieldType": "StringArray"
       },
       "GeneralTpId": {
@@ -28658,6 +30158,18 @@
         "IsImage": false,
         "IsHeader": true,
         "Text": "EDA",
+        "UnitFieldType": "String"
+      },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH3",
         "UnitFieldType": "String"
       },
       "Enabled": {
@@ -28870,6 +30382,18 @@
         "Text": "EDA",
         "UnitFieldType": "String"
       },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH3",
+        "UnitFieldType": "String"
+      },
       "Enabled": {
         "Path": "enabled",
         "Name": "Enabled",
@@ -29080,6 +30604,18 @@
         "Text": "EDA",
         "UnitFieldType": "String"
       },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH3",
+        "UnitFieldType": "String"
+      },
       "Enabled": {
         "Path": "enabled",
         "Name": "Enabled",
@@ -29275,6 +30811,18 @@
         "IsImage": false,
         "IsHeader": true,
         "Text": "EDA",
+        "UnitFieldType": "String"
+      },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH3",
         "UnitFieldType": "String"
       },
       "Enabled": {
@@ -29488,6 +31036,18 @@
         "Text": "EDA",
         "UnitFieldType": "String"
       },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH3",
+        "UnitFieldType": "String"
+      },
       "Enabled": {
         "Path": "enabled",
         "Name": "Enabled",
@@ -29683,6 +31243,18 @@
         "IsImage": false,
         "IsHeader": true,
         "Text": "EDA",
+        "UnitFieldType": "String"
+      },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH3",
         "UnitFieldType": "String"
       },
       "Enabled": {
@@ -29883,6 +31455,18 @@
         "Text": "EDA",
         "UnitFieldType": "String"
       },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH3",
+        "UnitFieldType": "String"
+      },
       "Enabled": {
         "Path": "enabled",
         "Name": "Enabled",
@@ -30028,7 +31612,7 @@
         ],
         "IsImage": false,
         "IsHeader": false,
-        "Text": "Attack, Assist, Patrol, Stop, Move",
+        "Text": "Stop, Assist, Move, Patrol, Attack",
         "UnitFieldType": "StringArray"
       },
       "GeneralTpId": {
@@ -30157,6 +31741,18 @@
         "IsImage": false,
         "IsHeader": true,
         "Text": "Guard",
+        "UnitFieldType": "String"
+      },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH1",
         "UnitFieldType": "String"
       },
       "Enabled": {
@@ -30304,7 +31900,7 @@
         ],
         "IsImage": false,
         "IsHeader": false,
-        "Text": "Attack, Assist, Patrol, Stop, Move",
+        "Text": "Stop, Assist, Move, Patrol, Attack",
         "UnitFieldType": "StringArray"
       },
       "GeneralTpId": {
@@ -30420,6 +32016,18 @@
         "IsImage": false,
         "IsHeader": true,
         "Text": "Guard",
+        "UnitFieldType": "String"
+      },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH1",
         "UnitFieldType": "String"
       },
       "Enabled": {
@@ -30567,7 +32175,7 @@
         ],
         "IsImage": false,
         "IsHeader": false,
-        "Text": "Attack, Assist, Patrol, Stop, Move",
+        "Text": "Stop, Assist, Move, Patrol, Attack",
         "UnitFieldType": "StringArray"
       },
       "GeneralTpId": {
@@ -30696,6 +32304,18 @@
         "IsImage": false,
         "IsHeader": true,
         "Text": "Guard",
+        "UnitFieldType": "String"
+      },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH1",
         "UnitFieldType": "String"
       },
       "Enabled": {
@@ -30843,7 +32463,7 @@
         ],
         "IsImage": false,
         "IsHeader": false,
-        "Text": "Patrol, Stop, Assist, Move",
+        "Text": "Move, Stop, Assist, Patrol",
         "UnitFieldType": "StringArray"
       },
       "GeneralTpId": {
@@ -30985,6 +32605,18 @@
         "IsImage": false,
         "IsHeader": true,
         "Text": "Guard",
+        "UnitFieldType": "String"
+      },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH1",
         "UnitFieldType": "String"
       },
       "Enabled": {
@@ -31132,7 +32764,7 @@
         ],
         "IsImage": false,
         "IsHeader": false,
-        "Text": "Attack, Assist, Patrol, Stop, Move",
+        "Text": "Stop, Assist, Move, Patrol, Attack",
         "UnitFieldType": "StringArray"
       },
       "GeneralTpId": {
@@ -31248,6 +32880,18 @@
         "IsImage": false,
         "IsHeader": true,
         "Text": "Guard",
+        "UnitFieldType": "String"
+      },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH2",
         "UnitFieldType": "String"
       },
       "Enabled": {
@@ -31395,7 +33039,7 @@
         ],
         "IsImage": false,
         "IsHeader": false,
-        "Text": "Attack, Assist, Patrol, Stop, Move",
+        "Text": "Stop, Assist, Move, Patrol, Attack",
         "UnitFieldType": "StringArray"
       },
       "GeneralTpId": {
@@ -31524,6 +33168,18 @@
         "IsImage": false,
         "IsHeader": true,
         "Text": "Guard",
+        "UnitFieldType": "String"
+      },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH3",
         "UnitFieldType": "String"
       },
       "Enabled": {
@@ -31671,7 +33327,7 @@
         ],
         "IsImage": false,
         "IsHeader": false,
-        "Text": "Attack, Assist, Patrol, Stop, Move",
+        "Text": "Stop, Assist, Move, Patrol, Attack",
         "UnitFieldType": "StringArray"
       },
       "GeneralTpId": {
@@ -31787,6 +33443,18 @@
         "IsImage": false,
         "IsHeader": true,
         "Text": "Guard",
+        "UnitFieldType": "String"
+      },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH1",
         "UnitFieldType": "String"
       },
       "Enabled": {
@@ -31934,7 +33602,7 @@
         ],
         "IsImage": false,
         "IsHeader": false,
-        "Text": "Attack, Assist, Patrol, Stop, Move",
+        "Text": "Stop, Assist, Move, Patrol, Attack",
         "UnitFieldType": "StringArray"
       },
       "GeneralTpId": {
@@ -32063,6 +33731,18 @@
         "IsImage": false,
         "IsHeader": true,
         "Text": "Guard",
+        "UnitFieldType": "String"
+      },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH3",
         "UnitFieldType": "String"
       },
       "Enabled": {
@@ -32210,7 +33890,7 @@
         ],
         "IsImage": false,
         "IsHeader": false,
-        "Text": "Patrol, Stop, Assist, Move",
+        "Text": "Move, Stop, Assist, Patrol",
         "UnitFieldType": "StringArray"
       },
       "GeneralTpId": {
@@ -32352,6 +34032,18 @@
         "IsImage": false,
         "IsHeader": true,
         "Text": "Guard",
+        "UnitFieldType": "String"
+      },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH3",
         "UnitFieldType": "String"
       },
       "Enabled": {
@@ -32594,7 +34286,7 @@
         ],
         "IsImage": false,
         "IsHeader": false,
-        "Text": "Pause, Capture, Assist, Stop, Attack, Repair, Move, Harvest, Patrol",
+        "Text": "Stop, Assist, Patrol, Capture, Harvest, Move, Repair, Pause, Attack",
         "UnitFieldType": "StringArray"
       },
       "GeneralTpId": {
@@ -32684,6 +34376,18 @@
         "IsImage": false,
         "IsHeader": true,
         "Text": "Guard",
+        "UnitFieldType": "String"
+      },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH1",
         "UnitFieldType": "String"
       },
       "Enabled": {
@@ -32831,7 +34535,7 @@
         ],
         "IsImage": false,
         "IsHeader": false,
-        "Text": "Attack, Assist, Patrol, Stop, Move",
+        "Text": "Stop, Assist, Move, Patrol, Attack",
         "UnitFieldType": "StringArray"
       },
       "GeneralTpId": {
@@ -32934,6 +34638,18 @@
         "IsImage": false,
         "IsHeader": true,
         "Text": "Guard",
+        "UnitFieldType": "String"
+      },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH1",
         "UnitFieldType": "String"
       },
       "Enabled": {
@@ -33081,7 +34797,7 @@
         ],
         "IsImage": false,
         "IsHeader": false,
-        "Text": "Attack, Assist, Patrol, Stop, Move",
+        "Text": "Stop, Assist, Move, Patrol, Attack",
         "UnitFieldType": "StringArray"
       },
       "GeneralTpId": {
@@ -33184,6 +34900,18 @@
         "IsImage": false,
         "IsHeader": true,
         "Text": "Guard",
+        "UnitFieldType": "String"
+      },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH1",
         "UnitFieldType": "String"
       },
       "Enabled": {
@@ -33331,7 +35059,7 @@
         ],
         "IsImage": false,
         "IsHeader": false,
-        "Text": "Attack, Assist, Patrol, Stop, Move",
+        "Text": "Stop, Assist, Move, Patrol, Attack",
         "UnitFieldType": "StringArray"
       },
       "GeneralTpId": {
@@ -33434,6 +35162,18 @@
         "IsImage": false,
         "IsHeader": true,
         "Text": "Guard",
+        "UnitFieldType": "String"
+      },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH1",
         "UnitFieldType": "String"
       },
       "Enabled": {
@@ -33581,7 +35321,7 @@
         ],
         "IsImage": false,
         "IsHeader": false,
-        "Text": "Attack, Assist, Patrol, Stop, Move",
+        "Text": "Stop, Assist, Move, Patrol, Attack",
         "UnitFieldType": "StringArray"
       },
       "GeneralTpId": {
@@ -33684,6 +35424,18 @@
         "IsImage": false,
         "IsHeader": true,
         "Text": "Guard",
+        "UnitFieldType": "String"
+      },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH1",
         "UnitFieldType": "String"
       },
       "Enabled": {
@@ -33870,7 +35622,7 @@
         ],
         "IsImage": false,
         "IsHeader": false,
-        "Text": "Pause, Capture, Assist, Repair, Harvest, Stop, Patrol, Move",
+        "Text": "Capture, Stop, Assist, Repair, Move, Pause, Patrol, Harvest",
         "UnitFieldType": "StringArray"
       },
       "GeneralTpId": {
@@ -33973,6 +35725,18 @@
         "IsImage": false,
         "IsHeader": true,
         "Text": "Guard",
+        "UnitFieldType": "String"
+      },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH1",
         "UnitFieldType": "String"
       },
       "Enabled": {
@@ -34120,7 +35884,7 @@
         ],
         "IsImage": false,
         "IsHeader": false,
-        "Text": "Patrol, Stop, Assist, Move",
+        "Text": "Move, Stop, Assist, Patrol",
         "UnitFieldType": "StringArray"
       },
       "GeneralTpId": {
@@ -34236,6 +36000,18 @@
         "IsImage": false,
         "IsHeader": true,
         "Text": "Guard",
+        "UnitFieldType": "String"
+      },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH1",
         "UnitFieldType": "String"
       },
       "Enabled": {
@@ -34383,7 +36159,7 @@
         ],
         "IsImage": false,
         "IsHeader": false,
-        "Text": "Attack, Assist, Patrol, Stop, Move",
+        "Text": "Stop, Assist, Move, Patrol, Attack",
         "UnitFieldType": "StringArray"
       },
       "GeneralTpId": {
@@ -34486,6 +36262,18 @@
         "IsImage": false,
         "IsHeader": true,
         "Text": "Guard",
+        "UnitFieldType": "String"
+      },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH2",
         "UnitFieldType": "String"
       },
       "Enabled": {
@@ -34633,7 +36421,7 @@
         ],
         "IsImage": false,
         "IsHeader": false,
-        "Text": "Attack, Assist, Patrol, Stop, Move",
+        "Text": "Stop, Assist, Move, Patrol, Attack",
         "UnitFieldType": "StringArray"
       },
       "GeneralTpId": {
@@ -34736,6 +36524,18 @@
         "IsImage": false,
         "IsHeader": true,
         "Text": "Guard",
+        "UnitFieldType": "String"
+      },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH2",
         "UnitFieldType": "String"
       },
       "Enabled": {
@@ -34922,7 +36722,7 @@
         ],
         "IsImage": false,
         "IsHeader": false,
-        "Text": "Pause, Capture, Assist, Repair, Harvest, Stop, Patrol, Move",
+        "Text": "Capture, Stop, Assist, Repair, Move, Pause, Patrol, Harvest",
         "UnitFieldType": "StringArray"
       },
       "GeneralTpId": {
@@ -35025,6 +36825,18 @@
         "IsImage": false,
         "IsHeader": true,
         "Text": "Guard",
+        "UnitFieldType": "String"
+      },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH2",
         "UnitFieldType": "String"
       },
       "Enabled": {
@@ -35172,7 +36984,7 @@
         ],
         "IsImage": false,
         "IsHeader": false,
-        "Text": "Attack, Assist, Patrol, Stop, Move",
+        "Text": "Stop, Assist, Move, Patrol, Attack",
         "UnitFieldType": "StringArray"
       },
       "GeneralTpId": {
@@ -35275,6 +37087,18 @@
         "IsImage": false,
         "IsHeader": true,
         "Text": "Guard",
+        "UnitFieldType": "String"
+      },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH3",
         "UnitFieldType": "String"
       },
       "Enabled": {
@@ -35422,7 +37246,7 @@
         ],
         "IsImage": false,
         "IsHeader": false,
-        "Text": "Attack, Assist, Patrol, Stop, Move",
+        "Text": "Stop, Assist, Move, Patrol, Attack",
         "UnitFieldType": "StringArray"
       },
       "GeneralTpId": {
@@ -35525,6 +37349,18 @@
         "IsImage": false,
         "IsHeader": true,
         "Text": "Guard",
+        "UnitFieldType": "String"
+      },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH3",
         "UnitFieldType": "String"
       },
       "Enabled": {
@@ -35672,7 +37508,7 @@
         ],
         "IsImage": false,
         "IsHeader": false,
-        "Text": "Attack, Assist, Patrol, Stop, Move",
+        "Text": "Stop, Assist, Move, Patrol, Attack",
         "UnitFieldType": "StringArray"
       },
       "GeneralTpId": {
@@ -35775,6 +37611,18 @@
         "IsImage": false,
         "IsHeader": true,
         "Text": "Guard",
+        "UnitFieldType": "String"
+      },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH3",
         "UnitFieldType": "String"
       },
       "Enabled": {
@@ -35961,7 +37809,7 @@
         ],
         "IsImage": false,
         "IsHeader": false,
-        "Text": "Pause, Capture, Assist, Repair, Harvest, Stop, Patrol, Move",
+        "Text": "Capture, Stop, Assist, Repair, Move, Pause, Patrol, Harvest",
         "UnitFieldType": "StringArray"
       },
       "GeneralTpId": {
@@ -36064,6 +37912,18 @@
         "IsImage": false,
         "IsHeader": true,
         "Text": "Guard",
+        "UnitFieldType": "String"
+      },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH3",
         "UnitFieldType": "String"
       },
       "Enabled": {
@@ -36250,7 +38110,7 @@
         ],
         "IsImage": false,
         "IsHeader": false,
-        "Text": "Pause, Capture, Assist, Repair, Harvest, Stop, Patrol, Move",
+        "Text": "Capture, Stop, Assist, Repair, Move, Pause, Patrol, Harvest",
         "UnitFieldType": "StringArray"
       },
       "GeneralTpId": {
@@ -36353,6 +38213,18 @@
         "IsImage": false,
         "IsHeader": true,
         "Text": "Guard",
+        "UnitFieldType": "String"
+      },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH3",
         "UnitFieldType": "String"
       },
       "Enabled": {
@@ -36486,7 +38358,7 @@
         ],
         "IsImage": false,
         "IsHeader": false,
-        "Text": "Attack, Assist, Patrol, Stop, Move",
+        "Text": "Stop, Assist, Move, Patrol, Attack",
         "UnitFieldType": "StringArray"
       },
       "GeneralTpId": {
@@ -36589,6 +38461,18 @@
         "IsImage": false,
         "IsHeader": true,
         "Text": "Guard",
+        "UnitFieldType": "String"
+      },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH4",
         "UnitFieldType": "String"
       },
       "Enabled": {
@@ -36722,7 +38606,7 @@
         ],
         "IsImage": false,
         "IsHeader": false,
-        "Text": "Attack, Assist, Patrol, Stop, Move",
+        "Text": "Stop, Assist, Move, Patrol, Attack",
         "UnitFieldType": "StringArray"
       },
       "GeneralTpId": {
@@ -36825,6 +38709,18 @@
         "IsImage": false,
         "IsHeader": true,
         "Text": "Guard",
+        "UnitFieldType": "String"
+      },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH4",
         "UnitFieldType": "String"
       },
       "Enabled": {
@@ -36972,7 +38868,7 @@
         ],
         "IsImage": false,
         "IsHeader": false,
-        "Text": "Attack, Stop",
+        "Text": "Stop, Attack",
         "UnitFieldType": "StringArray"
       },
       "GeneralTpId": {
@@ -37023,6 +38919,18 @@
         "IsImage": false,
         "IsHeader": true,
         "Text": "Guard",
+        "UnitFieldType": "String"
+      },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH1",
         "UnitFieldType": "String"
       },
       "Enabled": {
@@ -37170,7 +39078,7 @@
         ],
         "IsImage": false,
         "IsHeader": false,
-        "Text": "Attack, Stop",
+        "Text": "Stop, Attack",
         "UnitFieldType": "StringArray"
       },
       "GeneralTpId": {
@@ -37221,6 +39129,18 @@
         "IsImage": false,
         "IsHeader": true,
         "Text": "Guard",
+        "UnitFieldType": "String"
+      },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH1",
         "UnitFieldType": "String"
       },
       "Enabled": {
@@ -37420,7 +39340,7 @@
         ],
         "IsImage": false,
         "IsHeader": false,
-        "Text": "Pause, Repair, Assist, Harvest, Stop",
+        "Text": "Stop, Assist, Pause, Repair, Harvest",
         "UnitFieldType": "StringArray"
       },
       "GeneralTpId": {
@@ -37471,6 +39391,18 @@
         "IsImage": false,
         "IsHeader": true,
         "Text": "Guard",
+        "UnitFieldType": "String"
+      },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH1",
         "UnitFieldType": "String"
       },
       "Enabled": {
@@ -37710,6 +39642,18 @@
         "Text": "Guard",
         "UnitFieldType": "String"
       },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH1",
+        "UnitFieldType": "String"
+      },
       "Enabled": {
         "Path": "enabled",
         "Name": "Enabled",
@@ -37945,6 +39889,18 @@
         "IsImage": false,
         "IsHeader": true,
         "Text": "Guard",
+        "UnitFieldType": "String"
+      },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH1",
         "UnitFieldType": "String"
       },
       "Enabled": {
@@ -38210,6 +40166,18 @@
         "Text": "Guard",
         "UnitFieldType": "String"
       },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH1",
+        "UnitFieldType": "String"
+      },
       "Enabled": {
         "Path": "enabled",
         "Name": "Enabled",
@@ -38419,6 +40387,18 @@
         "IsImage": false,
         "IsHeader": true,
         "Text": "Guard",
+        "UnitFieldType": "String"
+      },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH1",
         "UnitFieldType": "String"
       },
       "Enabled": {
@@ -38632,6 +40612,18 @@
         "Text": "Guard",
         "UnitFieldType": "String"
       },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH1",
+        "UnitFieldType": "String"
+      },
       "Enabled": {
         "Path": "enabled",
         "Name": "Enabled",
@@ -38841,6 +40833,18 @@
         "IsImage": false,
         "IsHeader": true,
         "Text": "Guard",
+        "UnitFieldType": "String"
+      },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH1",
         "UnitFieldType": "String"
       },
       "Enabled": {
@@ -39107,6 +41111,18 @@
         "Text": "Guard",
         "UnitFieldType": "String"
       },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH1",
+        "UnitFieldType": "String"
+      },
       "Enabled": {
         "Path": "enabled",
         "Name": "Enabled",
@@ -39342,6 +41358,18 @@
         "IsImage": false,
         "IsHeader": true,
         "Text": "Guard",
+        "UnitFieldType": "String"
+      },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH1",
         "UnitFieldType": "String"
       },
       "Enabled": {
@@ -39581,6 +41609,18 @@
         "Text": "Guard",
         "UnitFieldType": "String"
       },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH1",
+        "UnitFieldType": "String"
+      },
       "Enabled": {
         "Path": "enabled",
         "Name": "Enabled",
@@ -39818,6 +41858,18 @@
         "Text": "Guard",
         "UnitFieldType": "String"
       },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH1",
+        "UnitFieldType": "String"
+      },
       "Enabled": {
         "Path": "enabled",
         "Name": "Enabled",
@@ -40001,6 +42053,18 @@
         "IsImage": false,
         "IsHeader": true,
         "Text": "Guard",
+        "UnitFieldType": "String"
+      },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH1",
         "UnitFieldType": "String"
       },
       "Enabled": {
@@ -40227,6 +42291,18 @@
         "Text": "Guard",
         "UnitFieldType": "String"
       },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH1",
+        "UnitFieldType": "String"
+      },
       "Enabled": {
         "Path": "enabled",
         "Name": "Enabled",
@@ -40451,6 +42527,18 @@
         "Text": "Guard",
         "UnitFieldType": "String"
       },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH1",
+        "UnitFieldType": "String"
+      },
       "Enabled": {
         "Path": "enabled",
         "Name": "Enabled",
@@ -40596,7 +42684,7 @@
         ],
         "IsImage": false,
         "IsHeader": false,
-        "Text": "Attack, Stop",
+        "Text": "Stop, Attack",
         "UnitFieldType": "StringArray"
       },
       "GeneralTpId": {
@@ -40647,6 +42735,18 @@
         "IsImage": false,
         "IsHeader": true,
         "Text": "Guard",
+        "UnitFieldType": "String"
+      },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH2",
         "UnitFieldType": "String"
       },
       "Enabled": {
@@ -40794,7 +42894,7 @@
         ],
         "IsImage": false,
         "IsHeader": false,
-        "Text": "Attack, Assist, Patrol, Stop, Move",
+        "Text": "Stop, Assist, Move, Patrol, Attack",
         "UnitFieldType": "StringArray"
       },
       "GeneralTpId": {
@@ -40845,6 +42945,18 @@
         "IsImage": false,
         "IsHeader": true,
         "Text": "Guard",
+        "UnitFieldType": "String"
+      },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH2",
         "UnitFieldType": "String"
       },
       "Enabled": {
@@ -40992,7 +43104,7 @@
         ],
         "IsImage": false,
         "IsHeader": false,
-        "Text": "Attack, Stop",
+        "Text": "Stop, Attack",
         "UnitFieldType": "StringArray"
       },
       "GeneralTpId": {
@@ -41043,6 +43155,18 @@
         "IsImage": false,
         "IsHeader": true,
         "Text": "Guard",
+        "UnitFieldType": "String"
+      },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH2",
         "UnitFieldType": "String"
       },
       "Enabled": {
@@ -41353,6 +43477,18 @@
         "Text": "Guard",
         "UnitFieldType": "String"
       },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH2",
+        "UnitFieldType": "String"
+      },
       "Enabled": {
         "Path": "enabled",
         "Name": "Enabled",
@@ -41550,7 +43686,7 @@
         ],
         "IsImage": false,
         "IsHeader": false,
-        "Text": "Pause, Repair, Assist, Harvest, Stop",
+        "Text": "Stop, Assist, Pause, Repair, Harvest",
         "UnitFieldType": "StringArray"
       },
       "GeneralTpId": {
@@ -41601,6 +43737,18 @@
         "IsImage": false,
         "IsHeader": true,
         "Text": "Guard",
+        "UnitFieldType": "String"
+      },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH2",
         "UnitFieldType": "String"
       },
       "Enabled": {
@@ -41840,6 +43988,18 @@
         "Text": "Guard",
         "UnitFieldType": "String"
       },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH2",
+        "UnitFieldType": "String"
+      },
       "Enabled": {
         "Path": "enabled",
         "Name": "Enabled",
@@ -42075,6 +44235,18 @@
         "IsImage": false,
         "IsHeader": true,
         "Text": "Guard",
+        "UnitFieldType": "String"
+      },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH2",
         "UnitFieldType": "String"
       },
       "Enabled": {
@@ -42340,6 +44512,18 @@
         "Text": "Guard",
         "UnitFieldType": "String"
       },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH2",
+        "UnitFieldType": "String"
+      },
       "Enabled": {
         "Path": "enabled",
         "Name": "Enabled",
@@ -42549,6 +44733,18 @@
         "IsImage": false,
         "IsHeader": true,
         "Text": "Guard",
+        "UnitFieldType": "String"
+      },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH2",
         "UnitFieldType": "String"
       },
       "Enabled": {
@@ -42815,6 +45011,18 @@
         "Text": "Guard",
         "UnitFieldType": "String"
       },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH2",
+        "UnitFieldType": "String"
+      },
       "Enabled": {
         "Path": "enabled",
         "Name": "Enabled",
@@ -43014,6 +45222,18 @@
         "Text": "Guard",
         "UnitFieldType": "String"
       },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH2",
+        "UnitFieldType": "String"
+      },
       "Enabled": {
         "Path": "enabled",
         "Name": "Enabled",
@@ -43197,6 +45417,18 @@
         "IsImage": false,
         "IsHeader": true,
         "Text": "Guard",
+        "UnitFieldType": "String"
+      },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH2",
         "UnitFieldType": "String"
       },
       "Enabled": {
@@ -43384,6 +45616,18 @@
         "Text": "Guard",
         "UnitFieldType": "String"
       },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH2",
+        "UnitFieldType": "String"
+      },
       "Enabled": {
         "Path": "enabled",
         "Name": "Enabled",
@@ -43567,6 +45811,18 @@
         "IsImage": false,
         "IsHeader": true,
         "Text": "Guard",
+        "UnitFieldType": "String"
+      },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH2",
         "UnitFieldType": "String"
       },
       "Enabled": {
@@ -43793,6 +46049,18 @@
         "Text": "Guard",
         "UnitFieldType": "String"
       },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH2",
+        "UnitFieldType": "String"
+      },
       "Enabled": {
         "Path": "enabled",
         "Name": "Enabled",
@@ -43978,6 +46246,18 @@
         "Text": "Guard",
         "UnitFieldType": "String"
       },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH2",
+        "UnitFieldType": "String"
+      },
       "Enabled": {
         "Path": "enabled",
         "Name": "Enabled",
@@ -44123,7 +46403,7 @@
         ],
         "IsImage": false,
         "IsHeader": false,
-        "Text": "Attack, Assist, Patrol, Stop, Move",
+        "Text": "Stop, Assist, Move, Patrol, Attack",
         "UnitFieldType": "StringArray"
       },
       "GeneralTpId": {
@@ -44174,6 +46454,18 @@
         "IsImage": false,
         "IsHeader": true,
         "Text": "Guard",
+        "UnitFieldType": "String"
+      },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH3",
         "UnitFieldType": "String"
       },
       "Enabled": {
@@ -44361,6 +46653,18 @@
         "Text": "Guard",
         "UnitFieldType": "String"
       },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH3",
+        "UnitFieldType": "String"
+      },
       "Enabled": {
         "Path": "enabled",
         "Name": "Enabled",
@@ -44506,7 +46810,7 @@
         ],
         "IsImage": false,
         "IsHeader": false,
-        "Text": "Attack, Stop",
+        "Text": "Stop, Attack",
         "UnitFieldType": "StringArray"
       },
       "GeneralTpId": {
@@ -44557,6 +46861,18 @@
         "IsImage": false,
         "IsHeader": true,
         "Text": "Guard",
+        "UnitFieldType": "String"
+      },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH3",
         "UnitFieldType": "String"
       },
       "Enabled": {
@@ -44828,6 +47144,18 @@
         "Text": "Guard",
         "UnitFieldType": "String"
       },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH3",
+        "UnitFieldType": "String"
+      },
       "Enabled": {
         "Path": "enabled",
         "Name": "Enabled",
@@ -45011,6 +47339,18 @@
         "IsImage": false,
         "IsHeader": true,
         "Text": "Guard",
+        "UnitFieldType": "String"
+      },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH3",
         "UnitFieldType": "String"
       },
       "Enabled": {
@@ -45197,7 +47537,7 @@
         ],
         "IsImage": false,
         "IsHeader": false,
-        "Text": "Pause, Repair, Assist, Harvest, Stop",
+        "Text": "Stop, Assist, Pause, Repair, Harvest",
         "UnitFieldType": "StringArray"
       },
       "GeneralTpId": {
@@ -45248,6 +47588,18 @@
         "IsImage": false,
         "IsHeader": true,
         "Text": "Guard",
+        "UnitFieldType": "String"
+      },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH3",
         "UnitFieldType": "String"
       },
       "Enabled": {
@@ -45474,6 +47826,18 @@
         "Text": "Guard",
         "UnitFieldType": "String"
       },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH3",
+        "UnitFieldType": "String"
+      },
       "Enabled": {
         "Path": "enabled",
         "Name": "Enabled",
@@ -45698,6 +48062,18 @@
         "Text": "Guard",
         "UnitFieldType": "String"
       },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH3",
+        "UnitFieldType": "String"
+      },
       "Enabled": {
         "Path": "enabled",
         "Name": "Enabled",
@@ -45907,6 +48283,18 @@
         "IsImage": false,
         "IsHeader": true,
         "Text": "Guard",
+        "UnitFieldType": "String"
+      },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH3",
         "UnitFieldType": "String"
       },
       "Enabled": {
@@ -46134,6 +48522,18 @@
         "Text": "Guard",
         "UnitFieldType": "String"
       },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH3",
+        "UnitFieldType": "String"
+      },
       "Enabled": {
         "Path": "enabled",
         "Name": "Enabled",
@@ -46343,6 +48743,18 @@
         "IsImage": false,
         "IsHeader": true,
         "Text": "Guard",
+        "UnitFieldType": "String"
+      },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH3",
         "UnitFieldType": "String"
       },
       "Enabled": {
@@ -46557,6 +48969,18 @@
         "Text": "Guard",
         "UnitFieldType": "String"
       },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH3",
+        "UnitFieldType": "String"
+      },
       "Enabled": {
         "Path": "enabled",
         "Name": "Enabled",
@@ -46740,6 +49164,18 @@
         "IsImage": false,
         "IsHeader": true,
         "Text": "Guard",
+        "UnitFieldType": "String"
+      },
+      "Tier": {
+        "Path": "tier",
+        "Name": "Tier",
+        "DisplayName": "Tier",
+        "PathParts": [
+          "Tier"
+        ],
+        "IsImage": false,
+        "IsHeader": true,
+        "Text": "TECH3",
         "UnitFieldType": "String"
       },
       "Enabled": {

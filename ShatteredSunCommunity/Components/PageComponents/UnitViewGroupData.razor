@@ -1,4 +1,5 @@
 ﻿@using ShatteredSunCommunity.Components.Pages
+@using ShatteredSunCommunity.Models
 @inject Models.SanctuarySunData data
 <h3>UnitViewGroupData</h3>
 <table>
@@ -7,7 +8,7 @@
         {
             <tr>
                 <td>
-                    <UnitViewData Item=@item />
+                    @UnitViewFragment(item)
                 </td>
             </tr>
             <tr>
@@ -31,4 +32,38 @@
     public void Dispose()
     {
     }
+
+    private RenderFragment<UnitData> UnitViewFragment = Item =>
+    @<div>
+        <table>
+            <tr>
+                <td class="unitImage" rowspan="5">@Item["GeneralIconUI"]</td>
+                <th class="unitViewData">@Item["GeneralDisplayName"]</th>
+            </tr>
+            <tr><td>[@Item["GeneralName"]] @Item["GeneralDisplayName"]</td></tr>
+            <tr><td>Faction: @Item["Faction"]</td></tr>
+            <tr><td>tpId: @Item["GeneralTpId"]</td></tr>
+            <tr><td>Enabled: @Item["Enabled"]</td></tr>
+
+        </table>
+        <hr />
+        <table class="unitTable">
+            <tr class="unitRow">
+                <td class="unitCol">@Item["DefenceHealthMax"]</td>
+                <td class="unitCol">@Item["EconomyCostEnergy"]</td>
+                <td class="unitCol">@Item["EconomyCostAlloys"]</td>
+                <td class="unitCol">@Item["EconomyBuildTime"]</td>
+            </tr>
+            @foreach(var field in Item.Values.Where(v=>!v.IsHeader))
+            {
+                <tr class="unitRow">
+                    @foreach(var group in field.GroupParts)
+                    {
+                    <td class="unitCol">@group</td>
+                    }
+                    <td class="unitCol" colspan="@field.ColSpan">@field.Text</td>
+                </tr>
+            }
+        </table>
+    </div>;
 }

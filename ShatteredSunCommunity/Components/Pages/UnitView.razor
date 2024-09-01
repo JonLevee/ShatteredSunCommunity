@@ -7,32 +7,58 @@
 @using System.Reflection
 @using System.ComponentModel
 @inject Models.SanctuarySunData data
+@inject Components.PageSupport.UnitViewFilters unitViewFilters;
 @rendermode InteractiveServer
-@implements IDisposable
 
-<style>
-    * {
-        border: none;
-    }
-</style>
 <PageTitle>Unit Viewer</PageTitle>
 
 
 <h1 class="unitView">UnitView</h1>
 <h2>@ProductName</h2>
 <table>
+    <thead>
+        @foreach(var selector in unitViewFilters.GroupBy.Selectors)
+        {
+            <tr>
+                <th>
+                    @selector.Header
+                    <select @bind="selector.Selected" @bind:after="unitViewFilters.OnChanged">
+                        @foreach(var option in selector.Options)
+                        {
+                            <option value="@option.Value" selected="@option.IsSelected" disabled="@option.IsDisabled">@option.Value</option>
+                        }
+                    </select>
+                </th>
+                @foreach (var header in unitViewFilters.GroupBy.GetDataHeaders(selector))
+                {
+                    <th colspan="@header.Colspan">
+                        @header.Header
+                    </th>
+                }
+            </tr>
+
+        }
+
+    </thead>
     <tbody>
-        <tr>
-            <td>
-            </td>
-            <td>
-            </td>
-        </tr>
         <tr>
             <td></td>
             <td>
-                <UnitViewGroupData />
-
+                <table>
+                    <tbody>
+                        @foreach (var item in data.Units)
+                        {
+                            <tr>
+                                <td>
+                                    @UnitViewFragment(item)
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><hr /></td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
             </td>
         </tr>
     </tbody>
@@ -42,17 +68,37 @@
 @code {
     public string ProductName => Assembly.GetEntryAssembly()?.GetCustomAttribute<AssemblyProductAttribute>()?.Product;
 
-    void selectUpdated(object sender, EventArgs args)
-    {
-        base.StateHasChanged();
-    }
+    private RenderFragment<UnitData> UnitViewFragment = Item =>
+    @<div>
+        <table>
+            <tr>
+                <td class="unitImage" rowspan="5">@Item["GeneralIconUI"]</td>
+                <th class="unitViewData">@Item["GeneralDisplayName"]</th>
+            </tr>
+            <tr><td>[@Item["GeneralName"]] @Item["GeneralDisplayName"]</td></tr>
+            <tr><td>Faction: @Item["Faction"]</td></tr>
+            <tr><td>tpId: @Item["GeneralTpId"]</td></tr>
+            <tr><td>Enabled: @Item["Enabled"]</td></tr>
 
-    protected override void OnInitialized()
-    {
-        base.OnInitialized();
-    }
-
-        public void Dispose()
-    {
-    }
+        </table>
+        <hr />
+        <table class="unitTable">
+            <tr class="unitRow">
+                <td class="unitCol">@Item["DefenceHealthMax"]</td>
+                <td class="unitCol">@Item["EconomyCostEnergy"]</td>
+                <td class="unitCol">@Item["EconomyCostAlloys"]</td>
+                <td class="unitCol">@Item["EconomyBuildTime"]</td>
+            </tr>
+            @foreach(var field in Item.Values.Where(v=>!v.IsHeader))
+        {
+            <tr class="unitRow">
+                @foreach(var group in field.GroupParts)
+            {
+                <td class="unitCol">@group</td>
+            }
+                <td class="unitCol" colspan="@field.ColSpan">@field.Text</td>
+            </tr>
+        }
+        </table>
+    </div>;
 }
