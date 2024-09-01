@@ -122,6 +122,7 @@ namespace ShatteredSunCommunity
                     }
                     field.GroupParts = groups.ToArray();
                     field.ColSpan = JsonHelper.ExpectedMaxGroups - groups.Count + 1;
+                    field.IsThumbnail = field.IsThumbnail();
                 }
             }
             return instance;

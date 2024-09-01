@@ -20,3 +20,17 @@ th {
     position: sticky;
     top: 0;
 }
+
+td.unitView {
+    vertical-align: top;
+}
+
+div.divThumbnail {
+    width: 100%;
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+th.unitHeader {
+    text-align: center;
+}

@@ -29,6 +29,7 @@ namespace ShatteredSunCommunity.Models
         public int ColSpan { get; set; }
         public bool IsImage { get; set; }
         public bool IsHeader { get; set; }
+        public bool IsThumbnail { get; set; }
 
         public string Text { get; set; }
 

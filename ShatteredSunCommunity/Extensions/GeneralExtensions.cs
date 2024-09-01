@@ -37,5 +37,22 @@ namespace ShatteredSunCommunity.Extensions
                 .Order();
         }
 
+        private static readonly HashSet<string> thumbnails =
+            [
+                "defence/health/max",
+                "economy/cost/alloys",
+                "economy/cost/energy",
+                "general/displayName",
+                "general/name",
+                "general/tpId",
+                "movement/type",
+                "faction",
+                "tier",
+            ];
+        // need to move this somewhere else
+        public static bool IsThumbnail(this UnitField field)
+        {
+            return thumbnails.Contains(field.Path);
+        }
     }
 }

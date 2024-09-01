@@ -31,7 +31,7 @@ namespace ShatteredSunCommunity.Components.PageSupport
         private string header;
         private readonly Func<UnitData, bool> parentIncludeUnit;
 
-        public string Header => $"{header}[{Colspan}]";
+        public string Header => header;
         public int Colspan { get; set; }
 
         public UnitViewHeaderCol(UnitViewHeaderRow row, string header, UnitViewHeaderCol parentCol = null)

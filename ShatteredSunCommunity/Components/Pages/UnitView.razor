@@ -19,8 +19,9 @@
     <thead>
         @foreach(var selector in unitViewFilters.GroupBy.Selectors)
         {
+            var row = unitViewFilters.GroupBy.GetDataHeaderRow(selector);
             <tr>
-                <th>
+                <th width="200px">
                     @selector.Header
                     <select @bind="selector.Selected" @bind:after="unitViewFilters.OnChanged">
                         @foreach(var option in selector.Options)
@@ -29,10 +30,16 @@
                         }
                     </select>
                 </th>
-                @foreach (var column in unitViewFilters.GroupBy.GetDataHeaderRow(selector).Columns)
+                
+                @foreach (var column in row.Columns)
                 {
-                    <th colspan="@column.Colspan">
+                    <th class="unitHeader" colspan="@column.Colspan">
                         @column.Header
+                        @if (row != unitViewFilters.GroupBy.HeaderRows.Last())
+                        {
+                            <br />
+                            <hr />
+                        }
                     </th>
                 }
             </tr>
@@ -53,7 +60,7 @@
             <tr>
                 @foreach(var unit in row.Units)
                 {
-                    <td>
+                    <td class="unitView">
                         @if(unit != null)
                         {
                             @if (showUnitThumbnails)
@@ -61,13 +68,10 @@
                             else
                                 @UnitViewFull(unit)
                         }
+                        <hr />
                     </td>
                 }
             </tr>
-            <tr>
-                <td><hr /></td>
-            </tr>
-
         }
     </tbody>
 </table>
@@ -77,24 +81,15 @@
     public string ProductName => Assembly.GetEntryAssembly()?.GetCustomAttribute<AssemblyProductAttribute>()?.Product;
     private bool showUnitThumbnails { get; set; } = false;
     private RenderFragment<UnitData> UnitViewThumbprint = item =>
-    @<div>
-        <table class="unitTable">
-            <tr class="unitRow">
-                <td class="unitCol">@item["DefenceHealthMax"]</td>
-                <td class="unitCol">@item["EconomyCostEnergy"]</td>
-                <td class="unitCol">@item["EconomyCostAlloys"]</td>
-                <td class="unitCol">@item["EconomyBuildTime"]</td>
-            </tr>
-            @foreach(var field in item.Values.Where(v=>!v.IsHeader))
-        {
-            <tr class="unitRow">
-                @foreach(var group in field.GroupParts)
+    @<div class="divThumbnail">
+        <table class="unitTableThumbnail" style="vertical-align: top;">
+            @foreach(var field in item.Values.Where(v=>v.IsThumbnail))
             {
-                <td class="unitCol">@group</td>
+                <tr class="unitRowThumbnail">
+                    <th class="unitColThumbnail">@field.DisplayName</th>
+                    <td class="unitColThumbnail">@field.Text</td>
+                </tr>
             }
-                <td class="unitCol" colspan="@field.ColSpan">@field.Text</td>
-            </tr>
-        }
         </table>
     </div>;
     private RenderFragment<UnitData> UnitViewFull = item =>
