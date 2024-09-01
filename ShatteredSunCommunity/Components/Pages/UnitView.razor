@@ -29,10 +29,10 @@
                         }
                     </select>
                 </th>
-                @foreach (var header in unitViewFilters.GroupBy.GetDataHeaders(selector))
+                @foreach (var column in unitViewFilters.GroupBy.GetDataHeaderRow(selector).Columns)
                 {
-                    <th colspan="@header.Colspan">
-                        @header.Header
+                    <th colspan="@column.Colspan">
+                        @column.Header
                     </th>
                 }
             </tr>
@@ -42,54 +42,83 @@
     </thead>
     <tbody>
         <tr>
-            <td></td>
-            <td>
-                <table>
-                    <tbody>
-                        @foreach (var item in data.Units)
-                        {
-                            <tr>
-                                <td>
-                                    @UnitViewFragment(item)
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><hr /></td>
-                            </tr>
-                        }
-                    </tbody>
-                </table>
+            <td rowspan="99999" style="vertical-align:top">
+                Show unit thumbnails
+                <input type="checkbox" @bind-value="@showUnitThumbnails" />
+
             </td>
         </tr>
+        @foreach(var row in unitViewFilters.GroupBy.GetRows(data.Units))
+        {
+            <tr>
+                @foreach(var unit in row.Units)
+                {
+                    <td>
+                        @if(unit != null)
+                        {
+                            @if (showUnitThumbnails)
+                                @UnitViewThumbprint(unit)
+                            else
+                                @UnitViewFull(unit)
+                        }
+                    </td>
+                }
+            </tr>
+            <tr>
+                <td><hr /></td>
+            </tr>
+
+        }
     </tbody>
 </table>
 
 
 @code {
     public string ProductName => Assembly.GetEntryAssembly()?.GetCustomAttribute<AssemblyProductAttribute>()?.Product;
-
-    private RenderFragment<UnitData> UnitViewFragment = Item =>
+    private bool showUnitThumbnails { get; set; } = false;
+    private RenderFragment<UnitData> UnitViewThumbprint = item =>
+    @<div>
+        <table class="unitTable">
+            <tr class="unitRow">
+                <td class="unitCol">@item["DefenceHealthMax"]</td>
+                <td class="unitCol">@item["EconomyCostEnergy"]</td>
+                <td class="unitCol">@item["EconomyCostAlloys"]</td>
+                <td class="unitCol">@item["EconomyBuildTime"]</td>
+            </tr>
+            @foreach(var field in item.Values.Where(v=>!v.IsHeader))
+        {
+            <tr class="unitRow">
+                @foreach(var group in field.GroupParts)
+            {
+                <td class="unitCol">@group</td>
+            }
+                <td class="unitCol" colspan="@field.ColSpan">@field.Text</td>
+            </tr>
+        }
+        </table>
+    </div>;
+    private RenderFragment<UnitData> UnitViewFull = item =>
     @<div>
         <table>
             <tr>
-                <td class="unitImage" rowspan="5">@Item["GeneralIconUI"]</td>
-                <th class="unitViewData">@Item["GeneralDisplayName"]</th>
+                <td class="unitImage" rowspan="5">@item["GeneralIconUI"]</td>
+                <th class="unitViewData">@item["GeneralDisplayName"]</th>
             </tr>
-            <tr><td>[@Item["GeneralName"]] @Item["GeneralDisplayName"]</td></tr>
-            <tr><td>Faction: @Item["Faction"]</td></tr>
-            <tr><td>tpId: @Item["GeneralTpId"]</td></tr>
-            <tr><td>Enabled: @Item["Enabled"]</td></tr>
+            <tr><td>[@item["GeneralName"]] @item["GeneralDisplayName"]</td></tr>
+            <tr><td>Faction: @item["Faction"]</td></tr>
+            <tr><td>tpId: @item["GeneralTpId"]</td></tr>
+            <tr><td>Enabled: @item["Enabled"]</td></tr>
 
         </table>
         <hr />
         <table class="unitTable">
             <tr class="unitRow">
-                <td class="unitCol">@Item["DefenceHealthMax"]</td>
-                <td class="unitCol">@Item["EconomyCostEnergy"]</td>
-                <td class="unitCol">@Item["EconomyCostAlloys"]</td>
-                <td class="unitCol">@Item["EconomyBuildTime"]</td>
+                <td class="unitCol">@item["DefenceHealthMax"]</td>
+                <td class="unitCol">@item["EconomyCostEnergy"]</td>
+                <td class="unitCol">@item["EconomyCostAlloys"]</td>
+                <td class="unitCol">@item["EconomyBuildTime"]</td>
             </tr>
-            @foreach(var field in Item.Values.Where(v=>!v.IsHeader))
+            @foreach(var field in item.Values.Where(v=>!v.IsHeader))
         {
             <tr class="unitRow">
                 @foreach(var group in field.GroupParts)

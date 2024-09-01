@@ -1,4 +1,5 @@
-﻿using ShatteredSunCommunity.Models;
+﻿using Microsoft.VisualBasic;
+using ShatteredSunCommunity.Models;
 using System.Collections;
 using System.Diagnostics;
 
@@ -7,74 +8,92 @@ namespace ShatteredSunCommunity.Components.PageSupport
     public class UnitGroupByFilters : IEnumerable<UnitGroupByFilter>
     {
         private List<string> selectorValues;
-        private List<DataHeader> headers;
-        private List<UnitGroupByFilter> Filters { get; }
+        public List<UnitGroupByFilter> Filters { get; }
         public List<UnitGroupBySelector> Selectors { get; }
-        public UnitGroupByFilters() 
-        { 
+        public List<UnitViewHeaderRow> HeaderRows { get; }
+        public UnitGroupByFilters()
+        {
             Filters = new List<UnitGroupByFilter>();
             Selectors = new List<UnitGroupBySelector>();
-            headers = new List<DataHeader>();
+            HeaderRows = new List<UnitViewHeaderRow>();
             selectorValues = new List<string>
             {
                 string.Empty,
             };
         }
 
-        [DebuggerDisplay("{Header}[{Colspan}]")]
-        public class DataHeader
-        {
-            public string Header { get; }
-            public int Colspan { get; }
+        public UnitViewHeaderRow GetDataHeaderRow(UnitGroupBySelector selector) => HeaderRows.SingleOrDefault(r => r.Selector == selector) ?? UnitViewHeaderRow.Empty;
 
-            public DataHeader(string header, int colspan)
-            {
-                Header = header;
-                Colspan = colspan;
-            }
-        }
-        public IEnumerable<DataHeader> GetDataHeaders(UnitGroupBySelector selector)
+        public IEnumerable<UnitViewDataRow> GetRows(Units units)
         {
-            if (!selector.IsActive)
+            if (!HeaderRows.Any())
             {
-                return [];
+                foreach (var unit in units)
+                {
+                    yield return new UnitViewDataRow
+                    {
+                        Units =
+                        {
+                            unit
+                        }
+                    };
+                }
             }
-            var filter = Filters.SingleOrDefault(f=>f.Display == selector.Selected);
-            var activeSelectorInfo = Selectors
-                .Where(s=>s.IsActive)
-                .Select(s=>new {s,f= Filters.SingleOrDefault(f => f.Display == s.Selected) })
-                .ToList();
-            var colspan = activeSelectorInfo
-                .SkipWhile(item=>item.s != selector)
-                .Skip(1)
-                .Aggregate(1,(_colspan,item) =>_colspan * item.f.Values.Count);
-            var repeatCols = activeSelectorInfo
-                .TakeWhile(item => item.s != selector)
-                .Aggregate(1, (_colspan, item) => _colspan * item.f.Values.Count);
-        
-            var headers = Enumerable
-                .Range(0, repeatCols)
-                .SelectMany(i=>filter.Values.Select(v => new DataHeader(v, colspan)))
-                .ToList();
-            return headers;
+            else
+            {
+                var header = HeaderRows.Last();
+                var columns = header.Columns.Select(c => units.Where(c.IncludeUnit).ToList()).ToList();
+                var maxRows = columns.Max(c => c.Count);
+                for (var iRow = 0; iRow < maxRows; ++iRow)
+                {
+                    var row = new UnitViewDataRow();
+                    foreach (var col in columns)
+                    {
+                        row.Units.Add(col.Count > iRow ? col[iRow] : null);
+                    }
+                    yield return row;
+                }
+            }
         }
 
         public void OnChanged()
         {
-            foreach(var selector in Selectors)
+            HeaderRows.Clear();
+            foreach (var selector in Selectors.Where(s => s.IsActive))
             {
-                foreach(var option in selector.Options)
+                var filter = Filters.Single(f => f.Display == selector.Selected);
+                var row = new UnitViewHeaderRow(filter, selector);
+                // repeat for the number of columns in the previous row
+                var lastRowColumns = HeaderRows.LastOrDefault()?.Columns;
+                var repeatCount = lastRowColumns?.Count ?? 1;
+                // update all previous row columns colspans to account for our new row
+                foreach (var r in HeaderRows)
                 {
-                    option.IsDisabled = Selectors.Any(s => s != selector && s.IsActive && s.Selected == option.Value);
+                    foreach (var c in r.Columns)
+                    {
+                        c.Colspan *= repeatCount;
+                    }
                 }
+                if (lastRowColumns == null)
+                {
+                    row.Columns.AddRange(filter.Values.Select(v => new UnitViewHeaderCol(row, v)));
+                }
+                else
+                {
+                    foreach (var column in lastRowColumns)
+                    {
+                        row.Columns.AddRange(filter.Values.Select(v => new UnitViewHeaderCol(row, v, column)));
+                    }
+                }
+                HeaderRows.Add(row);
             }
         }
         public void Add(string field, IEnumerable<string> values)
         {
-            var filter = new UnitGroupByFilter(Filters.Count, field, values);
+            var filter = new UnitGroupByFilter(field, values);
             Filters.Add(filter);
             selectorValues.Add(filter.Display);
-            Selectors.Add(new UnitGroupBySelector(filter.Id, selectorValues));
+            Selectors.Add(new UnitGroupBySelector(this, selectorValues));
         }
         public IEnumerator<UnitGroupByFilter> GetEnumerator()
         {
