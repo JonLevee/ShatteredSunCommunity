@@ -71,7 +71,7 @@ namespace ShatteredSunCommunity.Components.PageSupport
                 {
                     foreach (var c in r.Columns)
                     {
-                        c.Colspan *= repeatCount;
+                        c.Colspan *= filter.Values.Count;
                     }
                 }
                 if (lastRowColumns == null)
