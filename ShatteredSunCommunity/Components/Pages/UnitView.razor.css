@@ -44,7 +44,18 @@ th.lastUnitHeader {
 }
 
 .filteringControl {
-    width: 210px;
+    /* width: 210px; */
     white-space: nowrap;
+    vertical-align: top;
+}
+
+.unitViewContainer {
+    white-space: nowrap;
+    vertical-align: top;
+}
+
+.unitViewTable {
+    display: inline-block;
+    white-space: normal;
     vertical-align: top;
 }
