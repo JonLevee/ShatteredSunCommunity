@@ -6,12 +6,15 @@ using System.Diagnostics;
 namespace ShatteredSunCommunity.Components.PageSupport
 {
     [DebuggerDisplay("[{Id}] {Selected}")]
-    public class UnitGroupBySelector
+    public class UnitCommonSelector
     {
-        private readonly UnitGroupByFilters parent;
+        private readonly ISelectorOwner parent;
         private List<string> values;
         private string selected;
         private List<OptionSelector> options;
+        public bool IsCheckBoxChecked { get; set; } = false;
+        public string CheckBoxDescription { get; }
+
         public string Selected
         {
             get => selected;
@@ -39,13 +42,17 @@ namespace ShatteredSunCommunity.Components.PageSupport
             get => options ??= values.Select(v => new OptionSelector(v)).ToList();
         }
 
-        public string Header => this == parent.Selectors.FirstOrDefault() ? "Group by:" : "then by";
+        public string Header => this == parent.Selectors.FirstOrDefault() ? parent.FirstItemHeader : parent.RemainingItemHeader;
 
-        public UnitGroupBySelector(UnitGroupByFilters parent, List<string> values)
+        public UnitCommonSelector(ISelectorOwner parent, List<string> values, string checkBoxDescription = null)
         {
             this.parent = parent;
             this.values = values;
             selected = string.Empty;
+            if (!string.IsNullOrEmpty(checkBoxDescription))
+            {
+                CheckBoxDescription = checkBoxDescription;
+            }
         }
 
     }

@@ -2,10 +2,12 @@
 {
     public class UnitViewFilters
     {
-        public UnitGroupByFilters GroupBy { get; set; }
-        public UnitViewFilters() 
-        { 
-            GroupBy = new UnitGroupByFilters();
+        public UnitGroupByFilters GroupBy { get; }
+        public UnitSortFilters SortFilters { get; }
+        public UnitViewFilters()
+        {
+            GroupBy = new UnitGroupByFilters(this);
+            SortFilters = new UnitSortFilters();
         }
 
         public void OnChanged()

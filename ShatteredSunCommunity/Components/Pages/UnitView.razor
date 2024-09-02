@@ -21,11 +21,8 @@
         <thead>
             @foreach (var selector in unitViewFilters.GroupBy.Selectors)
             {
-                var row = unitViewFilters.GroupBy.GetDataHeaderRow(selector);
                 <tr>
-                    <th class="filteringControl">
-                        @selector.Header
-                    </th>
+                    <th class="filteringControl">@selector.Header</th>
                     <td class="filteringControl">
                         <select @bind="selector.Selected" @bind:after="unitViewFilters.OnChanged">
                             @foreach (var option in selector.Options)
@@ -37,13 +34,30 @@
                 </tr>
             }
             <tr>
-                <th class="filteringControl">
-                    Display thumbnails
-                </th>
-                <td class="filteringControl">
-                    <input type="checkbox" @bind-value="@showUnitThumbnails" />
-                </td>
+                <th class="filteringControl">Display thumbnails</th>
+                <td class="filteringControl"><input type="checkbox" @bind-value="@showUnitThumbnails" /></td>
             </tr>
+            @foreach (var selector in unitViewFilters.SortFilters.Selectors)
+            {
+                <tr>
+                    <th class="filteringControl">@selector.Header</th>
+                    <td class="filteringControl">
+                        <select @bind="selector.Selected" @bind:after="unitViewFilters.OnChanged">
+                            @foreach (var option in selector.Options)
+                            {
+                                <option value="@option.Value" selected="@option.IsSelected" disabled="@option.IsDisabled">@option.Value</option>
+                            }
+                        </select>
+                    </td>
+                </tr>
+                @if (!string.IsNullOrEmpty(selector.CheckBoxDescription))
+                {
+                    <tr>
+                        <td>@selector.CheckBoxDescription</td>
+                        <td><input type="checkbox" @bind-value="@selector.IsCheckBoxChecked" /></td>
+                    </tr>
+                }
+            }
         </thead>
     </table>
     <table class="unitViewTable">
@@ -55,9 +69,7 @@
                 
                     @foreach (var column in row.Columns)
                     {
-                        <th class="unitHeader" colspan="@column.Colspan">
-                            @column.Header
-                        </th>
+                        <th class="unitHeader" colspan="@column.Colspan">@column.Header</th>
                     }
                 </tr>
             }
@@ -69,15 +81,7 @@
                 <tr>
                     @foreach(var unit in row.Units)
                     {
-                        <td class="unitView">
-                            @if(unit != null)
-                            {
-                                @if (showUnitThumbnails)
-                                    @UnitViewThumbprint(unit)
-                                else
-                                    @UnitViewFull(unit)
-                            }
-                        </td>
+                        <td class="unitView">@DisplayUnitData(unit)</td>
                     }
                 </tr>
             }
@@ -93,6 +97,20 @@
     {
         return row.IsLastHeader ? "lastUnitHeader" : "unitHeader";
     }
+    private RenderFragment DisplayUnitData(UnitData unit)
+    {
+        if (unit != null)
+        {
+            if (showUnitThumbnails)
+                return UnitViewThumbprint(unit);
+            else
+                return UnitViewFull(unit);
+        }
+        return Empty;
+    }
+
+    private RenderFragment Empty =>@<div/>;
+
     private RenderFragment<UnitData> UnitViewThumbprint = item =>
     @<div class="divThumbnail">
         <table class="unitTableThumbnail" style="vertical-align: top;">

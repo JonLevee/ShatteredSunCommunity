@@ -6,19 +6,19 @@ namespace ShatteredSunCommunity.Components.PageSupport
 {
 
     [DebuggerDisplay("[{Field}] Selected:{Selected} Values:{ToString()}")]
-    public class UnitGroupByFilter
+    public class UnitCommonFilter
     {
         public string Field { get; }
         public string Display { get; }
         public List<string> Values { get; }
 
-        public UnitGroupByFilter(string field, string display, IEnumerable<string> values)
+        public UnitCommonFilter(string field, string display, IEnumerable<string> values)
         {
             Field = field;
             Display = display;
             Values = values.ToList();
         }
-        public UnitGroupByFilter(string field, IEnumerable<string> values) : this(field, field, values)
+        public UnitCommonFilter(string field, IEnumerable<string> values) : this(field, field, values)
         {
 
         }

@@ -10,11 +10,11 @@ namespace ShatteredSunCommunity.Components.PageSupport
     {
         public static readonly UnitViewHeaderRow Empty = new UnitViewHeaderRow(null, null);
         public List<UnitViewHeaderCol> Columns { get; }
-        public UnitGroupByFilter Filter { get; }
-        public UnitGroupBySelector Selector { get; }
+        public UnitCommonFilter Filter { get; }
+        public UnitCommonSelector Selector { get; }
         public bool IsLastHeader { get; set; }
 
-        public UnitViewHeaderRow(UnitGroupByFilter filter, UnitGroupBySelector selector)
+        public UnitViewHeaderRow(UnitCommonFilter filter, UnitCommonSelector selector)
         {
             Columns = new List<UnitViewHeaderCol>();
             Filter = filter;

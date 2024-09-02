@@ -5,24 +5,27 @@ using System.Diagnostics;
 
 namespace ShatteredSunCommunity.Components.PageSupport
 {
-    public class UnitGroupByFilters : IEnumerable<UnitGroupByFilter>
+    public class UnitGroupByFilters : List<UnitCommonFilter>, ISelectorOwner
     {
         private List<string> selectorValues;
-        public List<UnitGroupByFilter> Filters { get; }
-        public List<UnitGroupBySelector> Selectors { get; }
+        private readonly UnitViewFilters parent;
+
+        public string FirstItemHeader => "group by";
+        public string RemainingItemHeader => "then by";
+        public List<UnitCommonSelector> Selectors { get; }
         public List<UnitViewHeaderRow> HeaderRows { get; }
-        public UnitGroupByFilters()
+        public UnitGroupByFilters(UnitViewFilters parent)
         {
-            Filters = new List<UnitGroupByFilter>();
-            Selectors = new List<UnitGroupBySelector>();
+            Selectors = new List<UnitCommonSelector>();
             HeaderRows = new List<UnitViewHeaderRow>();
             selectorValues = new List<string>
             {
                 string.Empty,
             };
+            this.parent = parent;
         }
 
-        public UnitViewHeaderRow GetDataHeaderRow(UnitGroupBySelector selector) => HeaderRows.SingleOrDefault(r => r.Selector == selector) ?? UnitViewHeaderRow.Empty;
+        public UnitViewHeaderRow GetDataHeaderRow(UnitCommonSelector selector) => HeaderRows.SingleOrDefault(r => r.Selector == selector) ?? UnitViewHeaderRow.Empty;
 
         public IEnumerable<UnitViewDataRow> GetRows(Units units)
         {
@@ -61,7 +64,7 @@ namespace ShatteredSunCommunity.Components.PageSupport
             HeaderRows.Clear();
             foreach (var selector in Selectors.Where(s => s.IsActive))
             {
-                var filter = Filters.Single(f => f.Display == selector.Selected);
+                var filter = this.Single(f => f.Display == selector.Selected);
                 var row = new UnitViewHeaderRow(filter, selector);
                 // repeat for the number of columns in the previous row
                 var lastRowColumns = HeaderRows.LastOrDefault()?.Columns;
@@ -91,19 +94,10 @@ namespace ShatteredSunCommunity.Components.PageSupport
         }
         public void Add(string field, IEnumerable<string> values)
         {
-            var filter = new UnitGroupByFilter(field, values);
-            Filters.Add(filter);
+            var filter = new UnitCommonFilter(field, values);
+            base.Add(filter);
             selectorValues.Add(filter.Display);
-            Selectors.Add(new UnitGroupBySelector(this, selectorValues));
-        }
-        public IEnumerator<UnitGroupByFilter> GetEnumerator()
-        {
-            return Filters.GetEnumerator();
-        }
-
-        IEnumerator IEnumerable.GetEnumerator()
-        {
-            return Filters.GetEnumerator();
+            Selectors.Add(new UnitCommonSelector(this, selectorValues));
         }
     }
 }

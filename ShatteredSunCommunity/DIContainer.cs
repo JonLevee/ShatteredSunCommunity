@@ -80,10 +80,11 @@ namespace ShatteredSunCommunity
                     implementationTypes.Count == 0 ? null :
                     implementationTypes.Count == 1 ? implementationTypes[0] :
                     implementationTypes.SingleOrDefault(t => type.Name[0] == 'I' && type.Name.Substring(1) == t.Name);
-                if (implementationType == null)
-                    throw new InvalidOperationException($"Could not find any registered implementations for interface {type.Name}");
-                var descriptor = new ServiceDescriptor(type, implementationType, attr.Scope);
-                services.Add(descriptor);
+                if (implementationType != null)
+                {
+                    var descriptor = new ServiceDescriptor(type, implementationType, attr.Scope);
+                    services.Add(descriptor);
+                }
             }
 
 
@@ -100,7 +101,12 @@ namespace ShatteredSunCommunity
                 {
                     { "faction", data.GetDistinct("faction", f=>f.Text) },
                     { "tier", data.GetDistinct("tier", f => f.Text) },
-                }
+                },
+                SortFilters =
+                {
+                    { "faction", data.GetDistinct("faction", f=>f.Text) },
+                    { "tier", data.GetDistinct("tier", f => f.Text) },
+                },
             };
             return instance;
         }
