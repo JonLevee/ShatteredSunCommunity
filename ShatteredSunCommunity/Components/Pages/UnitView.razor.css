@@ -33,4 +33,18 @@ div.divThumbnail {
 
 th.unitHeader {
     text-align: center;
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+th.lastUnitHeader {
+    text-align: center;
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+.filteringControl {
+    width: 210px;
+    white-space: nowrap;
+    vertical-align: top;
 }

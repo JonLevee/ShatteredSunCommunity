@@ -69,6 +69,7 @@ namespace ShatteredSunCommunity.Components.PageSupport
                 // update all previous row columns colspans to account for our new row
                 foreach (var r in HeaderRows)
                 {
+                    r.IsLastHeader = false;
                     foreach (var c in r.Columns)
                     {
                         c.Colspan *= filter.Values.Count;

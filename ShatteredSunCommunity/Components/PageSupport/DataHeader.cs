@@ -12,12 +12,14 @@ namespace ShatteredSunCommunity.Components.PageSupport
         public List<UnitViewHeaderCol> Columns { get; }
         public UnitGroupByFilter Filter { get; }
         public UnitGroupBySelector Selector { get; }
+        public bool IsLastHeader { get; set; }
 
         public UnitViewHeaderRow(UnitGroupByFilter filter, UnitGroupBySelector selector)
         {
             Columns = new List<UnitViewHeaderCol>();
             Filter = filter;
             Selector = selector;
+            IsLastHeader = true;
         }
 
 

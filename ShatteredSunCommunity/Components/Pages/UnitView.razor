@@ -1,6 +1,7 @@
 ﻿@page "/unitView"
 @inherits LayoutComponentBase
 @using ShatteredSunCommunity.Components.PageComponents
+@using ShatteredSunCommunity.Components.PageSupport
 @using ShatteredSunCommunity.Models
 @using Components.Pages
 @using Components.PageComponents
@@ -21,7 +22,7 @@
         {
             var row = unitViewFilters.GroupBy.GetDataHeaderRow(selector);
             <tr>
-                <th width="200px">
+                <th class="filteringControl">
                     @selector.Header
                     <select @bind="selector.Selected" @bind:after="unitViewFilters.OnChanged">
                         @foreach(var option in selector.Options)
@@ -35,11 +36,6 @@
                 {
                     <th class="unitHeader" colspan="@column.Colspan">
                         @column.Header
-                        @if (row != unitViewFilters.GroupBy.HeaderRows.Last())
-                        {
-                            <br />
-                            <hr />
-                        }
                     </th>
                 }
             </tr>
@@ -49,7 +45,7 @@
     </thead>
     <tbody>
         <tr>
-            <td rowspan="99999" style="vertical-align:top">
+            <td class="filteringControl" rowspan="99999">
                 Show unit thumbnails
                 <input type="checkbox" @bind-value="@showUnitThumbnails" />
 
@@ -79,6 +75,10 @@
 @code {
     public string ProductName => Assembly.GetEntryAssembly()?.GetCustomAttribute<AssemblyProductAttribute>()?.Product;
     private bool showUnitThumbnails { get; set; } = false;
+    private string GetUnitHeaderClass(UnitViewHeaderRow row)
+    {
+        return row.IsLastHeader ? "lastUnitHeader" : "unitHeader";
+    }
     private RenderFragment<UnitData> UnitViewThumbprint = item =>
     @<div class="divThumbnail">
         <table class="unitTableThumbnail" style="vertical-align: top;">
