@@ -1,4 +1,5 @@
-﻿using ShatteredSunCommunity.Models;
+﻿using ShatteredSunCommunity.Components.PageSupport;
+using ShatteredSunCommunity.Models;
 using System.Diagnostics.Contracts;
 
 namespace ShatteredSunCommunity.Extensions
@@ -35,6 +36,19 @@ namespace ShatteredSunCommunity.Extensions
                 .SelectMany(u => u[key].AsStringArray)
                 .Distinct()
                 .Order();
+        }
+
+        public static UnitCommonFilter GetFilter(this SanctuarySunData data, string key, bool supportsIntersticial = false)
+        {
+            var fields = data
+                .Units
+                .Where(u => u.ContainsKey(key))
+                .Select(u => u[key]);
+            var first = fields.First();
+            var values = first.UnitFieldType == UnitFieldTypeEnum.StringArray
+                ? fields.SelectMany(f=>f.AsStringArray)
+                : fields.Select(f=>f.Text);
+            return new UnitCommonFilter(first.Name, first.DisplayName, values.Distinct().Order(), supportsIntersticial);
         }
 
         private static readonly HashSet<string> thumbnails =

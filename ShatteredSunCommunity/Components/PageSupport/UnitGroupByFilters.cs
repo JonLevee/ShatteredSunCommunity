@@ -1,35 +1,28 @@
-﻿using Microsoft.VisualBasic;
+﻿using Microsoft.Extensions.Options;
+using Microsoft.VisualBasic;
 using ShatteredSunCommunity.Models;
+using System;
 using System.Collections;
 using System.Diagnostics;
 
 namespace ShatteredSunCommunity.Components.PageSupport
 {
-    public class UnitGroupByFilters : List<UnitCommonFilter>, ISelectorOwner
+    public class UnitGroupByFilters : UnitCommonFilters
     {
         private List<string> selectorValues;
-        private readonly UnitViewFilters parent;
 
-        public string FirstItemHeader => "group by";
-        public string RemainingItemHeader => "then by";
-        public List<UnitCommonSelector> Selectors { get; }
+        public override string FirstItemHeader => "group by";
+        public override string RemainingItemHeader => "then by";
         public List<UnitViewHeaderRow> HeaderRows { get; }
-        public UnitGroupByFilters(UnitViewFilters parent)
+        public UnitGroupByFilters(UnitViewFilters parent) : base(parent)
         {
-            Selectors = new List<UnitCommonSelector>();
             HeaderRows = new List<UnitViewHeaderRow>();
             selectorValues = new List<string>
             {
                 string.Empty,
             };
-            this.parent = parent;
-            parent.Changed += (o, e) => OnChanged();
         }
 
-        public void Refresh()
-        {
-            parent.Refresh();
-        }
 
         public UnitViewHeaderRow GetDataHeaderRow(UnitCommonSelector selector) => HeaderRows.SingleOrDefault(r => r.Selector == selector) ?? UnitViewHeaderRow.Empty;
 
@@ -53,7 +46,7 @@ namespace ShatteredSunCommunity.Components.PageSupport
                 var header = HeaderRows.Last();
                 var columns = header
                     .Columns
-                    .Select(c => parent.SortFilters.OrderBy(
+                    .Select(c => Parent.SortFilters.OrderBy(
                         units.Where(c.IncludeUnit)
                         ).ToList())
                     .ToList();
@@ -70,7 +63,7 @@ namespace ShatteredSunCommunity.Components.PageSupport
             }
         }
 
-        private void OnChanged()
+        public void UpdateHeaderRows()
         {
             HeaderRows.Clear();
             foreach (var selector in Selectors.Where(s => s.IsActive))
@@ -103,9 +96,9 @@ namespace ShatteredSunCommunity.Components.PageSupport
                 HeaderRows.Add(row);
             }
         }
-        public void Add(string field, IEnumerable<string> values)
+
+        public void Add(UnitCommonFilter filter)
         {
-            var filter = new UnitCommonFilter(field, values);
             base.Add(filter);
             selectorValues.Add(filter.Display);
             Selectors.Add(new UnitCommonSelector(this, selectorValues));

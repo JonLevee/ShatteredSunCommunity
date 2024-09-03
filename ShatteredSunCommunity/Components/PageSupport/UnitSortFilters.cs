@@ -1,5 +1,6 @@
 ﻿using Microsoft.VisualBasic;
 using ShatteredSunCommunity.Models;
+using System;
 using System.Collections;
 using System.Diagnostics;
 using System.Linq;
@@ -7,27 +8,23 @@ using System.Reflection.PortableExecutable;
 
 namespace ShatteredSunCommunity.Components.PageSupport
 {
-    public class UnitSortFilters : List<UnitCommonFilter>, ISelectorOwner
+    public class UnitSortFilters : UnitCommonFilters
     {
-        private UnitViewFilters parent;
         private List<string> selectorValues;
-        public string FirstItemHeader => "sort by";
-        public string RemainingItemHeader => "then by";
-        public List<UnitCommonSelector> Selectors { get; }
-        public void Refresh()
+        public override string FirstItemHeader => "sort by";
+        public override string RemainingItemHeader => "then by";
+        public UnitSortFilters(UnitViewFilters parent) : base(parent)
         {
-            parent.Refresh();
-        }
-        public UnitSortFilters(UnitViewFilters parent)
-        {
-            this.parent = parent;
-            Selectors = new List<UnitCommonSelector>();
             selectorValues = new List<string>
             {
                 string.Empty,
             };
         }
 
+        private string GetSortField(UnitData unit, string field)
+        {
+            return unit.ContainsKey(field) ? unit[field].Text : "zzzzzz";
+        }
         public IOrderedEnumerable<UnitData> OrderBy(IEnumerable<UnitData> units)
         {
             IOrderedEnumerable<UnitData> result = null;
@@ -36,22 +33,21 @@ namespace ShatteredSunCommunity.Components.PageSupport
                 var filter = this.Single(f => f.Display == selector.Selected);
                 if (result == null)
                 {
-                    result = units.OrderBy(u => u[filter.Field].Text);
+                    result = units.OrderBy(u => GetSortField(u,filter.Field));
                 }
                 else
                 {
-                    result = result.ThenBy(u => u[filter.Field].Text);
+                    result = result.ThenBy(u => GetSortField(u, filter.Field));
                 }
             }
-            return result ?? units.OrderBy(u => u["tpId"].Text);
+            return result ?? units.OrderBy(u => u["GeneralTpId"].Text);
         }
 
-        public void Add(string field, IEnumerable<string> values)
+        public void Add(UnitCommonFilter filter)
         {
-            var filter = new UnitCommonFilter(field, values);
             base.Add(filter);
             selectorValues.Add(filter.Display);
-            Selectors.Add(new UnitCommonSelector(this, selectorValues, "add interstitial values"));
+            Selectors.Add(new UnitCommonSelector(this, selectorValues));
         }
     }
 }

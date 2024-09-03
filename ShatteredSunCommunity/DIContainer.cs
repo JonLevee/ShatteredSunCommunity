@@ -95,26 +95,36 @@ namespace ShatteredSunCommunity
         private static UnitViewFilters GetUnitViewFilters(IServiceProvider provider)
         {
             var data = provider.GetService<SanctuarySunData>();
+            var faction = data.GetFilter("faction", supportsIntersticial: true);
+            var tier = data.GetFilter("tier", supportsIntersticial: true);
+            var displayName = data.GetFilter("GeneralDisplayName");
+            var name = data.GetFilter("GeneralName");
+            var type = data.GetFilter("MovementType", supportsIntersticial: true);
+            var tpId = data.GetFilter("GeneralTpId");
+            var energy = data.GetFilter("EconomyCostEnergy");
+            var alloys = data.GetFilter("EconomyCostAlloys");
+            var buildTime = data.GetFilter("EconomyBuildTime");
+            var health = data.GetFilter("DefenceHealthMax");
+
             var instance = new UnitViewFilters()
             {
                 GroupBy =
                 {
-                    { "faction", data.GetDistinct("faction", f=>f.Text) },
-                    { "tier", data.GetDistinct("tier", f => f.Text) },
+                    faction,
+                    tier,
                 },
                 SortFilters =
                 {
-                    { "faction", data.GetDistinct("Faction", f=>f.Text) },
-                    { "tier", data.GetDistinct("Tier", f => f.Text) },
-                    { "displayName", data.GetDistinct("GeneralDisplayName", f => f.Text) },
-                    { "name", data.GetDistinct("GeneralName", f => f.Text) },
-                    { "type", data.GetDistinct("MovementType", f => f.Text) },
-                    { "tpId", data.GetDistinct("GeneralTpId", f => f.Text) },
-                    { "energy", data.GetDistinct("EconomyCostEnergy", f => f.Text) },
-                    { "alloys", data.GetDistinct("EconomyCostAlloys", f => f.Text) },
-                    { "buildTime", data.GetDistinct("EconomyBuildTime", f => f.Text) },
-                    { "health", data.GetDistinct("DefenceHealthMax", f => f.Text) },
-
+                    faction,
+                    tier,
+                    displayName,
+                    name,
+                    type,
+                    tpId,
+                    energy,
+                    alloys,
+                    buildTime,
+                    health,
                 },
             };
             return instance;
