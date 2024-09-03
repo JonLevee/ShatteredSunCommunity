@@ -23,6 +23,12 @@ namespace ShatteredSunCommunity.Components.PageSupport
                 string.Empty,
             };
             this.parent = parent;
+            parent.Changed += (o, e) => OnChanged();
+        }
+
+        public void Refresh()
+        {
+            parent.Refresh();
         }
 
         public UnitViewHeaderRow GetDataHeaderRow(UnitCommonSelector selector) => HeaderRows.SingleOrDefault(r => r.Selector == selector) ?? UnitViewHeaderRow.Empty;
@@ -45,7 +51,12 @@ namespace ShatteredSunCommunity.Components.PageSupport
             else
             {
                 var header = HeaderRows.Last();
-                var columns = header.Columns.Select(c => units.Where(c.IncludeUnit).ToList()).ToList();
+                var columns = header
+                    .Columns
+                    .Select(c => parent.SortFilters.OrderBy(
+                        units.Where(c.IncludeUnit)
+                        ).ToList())
+                    .ToList();
                 var maxRows = columns.Max(c => c.Count);
                 for (var iRow = 0; iRow < maxRows; ++iRow)
                 {
@@ -59,7 +70,7 @@ namespace ShatteredSunCommunity.Components.PageSupport
             }
         }
 
-        public void OnChanged()
+        private void OnChanged()
         {
             HeaderRows.Clear();
             foreach (var selector in Selectors.Where(s => s.IsActive))

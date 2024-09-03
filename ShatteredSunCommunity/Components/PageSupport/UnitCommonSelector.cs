@@ -12,7 +12,16 @@ namespace ShatteredSunCommunity.Components.PageSupport
         private List<string> values;
         private string selected;
         private List<OptionSelector> options;
-        public bool IsCheckBoxChecked { get; set; } = false;
+        private bool isCheckBoxChecked;
+        public bool IsCheckBoxChecked
+        {
+            get => isCheckBoxChecked;
+            set
+            {
+                isCheckBoxChecked = value;
+                parent.Refresh();
+            }
+        }
         public string CheckBoxDescription { get; }
 
         public string Selected

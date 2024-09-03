@@ -18,48 +18,9 @@
 <h2>@ProductName</h2>
 <div class="unitViewContainer">
     <table class="unitViewTable">
-        <thead>
-            @foreach (var selector in unitViewFilters.GroupBy.Selectors)
-            {
-                <tr>
-                    <th class="filteringControl">@selector.Header</th>
-                    <td class="filteringControl">
-                        <select @bind="selector.Selected" @bind:after="unitViewFilters.OnChanged">
-                            @foreach (var option in selector.Options)
-                            {
-                                <option value="@option.Value" selected="@option.IsSelected" disabled="@option.IsDisabled">@option.Value</option>
-                            }
-                        </select>
-                    </td>
-                </tr>
-            }
-            <tr>
-                <th class="filteringControl">Display thumbnails</th>
-                <td class="filteringControl"><input type="checkbox" @bind-value="@showUnitThumbnails" /></td>
-            </tr>
-            @foreach (var selector in unitViewFilters.SortFilters.Selectors)
-            {
-                <tr>
-                    <th class="filteringControl">@selector.Header</th>
-                    <td class="filteringControl">
-                        <select @bind="selector.Selected" @bind:after="unitViewFilters.OnChanged">
-                            @foreach (var option in selector.Options)
-                            {
-                                <option value="@option.Value" selected="@option.IsSelected" disabled="@option.IsDisabled">@option.Value</option>
-                            }
-                        </select>
-                    </td>
-                </tr>
-                @if (!string.IsNullOrEmpty(selector.CheckBoxDescription))
-                {
-                    <tr>
-                        <td>@selector.CheckBoxDescription</td>
-                        <td><input type="checkbox" @bind-value="@selector.IsCheckBoxChecked" /></td>
-                    </tr>
-                }
-            }
-        </thead>
+        <UnitViewFilters />
     </table>
+
     <table class="unitViewTable">
         <thead>
             @foreach(var selector in unitViewFilters.GroupBy.Selectors)
@@ -92,7 +53,6 @@
 
 @code {
     public string ProductName => Assembly.GetEntryAssembly()?.GetCustomAttribute<AssemblyProductAttribute>()?.Product;
-    private bool showUnitThumbnails { get; set; } = false;
     private string GetUnitHeaderClass(UnitViewHeaderRow row)
     {
         return row.IsLastHeader ? "lastUnitHeader" : "unitHeader";
@@ -101,7 +61,7 @@
     {
         if (unit != null)
         {
-            if (showUnitThumbnails)
+            if (unitViewFilters.ShowUnitThumbnails)
                 return UnitViewThumbprint(unit);
             else
                 return UnitViewFull(unit);
@@ -155,5 +115,12 @@
             </tr>
         }
         </table>
-    </div>;
+    </div>
+    ;
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        unitViewFilters.Changed += (o, e) => base.StateHasChanged();
+    }
 }

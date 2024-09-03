@@ -1,4 +1,49 @@
-﻿<h3>UnitViewFilters</h3>
+﻿@inject Components.PageSupport.UnitViewFilters unitViewFilters;
+
+    <thead>
+        @foreach (var selector in unitViewFilters.GroupBy.Selectors)
+        {
+            <tr>
+                <th class="filteringControl">@selector.Header</th>
+                <td class="filteringControl">
+                    <select @bind="selector.Selected" @bind:after="unitViewFilters.Refresh">
+                        @foreach (var option in selector.Options)
+                        {
+                            <option value="@option.Value" selected="@option.IsSelected" disabled="@option.IsDisabled">@option.Value</option>
+                        }
+                    </select>
+                </td>
+            </tr>
+        }
+        <tr><td colspan="4"><hr/></td></tr>
+        <tr>
+            <th class="filteringControl">Display thumbnails</th>
+            <td class="filteringControl"><input type="checkbox" @bind-value="@unitViewFilters.ShowUnitThumbnails" /></td>
+        </tr>
+        @foreach (var selector in unitViewFilters.SortFilters.Selectors)
+        {
+            <tr><td colspan="4"><hr /></td></tr>
+            <tr>
+                <th class="filteringControl">@selector.Header</th>
+                <td class="filteringControl">
+                    <select @bind="selector.Selected" @bind:after="unitViewFilters.Refresh">
+                        @foreach (var option in selector.Options)
+                        {
+                            <option value="@option.Value" selected="@option.IsSelected" disabled="@option.IsDisabled">@option.Value</option>
+                        }
+                    </select>
+                </td>
+            </tr>
+            @if (!string.IsNullOrEmpty(selector.CheckBoxDescription))
+            {
+                <tr>
+                    <td>@selector.CheckBoxDescription</td>
+                    <td><input type="checkbox" @bind-value="@selector.IsCheckBoxChecked" /></td>
+                </tr>
+            }
+        }
+    </thead>
+
 
 @code {
 

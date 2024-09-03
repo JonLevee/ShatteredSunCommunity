@@ -17,19 +17,11 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<None Remove="Components\PageComponents\UnitViewGroupData.razor.css" />
 		<None Remove="Components\Pages\UnitView.razor.css" />
-		<None Remove="Components\PageComponents\UnitViewData.razor.css" />
 	</ItemGroup>
 
 	<ItemGroup>
-		<Content Include="Components\PageComponents\UnitViewGroupData.razor.css">
-		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-		</Content>
 		<Content Include="Components\Pages\UnitView.razor.css">
-			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-		</Content>
-		<Content Include="Components\PageComponents\UnitViewData.razor.css">
 			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</Content>
 	</ItemGroup>

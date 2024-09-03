@@ -104,8 +104,17 @@ namespace ShatteredSunCommunity
                 },
                 SortFilters =
                 {
-                    { "faction", data.GetDistinct("faction", f=>f.Text) },
-                    { "tier", data.GetDistinct("tier", f => f.Text) },
+                    { "faction", data.GetDistinct("Faction", f=>f.Text) },
+                    { "tier", data.GetDistinct("Tier", f => f.Text) },
+                    { "displayName", data.GetDistinct("GeneralDisplayName", f => f.Text) },
+                    { "name", data.GetDistinct("GeneralName", f => f.Text) },
+                    { "type", data.GetDistinct("MovementType", f => f.Text) },
+                    { "tpId", data.GetDistinct("GeneralTpId", f => f.Text) },
+                    { "energy", data.GetDistinct("EconomyCostEnergy", f => f.Text) },
+                    { "alloys", data.GetDistinct("EconomyCostAlloys", f => f.Text) },
+                    { "buildTime", data.GetDistinct("EconomyBuildTime", f => f.Text) },
+                    { "health", data.GetDistinct("DefenceHealthMax", f => f.Text) },
+
                 },
             };
             return instance;

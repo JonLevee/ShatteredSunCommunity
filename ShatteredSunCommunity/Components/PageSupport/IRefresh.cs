@@ -5,10 +5,8 @@ using System.Diagnostics;
 
 namespace ShatteredSunCommunity.Components.PageSupport
 {
-    public interface ISelectorOwner : IRefresh
+    public interface IRefresh
     {
-        string FirstItemHeader { get; }
-        string RemainingItemHeader { get; }
-        List<UnitCommonSelector> Selectors { get; }
+        void Refresh();
     }
 }
