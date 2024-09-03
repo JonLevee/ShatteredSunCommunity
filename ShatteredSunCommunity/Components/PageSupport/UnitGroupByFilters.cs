@@ -9,7 +9,6 @@ namespace ShatteredSunCommunity.Components.PageSupport
 {
     public class UnitGroupByFilters : UnitCommonFilters
     {
-        private List<string> selectorValues;
 
         public override string FirstItemHeader => "group by";
         public override string RemainingItemHeader => "then by";
@@ -17,51 +16,8 @@ namespace ShatteredSunCommunity.Components.PageSupport
         public UnitGroupByFilters(UnitViewFilters parent) : base(parent)
         {
             HeaderRows = new List<UnitViewHeaderRow>();
-            selectorValues = new List<string>
-            {
-                string.Empty,
-            };
         }
 
-
-        public UnitViewHeaderRow GetDataHeaderRow(UnitCommonSelector selector) => HeaderRows.SingleOrDefault(r => r.Selector == selector) ?? UnitViewHeaderRow.Empty;
-
-        public IEnumerable<UnitViewDataRow> GetRows(Units units)
-        {
-            if (!HeaderRows.Any())
-            {
-                foreach (var unit in units)
-                {
-                    yield return new UnitViewDataRow
-                    {
-                        Units =
-                        {
-                            unit
-                        }
-                    };
-                }
-            }
-            else
-            {
-                var header = HeaderRows.Last();
-                var columns = header
-                    .Columns
-                    .Select(c => Parent.SortFilters.OrderBy(
-                        units.Where(c.IncludeUnit)
-                        ).ToList())
-                    .ToList();
-                var maxRows = columns.Max(c => c.Count);
-                for (var iRow = 0; iRow < maxRows; ++iRow)
-                {
-                    var row = new UnitViewDataRow();
-                    foreach (var col in columns)
-                    {
-                        row.Units.Add(col.Count > iRow ? col[iRow] : null);
-                    }
-                    yield return row;
-                }
-            }
-        }
 
         public void UpdateHeaderRows()
         {
@@ -100,8 +56,8 @@ namespace ShatteredSunCommunity.Components.PageSupport
         public void Add(UnitCommonFilter filter)
         {
             base.Add(filter);
-            selectorValues.Add(filter.Display);
-            Selectors.Add(new UnitCommonSelector(this, selectorValues));
+            SelectorValues.Add(filter.Display);
+            Selectors.Add(new UnitCommonSelector(this, SelectorValues));
         }
     }
 }

@@ -1,42 +1,58 @@
 ﻿@inject Components.PageSupport.UnitViewFilters unitViewFilters;
 
     <thead>
-        @foreach (var selector in unitViewFilters.GroupBy.GetDisplayableSelectors())
-        {
-            <tr>
-                <th class="filteringControl">@selector.Header</th>
-                <td class="filteringControl">
-                    <select @bind="selector.Selected" @bind:after="unitViewFilters.Refresh">
-                        @foreach (var option in selector.Options)
-                        {
-                            <option value="@option.Value" selected="@option.IsSelected" disabled="@option.IsDisabled">@option.Value</option>
-                        }
-                    </select>
-                </td>
-            </tr>
-        }
-        <tr><td colspan="4"><hr/></td></tr>
+    @foreach (var selector in unitViewFilters.GroupBy.GetDisplayableSelectors())
+    {
         <tr>
-            <th class="filteringControl">Display thumbnails</th>
-            <td class="filteringControl"><input type="checkbox" @bind-value="@unitViewFilters.ShowUnitThumbnails" /></td>
+            <th class="filteringControl">@selector.Header</th>
+            <td class="filteringControl">
+                <select @bind="selector.Selected" @bind:after="unitViewFilters.Refresh">
+                    @foreach (var option in selector.Options)
+                    {
+                        <option value="@option.Value" selected="@option.IsSelected" disabled="@option.IsDisabled">@option.Value</option>
+                    }
+                </select>
+            </td>
         </tr>
-        <tr><td colspan="4"><hr /></td></tr>
-        @foreach (var selector in unitViewFilters.SortFilters.GetDisplayableSelectors())
-        {
-            <tr>
-                <th class="filteringControl">@selector.Header</th>
-                <td class="filteringControl">
-                    <select @bind="selector.Selected" @bind:after="unitViewFilters.Refresh">
-                        @foreach (var option in selector.Options)
-                        {
-                            <option value="@option.Value" selected="@option.IsSelected" disabled="@option.IsDisabled">@option.Value</option>
-                        }
-                    </select>
-                </td>
-                <td><input type="checkbox" @bind-value="@selector.IsCheckBoxChecked" disabled="@selector.IsCheckBoxDisabled" /></td>
-            </tr>
-        }
-    </thead>
+    }
+    <tr><td colspan="4"><hr/></td></tr>
+    <tr>
+        <th class="filteringControl">Display thumbnails</th>
+        <td class="filteringControl"><input type="checkbox" @bind-value="@unitViewFilters.ShowUnitThumbnails" /></td>
+    </tr>
+    <tr><td colspan="4"><hr /></td></tr>
+    @foreach (var selector in unitViewFilters.SortFilters.GetDisplayableSelectors())
+    {
+        <tr>
+            <th class="filteringControl">@selector.Header</th>
+            <td class="filteringControl">
+                <select @bind="selector.Selected" @bind:after="unitViewFilters.Refresh">
+                    @foreach (var option in selector.Options)
+                    {
+                        <option value="@option.Value" selected="@option.IsSelected" disabled="@option.IsDisabled">@option.Value</option>
+                    }
+                </select>
+            </td>
+            <td><input type="checkbox" @bind-value="@selector.IsCheckBoxChecked" disabled="@selector.IsCheckBoxDisabled" /></td>
+        </tr>
+    }
+    <tr><td colspan="4"><hr /></td></tr>
+    @foreach (var selector in unitViewFilters.Filters.GetDisplayableSelectors())
+    {
+        <tr>
+            <th class="filteringControl">@selector.Header</th>
+            <td class="filteringControl">
+                <select @bind="selector.Selected" @bind:after="unitViewFilters.Refresh">
+                    @foreach (var option in selector.Options)
+                    {
+                        <option value="@option.Value" selected="@option.IsSelected" disabled="@option.IsDisabled">@option.Value</option>
+                    }
+                </select>
+            </td>
+            
+        </tr>
+    }
+</thead>
 
 
 @code {

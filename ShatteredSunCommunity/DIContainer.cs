@@ -126,6 +126,19 @@ namespace ShatteredSunCommunity
                     buildTime,
                     health,
                 },
+                Filters =
+                {
+                    faction,
+                    tier,
+                    displayName,
+                    name,
+                    type,
+                    tpId,
+                    energy,
+                    alloys,
+                    buildTime,
+                    health,
+                },
             };
             return instance;
         }

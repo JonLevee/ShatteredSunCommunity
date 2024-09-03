@@ -6,9 +6,11 @@ using System.Diagnostics;
 
 namespace ShatteredSunCommunity.Components.PageSupport
 {
-    public abstract class UnitCommonFilters : List<UnitCommonFilter>, ISelectorOwner
+    public abstract class UnitCommonFilters : List<UnitCommonFilter>, IRefresh
     {
         protected readonly UnitViewFilters Parent;
+        protected List<string> SelectorValues;
+
         public abstract string FirstItemHeader { get; }
         public abstract string RemainingItemHeader { get; }
         public List<UnitCommonSelector> Selectors { get; }
@@ -17,6 +19,10 @@ namespace ShatteredSunCommunity.Components.PageSupport
             this.Parent = parent;
             Selectors = new List<UnitCommonSelector>();
             Parent.Changed += (o, e) => OnChanged();
+            SelectorValues = new List<string>
+            {
+                string.Empty,
+            };
         }
 
         public virtual void Refresh()

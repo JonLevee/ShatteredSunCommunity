@@ -10,15 +10,10 @@ namespace ShatteredSunCommunity.Components.PageSupport
 {
     public class UnitSortFilters : UnitCommonFilters
     {
-        private List<string> selectorValues;
         public override string FirstItemHeader => "sort by";
         public override string RemainingItemHeader => "then by";
         public UnitSortFilters(UnitViewFilters parent) : base(parent)
         {
-            selectorValues = new List<string>
-            {
-                string.Empty,
-            };
         }
 
         private string GetSortField(UnitData unit, string field)
@@ -46,8 +41,8 @@ namespace ShatteredSunCommunity.Components.PageSupport
         public void Add(UnitCommonFilter filter)
         {
             base.Add(filter);
-            selectorValues.Add(filter.Display);
-            Selectors.Add(new UnitCommonSelector(this, selectorValues));
+            SelectorValues.Add(filter.Display);
+            Selectors.Add(new UnitCommonSelector(this, SelectorValues));
         }
     }
 }

@@ -25,7 +25,7 @@
         <thead>
             @foreach(var selector in unitViewFilters.GroupBy.GetDisplayableSelectors())
             {
-                var row = unitViewFilters.GroupBy.GetDataHeaderRow(selector);
+                var row = unitViewFilters.GetDataHeaderRow(selector);
                 <tr>
                 
                     @foreach (var column in row.Columns)
@@ -37,7 +37,7 @@
 
         </thead>
         <tbody>
-            @foreach(var row in unitViewFilters.GroupBy.GetRows(data.Units))
+            @foreach(var row in unitViewFilters.GetRows(data.Units))
             {
                 <tr>
                     @foreach(var unit in row.Units)

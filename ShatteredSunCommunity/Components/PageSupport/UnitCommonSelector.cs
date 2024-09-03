@@ -63,4 +63,11 @@ namespace ShatteredSunCommunity.Components.PageSupport
         }
 
     }
+
+    public class UnitCommonFilterSelector : UnitCommonSelector
+    {
+        public UnitCommonFilterSelector(UnitCommonFilters parent, List<string> values) : base(parent, values)
+        {
+        }
+    }
 }
