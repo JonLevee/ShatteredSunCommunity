@@ -16,6 +16,7 @@ namespace ShatteredSunCommunity.Components.PageSupport
         public UnitGroupByFilters(UnitViewFilters parent) : base(parent)
         {
             HeaderRows = new List<UnitViewHeaderRow>();
+
         }
 
 
@@ -51,13 +52,6 @@ namespace ShatteredSunCommunity.Components.PageSupport
                 }
                 HeaderRows.Add(row);
             }
-        }
-
-        public void Add(UnitCommonFilter filter)
-        {
-            base.Add(filter);
-            SelectorValues.Add(filter.Display);
-            Selectors.Add(new UnitCommonSelector(this, SelectorValues));
         }
     }
 }

@@ -43,10 +43,13 @@ namespace ShatteredSunCommunity.Components.PageSupport
             {
                 selected = value;
                 Filter = parent.GetFilter(this);
+                var selectedOption = Options.Find(o=>o.Value == selected);
+                Options.ForEach(o => o.IsSelected = false);
+                selectedOption.IsSelected = true;
                 parent.Refresh();
             }
         }
-        public bool IsActive => selected != string.Empty;
+        public bool IsActive => selected != OptionSelector.DefaultValue;
         public UnitCommonFilter Filter { get; private set; }
         public List<OptionSelector> Options
         {
@@ -59,7 +62,7 @@ namespace ShatteredSunCommunity.Components.PageSupport
         {
             this.parent = parent;
             this.values = values;
-            selected = string.Empty;
+            selected = OptionSelector.DefaultValue;
         }
 
     }

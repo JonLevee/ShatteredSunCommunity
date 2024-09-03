@@ -37,12 +37,5 @@ namespace ShatteredSunCommunity.Components.PageSupport
             }
             return result ?? units.OrderBy(u => u["GeneralTpId"].Text);
         }
-
-        public void Add(UnitCommonFilter filter)
-        {
-            base.Add(filter);
-            SelectorValues.Add(filter.Display);
-            Selectors.Add(new UnitCommonSelector(this, SelectorValues));
-        }
     }
 }

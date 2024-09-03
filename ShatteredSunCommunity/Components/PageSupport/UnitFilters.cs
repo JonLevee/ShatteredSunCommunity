@@ -17,11 +17,14 @@ namespace ShatteredSunCommunity.Components.PageSupport
         {
 
         }
-        public void Add(UnitCommonFilter filter)
+
+        public override void UpdateSelectors(IEnumerable<UnitCommonSelector> otherSelectorsToCheck = null)
         {
-            base.Add(filter);
-            SelectorValues.Add(filter.Display);
-            Selectors.Add(new UnitCommonSelector(this, SelectorValues));
+            var selectorsToCheck = null == otherSelectorsToCheck ? Selectors : otherSelectorsToCheck.Concat(Selectors);
+            // these filters don't depend on any other filters being set, just remove inactive then
+            // add to bottom
+            Selectors.RemoveAll(s=>!s.IsActive);
+            AppendInactiveSelector(selectorsToCheck, false);
         }
 
         public bool FilterUnits(UnitData unit)
