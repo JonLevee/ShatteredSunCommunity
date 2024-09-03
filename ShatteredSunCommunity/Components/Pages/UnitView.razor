@@ -23,7 +23,7 @@
 
     <table class="unitViewTable">
         <thead>
-            @foreach(var selector in unitViewFilters.GroupBy.Selectors)
+            @foreach(var selector in unitViewFilters.GroupBy.GetDisplayableSelectors())
             {
                 var row = unitViewFilters.GroupBy.GetDataHeaderRow(selector);
                 <tr>
