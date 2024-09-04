@@ -1,5 +1,11 @@
-﻿.unitImage {
+﻿.unitImageFrame {
+    vertical-align: top;
     border: solid;
+}
+
+.unitImage {
+    width: 150px;
+    height: 150px;
 }
 
 table.unitTable, th.unitRow, td.unitCol {

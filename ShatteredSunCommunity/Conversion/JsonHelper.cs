@@ -24,7 +24,7 @@ namespace ShatteredSunCommunity.Conversion
             PropertyNameCaseInsensitive = true,
             WriteIndented = true,
             IgnoreReadOnlyFields = true,
-            DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull | JsonIgnoreCondition.WhenWritingDefault,
+            DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull,
             Converters =
                         {
                             new LuaTableConverter(),

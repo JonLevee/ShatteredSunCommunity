@@ -9,11 +9,6 @@ namespace ShatteredSunCommunity.Models
     public class UnitField
     {
         public const string ARRAY_SEPARATOR = ", ";
-        [JsonIgnore]
-        private Action<JsonConversionLocalData, UnitData, UnitField, JsonNode?>? onCreate;
-
-        [JsonIgnore]
-        public bool RequireValidPath { get; set; }
 
         public string Path { get; set; }
         public string Name { get; set; }
@@ -31,51 +26,52 @@ namespace ShatteredSunCommunity.Models
         public bool IsHeader { get; set; }
         public bool IsThumbnail { get; set; }
 
-        public string Text { get; set; }
-
         public UnitFieldTypeEnum UnitFieldType { get; set; }
 
-        [JsonIgnore]
-        public long AsLong => long.Parse(Text);
+        public UnitFieldValue Value { get; set; } = new UnitFieldValue();
 
         [JsonIgnore]
-        public bool AsBool => bool.Parse(Text);
-
-        [JsonIgnore]
-        public double AsDouble => double.Parse(Text);
-
-        [JsonIgnore]
-        public string[] AsStringArray => Text.Split(ARRAY_SEPARATOR);
-
-        public UnitField()
-        {
-            RequireValidPath = true;
+        public string Text 
+        { 
+            get
+            {
+                switch(UnitFieldType)
+                {
+                    case UnitFieldTypeEnum.String:
+                        Debug.Assert(Value.Text != null);
+                        return Value.Text;
+                    case UnitFieldTypeEnum.Image:
+                        Debug.Assert(Value.Image != null);
+                        return Value.Image;
+                    case UnitFieldTypeEnum.Double:
+                        Debug.Assert(Value.Double != null);
+                        return Value.Double.ToString();
+                    case UnitFieldTypeEnum.StringArray:
+                        Debug.Assert(Value.StringArray != null);
+                        return string.Join(UnitField.ARRAY_SEPARATOR, Value.StringArray);
+                    case UnitFieldTypeEnum.Bool:
+                        Debug.Assert(Value.Bool != null);
+                        return Value.Bool.ToString();
+                    default:
+                        throw new NotImplementedException($"Can't convert {UnitFieldType}");
+                }
+            }
         }
 
-        public UnitField(
-            string path,
-            UnitFieldTypeEnum unitFieldType,
-            bool isImage = false,
-            bool isHeader = false,
-            bool requireValidPath = true,
-            string? displayName = null,
-            Action<JsonConversionLocalData, UnitData, UnitField, JsonNode>? onCreate = null)
+        public override string ToString()
         {
-            Path = path;
-            UnitFieldType = unitFieldType;
-            IsImage = isImage;
-            IsHeader = isHeader;
-            DisplayName = displayName;
-            RequireValidPath = requireValidPath;
-            this.onCreate = onCreate;
+            return Text;
         }
-
-        public void OnCreate(JsonConversionLocalData ld, UnitData ud, JsonNode? node)
-        {
-            onCreate?.Invoke(ld, ud, this, node);
-        }
-
-        public override string ToString() => Text;
     }
 
+    public class UnitFieldValue
+    {
+        //[JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public long? Long { get; set; }
+        public bool? Bool { get; set; }
+        public double? Double { get; set; }
+        public string[]? StringArray { get; set; }
+        public string? Text { get; set; }
+        public string? Image { get; set; }
+    }
 }

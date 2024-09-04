@@ -33,7 +33,7 @@ namespace ShatteredSunCommunity.Extensions
             return data
                 .Units
                 .Where(u => u.ContainsKey(key))
-                .SelectMany(u => u[key].AsStringArray)
+                .SelectMany(u => u[key].Value.StringArray)
                 .Distinct()
                 .Order();
         }
@@ -46,7 +46,7 @@ namespace ShatteredSunCommunity.Extensions
                 .Select(u => u[key]);
             var first = fields.First();
             var values = first.UnitFieldType == UnitFieldTypeEnum.StringArray
-                ? fields.SelectMany(f=>f.AsStringArray)
+                ? fields.SelectMany(f=>f.Value.StringArray)
                 : fields.Select(f=>f.Text);
             return new UnitCommonFilter(first.Name, first.DisplayName, values.Distinct().Order(), supportsIntersticial);
         }
@@ -64,7 +64,7 @@ namespace ShatteredSunCommunity.Extensions
                 "tier",
             ];
         // need to move this somewhere else
-        public static bool IsThumbnail(this UnitField field)
+        public static bool GetThumbnail(this UnitField field)
         {
             return thumbnails.Contains(field.Path);
         }
