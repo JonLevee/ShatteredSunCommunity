@@ -38,9 +38,10 @@ namespace ShatteredSunCommunity.Components.PageSupport
 
         public IEnumerable<UnitViewDataRow> GetRows(Units units)
         {
+            var filteredUnits = units.Where(Filters.FilterUnits);
             if (!GroupBy.HeaderRows.Any())
             {
-                foreach (var unit in units)
+                foreach (var unit in filteredUnits)
                 {
                     yield return new UnitViewDataRow
                     {
@@ -55,11 +56,7 @@ namespace ShatteredSunCommunity.Components.PageSupport
             var header = GroupBy.HeaderRows.Last();
             var columns = header
                 .Columns
-                .Select(c => SortFilters.OrderBy(
-                    units
-                        .Where(Filters.FilterUnits)
-                        .Where(c.IncludeUnit)
-                    ).ToList())
+                .Select(c => SortFilters.OrderBy(filteredUnits.Where(c.IncludeUnit)).ToList())
                 .ToList();
             var maxRows = columns.Max(c => c.Count);
             for (var iRow = 0; iRow < maxRows; ++iRow)

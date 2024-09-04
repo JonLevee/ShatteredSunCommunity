@@ -13,7 +13,6 @@ namespace ShatteredSunCommunity.Components.PageSupport
         private UnitCommonSelector parent;
         private FilterOptionHandler filterOptionHandler;
         public bool FilterKeySelected => !string.IsNullOrEmpty(FilterKey);
-        private bool canFilter;
 
         public WritableUnitFieldValue FilterValueLo { get; set; }
         public WritableUnitFieldValue FilterValueHigh { get; set; }
@@ -37,12 +36,13 @@ namespace ShatteredSunCommunity.Components.PageSupport
             filterOptionHandler = DIContainer.Get<FilterOptionHandler>();
         }
 
+        public bool CanFilter => FilterKeySelected &&
+            FilterValueLo.HasValue &&
+            (string.IsNullOrEmpty(FilterOptionSelectorItem.JoiningWord) || FilterValueHigh.HasValue);
         public bool Filter(UnitData unit)
         {
             // if this filter isn't complete in the UI, then don't filter
-            if (!FilterKeySelected ||
-                !FilterValueLo.HasValue ||
-                (!string.IsNullOrEmpty(FilterOptionSelectorItem.JoiningWord) && !FilterValueHigh.HasValue))
+            if (!CanFilter)
             {
                 return true;
             }
@@ -52,9 +52,12 @@ namespace ShatteredSunCommunity.Components.PageSupport
             return success;
         }
 
-        internal void SetUnitFieldType()
+        internal void Initialize()
         {
             FilterValueLo.UnitFieldType = FilterValueHigh.UnitFieldType = parent.IsActive ? parent.Filter.UnitFieldType : UnitFieldTypeEnum.String;
+            filterKey = filterOptionHandler.First().Key;
+            FilterOptionSelectorItem = filterOptionHandler.TryGetValue(filterKey, out var item) ? item : null;
+
         }
     }
     public class WritableUnitFieldValue : UnitFieldValue

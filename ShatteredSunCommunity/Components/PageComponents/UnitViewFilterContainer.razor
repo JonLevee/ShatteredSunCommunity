@@ -68,17 +68,38 @@
                         </select>
                     @if (filterItem.FilterKeySelected)
                     {
-                        @WriteFilterValue(selector, selector.FilterItem.FilterValueLo)
+                        if (selector.Filter.UseFreeFormFilter)
+                        {
+                            <InputText @bind="@selector.FilterItem.FilterValueLo.Text" @bind:after="unitViewFilters.Refresh">@selector.FilterItem.FilterValueLo.Text</InputText>
+                        }
+                        else
+                        {
+                            <select @bind="@selector.FilterItem.FilterValueLo.Text" @bind:after="unitViewFilters.Refresh">
+                                @foreach (var value in selector.Filter.Values)
+                                {
+                                    <option value="@value">@value</option>
+                                }
+                            </select>
+                        }
 
                         @if (!string.IsNullOrEmpty(filterItem.FilterOptionSelectorItem.JoiningWord))
                         {
-                            @WriteFilterValue(selector, selector.FilterItem.FilterValueHigh)
+                            if (selector.Filter.UseFreeFormFilter)
+                            {
+                                <InputText @bind="@selector.FilterItem.FilterValueHigh.Text" @bind:after="unitViewFilters.Refresh">@selector.FilterItem.FilterValueHigh.Text</InputText>
+                            }
+                            else
+                            {
+                                <select @bind="@selector.FilterItem.FilterValueHigh.Text" @bind:after="unitViewFilters.Refresh">
+                                @foreach (var value in selector.Filter.Values)
+                                {
+                                    <option value="@value">@value</option>
+                                }
+                                </select>
+                            }
                         }
                     }
                     </div>
-                </td>
-                <td>
-                    boo
                 </td>
             </tr>
         }
@@ -87,18 +108,4 @@
 
 
 @code {
-    private RenderFragment WriteFilterValue(UnitCommonSelector selector, WritableUnitFieldValue fieldValue) => __builder =>
-    {
-        if(selector.Filter.UseFreeFormFilter)
-        {
-            <InputText @bind="@fieldValue.Text">@fieldValue.Text</InputText>
-        } else {
-            <select @bind="@fieldValue.Text">
-            @foreach (var value in selector.Filter.Values)
-            {
-                <option value="@value">@value</option>
-            }
-            </select>
-        }
-    };
 }

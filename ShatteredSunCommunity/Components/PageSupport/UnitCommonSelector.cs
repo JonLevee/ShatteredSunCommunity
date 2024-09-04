@@ -50,7 +50,7 @@ namespace ShatteredSunCommunity.Components.PageSupport
                 var selectedOption = Options.Find(o => o.Value == selected);
                 Options.ForEach(o => o.IsSelected = false);
                 selectedOption.IsSelected = true;
-                FilterItem?.SetUnitFieldType();
+                FilterItem?.Initialize();
                 parent.Refresh();
             }
         }

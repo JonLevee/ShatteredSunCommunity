@@ -98,7 +98,6 @@ namespace ShatteredSunCommunity
             return new FilterOptionHandler(
             new FilterOptionSelectorItem[]
             {
-                new FilterOptionSelectorItem("", (lo,hi,v)=>throw new InvalidOperationException()),
                 new FilterOptionSelectorItem("==", (lo,hi,v)=>UnitFieldComparer.Default.Compare(lo,v) == 0),
                 new FilterOptionSelectorItem(">", (lo,hi,v)=>UnitFieldComparer.Default.Compare(lo,v) > 0),
                 new FilterOptionSelectorItem("<", (lo,hi,v)=>UnitFieldComparer.Default.Compare(lo,v) < 0),

@@ -77,7 +77,11 @@ namespace ShatteredSunCommunity.Components.PageSupport
         {
             if (Selectors.Count < SelectorValues.Count)
             {
-                AddSelector();
+                // if the last one is a UnitFilter and CanFilter is falst, then don't add
+                var last = Selectors.LastOrDefault();
+                if (last == null ||
+                    !(bool)last.FilterItem?.CanFilter)
+                    AddSelector();
                 if (checkDisabled)
                 {
                     Debug.Assert(TrySetDisabled(Selectors.Last(), selectorsToCheck));
