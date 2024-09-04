@@ -10,15 +10,19 @@ namespace ShatteredSunCommunity.Components.PageSupport
     {
         public string Field { get; }
         public string Display { get; }
+        public UnitFieldTypeEnum UnitFieldType { get; }
         public IReadOnlyList<string> Values { get; }
         public bool SupportsIntersticial { get; }
+        public bool UseFreeFormFilter { get; }
 
-        public UnitCommonFilter(string field, string display, IEnumerable<string> values, bool supportsIntersticial)
+        public UnitCommonFilter(UnitField field, IEnumerable<string> values, bool supportsIntersticial, bool useFreeFormFilter)
         {
-            Field = field;
-            Display = display;
+            Field = field.Name;
+            Display = field.DisplayName;
+            UnitFieldType = field.Value.UnitFieldType;
             Values = values.ToList();
             SupportsIntersticial = supportsIntersticial;
+            UseFreeFormFilter = useFreeFormFilter;
         }
 
         public override string ToString()

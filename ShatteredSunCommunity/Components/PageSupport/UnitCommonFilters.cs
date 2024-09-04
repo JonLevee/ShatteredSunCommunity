@@ -13,6 +13,7 @@ namespace ShatteredSunCommunity.Components.PageSupport
 
         public abstract string FirstItemHeader { get; }
         public abstract string RemainingItemHeader { get; }
+        public virtual bool UseUnitFilterItems => false;
         public List<UnitCommonSelector> Selectors { get; }
         protected UnitCommonFilters(UnitViewFilters parent)
         {
@@ -21,10 +22,8 @@ namespace ShatteredSunCommunity.Components.PageSupport
             {
                 string.Empty,
             };
-            Selectors = new List<UnitCommonSelector>
-            {
-                new UnitCommonSelector(this, SelectorValues)
-            };
+            Selectors = new List<UnitCommonSelector>();
+            AddSelector();
             Parent.Changed += (o, e) => OnChanged();
         }
 
@@ -78,12 +77,17 @@ namespace ShatteredSunCommunity.Components.PageSupport
         {
             if (Selectors.Count < SelectorValues.Count)
             {
-                Selectors.Add(new UnitCommonSelector(this, SelectorValues));
+                AddSelector();
                 if (checkDisabled)
                 {
                     Debug.Assert(TrySetDisabled(Selectors.Last(), selectorsToCheck));
                 }
             }
+        }
+
+        private void AddSelector()
+        {
+            Selectors.Add(new UnitCommonSelector(this, SelectorValues, UseUnitFilterItems));
         }
         private bool TrySetDisabled(UnitCommonSelector selector, IEnumerable<UnitCommonSelector> selectorsToCheck)
         {

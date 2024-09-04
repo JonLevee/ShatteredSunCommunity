@@ -12,6 +12,7 @@ namespace ShatteredSunCommunity.Components.PageSupport
     {
         public override string FirstItemHeader => "filter";
         public override string RemainingItemHeader => "filter";
+        public override bool UseUnitFilterItems => true;
 
         public UnitFilters(UnitViewFilters parent) : base(parent)
         {
@@ -23,7 +24,7 @@ namespace ShatteredSunCommunity.Components.PageSupport
             var selectorsToCheck = null == otherSelectorsToCheck ? Selectors : otherSelectorsToCheck.Concat(Selectors);
             // these filters don't depend on any other filters being set, just remove inactive then
             // add to bottom
-            Selectors.RemoveAll(s=>!s.IsActive);
+            Selectors.RemoveAll(s => !s.IsActive);
             AppendInactiveSelector(selectorsToCheck, false);
         }
 
@@ -31,7 +32,7 @@ namespace ShatteredSunCommunity.Components.PageSupport
         {
             if (!Selectors.Any(s => s.IsActive))
                 return true;
-            return true;
+            return Selectors.All(s => s.FilterItem.Filter(unit));
         }
     }
 }

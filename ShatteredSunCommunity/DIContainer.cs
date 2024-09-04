@@ -90,8 +90,24 @@ namespace ShatteredSunCommunity
 
             services.AddSingleton(GetSanctuarySunData);
             services.AddScoped(GetUnitViewFilters);
+            services.AddSingleton(GetFilterOptionHandler);
         }
 
+        private static FilterOptionHandler GetFilterOptionHandler(IServiceProvider provider)
+        {
+            return new FilterOptionHandler(
+            new FilterOptionSelectorItem[]
+            {
+                new FilterOptionSelectorItem("", (lo,hi,v)=>throw new InvalidOperationException()),
+                new FilterOptionSelectorItem("==", (lo,hi,v)=>UnitFieldComparer.Default.Compare(lo,v) == 0),
+                new FilterOptionSelectorItem(">", (lo,hi,v)=>UnitFieldComparer.Default.Compare(lo,v) > 0),
+                new FilterOptionSelectorItem("<", (lo,hi,v)=>UnitFieldComparer.Default.Compare(lo,v) < 0),
+                new FilterOptionSelectorItem("contains", (lo,hi,v)=>lo.StringArray.Contains(v.Text)),
+                new FilterOptionSelectorItem("between", "and", (lo,hi,v)=>UnitFieldComparer.Default.Compare(lo,v) > 0 && UnitFieldComparer.Default.Compare(hi,v) < 0),
+            }
+            .ToDictionary(item => item.Key, StringComparer.OrdinalIgnoreCase));
+
+        }
         private static UnitViewFilters GetUnitViewFilters(IServiceProvider provider)
         {
             var data = provider.GetService<SanctuarySunData>();
@@ -101,10 +117,11 @@ namespace ShatteredSunCommunity
             var name = data.GetFilter("GeneralName");
             var type = data.GetFilter("MovementType", supportsIntersticial: true);
             var tpId = data.GetFilter("GeneralTpId");
-            var energy = data.GetFilter("EconomyCostEnergy");
-            var alloys = data.GetFilter("EconomyCostAlloys");
-            var buildTime = data.GetFilter("EconomyBuildTime");
-            var health = data.GetFilter("DefenceHealthMax");
+            var energy = data.GetFilter("EconomyCostEnergy", useFreeFormFilter: true);
+            var alloys = data.GetFilter("EconomyCostAlloys", useFreeFormFilter: true);
+            var buildTime = data.GetFilter("EconomyBuildTime", useFreeFormFilter: true);
+            var health = data.GetFilter("DefenceHealthMax", useFreeFormFilter: true);
+            var orders = data.GetFilter("GeneralOrders", supportsIntersticial: true);
 
             var instance = new UnitViewFilters()
             {
@@ -153,7 +170,7 @@ namespace ShatteredSunCommunity
                 foreach (var field in unit.Values)
                 {
                     var groups = field.PathParts.ToList();
-                    if (field.UnitFieldType != UnitFieldTypeEnum.StringArray)
+                    if (field.Value.UnitFieldType != UnitFieldTypeEnum.StringArray)
                     {
                         while (groups.Count < JsonHelper.ExpectedMaxGroups)
                             groups.Insert(1, string.Empty);

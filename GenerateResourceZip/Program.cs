@@ -41,25 +41,25 @@ namespace GenerateResourceZip
             return
             [
                 new CreateUnitField("adjacency", UnitFieldTypeEnum.String),
-                new CreateUnitField("construction/buildPower", UnitFieldTypeEnum.Double),
+                new CreateUnitField("construction/buildPower", UnitFieldTypeEnum.Long),
                 new CreateUnitField("construction/canBuild", UnitFieldTypeEnum.String),
                 new CreateUnitField("construction/range", UnitFieldTypeEnum.Double),
                 new CreateUnitField("construction/upgradesTo", UnitFieldTypeEnum.String),
-                new CreateUnitField("defence/health/max", UnitFieldTypeEnum.Double),
-                new CreateUnitField("defence/health/regen", UnitFieldTypeEnum.Double),
-                new CreateUnitField("defence/shields/max", UnitFieldTypeEnum.Double),
+                new CreateUnitField("defence/health/max", UnitFieldTypeEnum.Long),
+                new CreateUnitField("defence/health/regen", UnitFieldTypeEnum.Long),
+                new CreateUnitField("defence/shields/max", UnitFieldTypeEnum.Long),
                 new CreateUnitField("defence/shields/name", UnitFieldTypeEnum.String),
-                new CreateUnitField("defence/shields/regenDelay", UnitFieldTypeEnum.Double),
-                new CreateUnitField("defence/shields/rechargeTime", UnitFieldTypeEnum.Double),
-                new CreateUnitField("defence/shields/regen", UnitFieldTypeEnum.Double),
-                new CreateUnitField("economy/buildTime", UnitFieldTypeEnum.Double, isHeader: true),
-                new CreateUnitField("economy/cost/alloys", UnitFieldTypeEnum.Double, isHeader: true),
-                new CreateUnitField("economy/cost/energy", UnitFieldTypeEnum.Double, isHeader: true),
-                new CreateUnitField("economy/maintenanceConsumption/energy", UnitFieldTypeEnum.Double),
-                new CreateUnitField("economy/production/alloys", UnitFieldTypeEnum.Double),
-                new CreateUnitField("economy/production/energy", UnitFieldTypeEnum.Double),
-                new CreateUnitField("economy/storage/alloys", UnitFieldTypeEnum.Double),
-                new CreateUnitField("economy/storage/energy", UnitFieldTypeEnum.Double),
+                new CreateUnitField("defence/shields/regenDelay", UnitFieldTypeEnum.Long),
+                new CreateUnitField("defence/shields/rechargeTime", UnitFieldTypeEnum.Long),
+                new CreateUnitField("defence/shields/regen", UnitFieldTypeEnum.Long),
+                new CreateUnitField("economy/buildTime", UnitFieldTypeEnum.Long, isHeader: true),
+                new CreateUnitField("economy/cost/alloys", UnitFieldTypeEnum.Long, isHeader: true),
+                new CreateUnitField("economy/cost/energy", UnitFieldTypeEnum.Long, isHeader: true),
+                new CreateUnitField("economy/maintenanceConsumption/energy", UnitFieldTypeEnum.Long),
+                new CreateUnitField("economy/production/alloys", UnitFieldTypeEnum.Long),
+                new CreateUnitField("economy/production/energy", UnitFieldTypeEnum.Long),
+                new CreateUnitField("economy/storage/alloys", UnitFieldTypeEnum.Long),
+                new CreateUnitField("economy/storage/energy", UnitFieldTypeEnum.Long),
                 new CreateUnitField("general/class", UnitFieldTypeEnum.StringArray, onCreate: ConvertValueArrayToStringArray),
                 new CreateUnitField("general/displayName", UnitFieldTypeEnum.String, isHeader: true),
                 new CreateUnitField("general/iconUI", UnitFieldTypeEnum.Image, isImage: true, isHeader: true),
@@ -71,8 +71,8 @@ namespace GenerateResourceZip
                         .ToArray() ?? [];
                 }),
                 new CreateUnitField("general/tpId", UnitFieldTypeEnum.String, isHeader: true),
-                new CreateUnitField("intel/radarRadius", UnitFieldTypeEnum.Double),
-                new CreateUnitField("intel/visionRadius", UnitFieldTypeEnum.Double),
+                new CreateUnitField("intel/radarRadius", UnitFieldTypeEnum.Long),
+                new CreateUnitField("intel/visionRadius", UnitFieldTypeEnum.Long),
                 new CreateUnitField("movement/acceleration", UnitFieldTypeEnum.Double),
                 new CreateUnitField("movement/air", UnitFieldTypeEnum.Bool),
                 new CreateUnitField("movement/minSpeed", UnitFieldTypeEnum.Double),
@@ -82,12 +82,12 @@ namespace GenerateResourceZip
                 new CreateUnitField("tags", UnitFieldTypeEnum.StringArray, onCreate: ConvertValueArrayToStringArray),
                 new CreateUnitField("faction", UnitFieldTypeEnum.String, isHeader: true, requireValidPath: false, onCreate: (ld, ud, uf, node) => {
                     var tpId = ud["GeneralTpId"].Text;
-                    uf.Value.Text = ld.Factions[tpId.Substring(0, 2)].Name;
+                    uf.Value.String = ld.Factions[tpId.Substring(0, 2)].Name;
                 }),
                 new CreateUnitField("tier", UnitFieldTypeEnum.String, isHeader: true, requireValidPath: false, onCreate: (ld, ud, uf, node) => {
                     // we need access to tags above
                     var tags = ud["tags"].Value.StringArray ?? [];
-                    uf.Value.Text = tags.Intersect(JsonHelper.TECHTIERS).Single();
+                    uf.Value.String = tags.Intersect(JsonHelper.TECHTIERS).Single();
                 }),
                 new CreateUnitField("enabled", UnitFieldTypeEnum.Bool, isHeader: true, requireValidPath: false, onCreate: (ld, ud, uf, node) =>
                 {
@@ -235,10 +235,13 @@ namespace GenerateResourceZip
                 Path = string.Join("/", pathParts),
                 PathParts = pascalCasedPathParts,
                 Name = string.Concat(pascalCasedPathParts),
-                UnitFieldType = createField.UnitFieldType,
                 IsImage = createField.IsImage,
                 IsHeader = createField.IsHeader,
                 DisplayName = createField.DisplayName ?? pascalCasedPathParts.Last(),
+                Value =
+                {
+                    UnitFieldType = createField.UnitFieldType,
+                }
             };
             var onCreate = createField.OnCreate ?? OnCreateDefault;
             onCreate(ld, unit, field, node);
@@ -268,19 +271,22 @@ namespace GenerateResourceZip
         {
             Debug.Assert(node != null);
             // JsonConversionLocalData, UnitData, UnitField, JsonNode?
-            switch (uf.UnitFieldType)
+            switch (uf.Value.UnitFieldType)
             {
                 case UnitFieldTypeEnum.String:
-                    uf.Value.Text = node.GetValue<string>();
+                    uf.Value.String = node.GetValue<string>();
                     break;
                 case UnitFieldTypeEnum.Double:
                     uf.Value.Double = node.GetValue<double>();
+                    break;
+                case UnitFieldTypeEnum.Long:
+                    uf.Value.Long = node.GetValue<long>();
                     break;
                 case UnitFieldTypeEnum.StringArray:
                     uf.Value.StringArray = node.GetValue<string[]>();
                     break;
                 case UnitFieldTypeEnum.Image:
-                    uf.Value.Image= node.GetValue<string>();
+                    uf.Value.Image = node.GetValue<string>();
                     break;
                 case UnitFieldTypeEnum.Bool:
                     uf.Value.Bool = node.GetValue<bool>();

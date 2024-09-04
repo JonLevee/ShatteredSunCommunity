@@ -1,4 +1,6 @@
-﻿@inject Components.PageSupport.UnitViewFilters unitViewFilters;
+﻿@using ShatteredSunCommunity.Components.PageSupport
+@inject Components.PageSupport.UnitViewFilters unitViewFilters
+@inject FilterOptionHandler filterOptionHandler
 
     <thead>
     @foreach (var selector in unitViewFilters.GroupBy.GetDisplayableSelectors())
@@ -43,18 +45,60 @@
             <th class="filteringControl">@selector.Header</th>
             <td class="filteringControl">
                 <select @bind="selector.Selected" @bind:after="unitViewFilters.Refresh">
+
                     @foreach (var option in selector.Options)
                     {
                         <option value="@option.Value" selected="@option.IsSelected" disabled="@option.IsDisabled">@option.Value</option>
                     }
                 </select>
             </td>
-            
         </tr>
+        @if (selector.IsActive)
+        {
+            var filterItem = selector.FilterItem;
+            <tr>
+                <td colspan="3">
+                    <div style="white-space: nowrap">
+
+                        <select @bind="filterItem.FilterKey">
+                            @foreach (var key in filterOptionHandler.Keys)
+                            {
+                                <option value="@key">@key</option>
+                            }
+                        </select>
+                    @if (filterItem.FilterKeySelected)
+                    {
+                        @WriteFilterValue(selector, selector.FilterItem.FilterValueLo)
+
+                        @if (!string.IsNullOrEmpty(filterItem.FilterOptionSelectorItem.JoiningWord))
+                        {
+                            @WriteFilterValue(selector, selector.FilterItem.FilterValueHigh)
+                        }
+                    }
+                    </div>
+                </td>
+                <td>
+                    boo
+                </td>
+            </tr>
+        }
     }
 </thead>
 
 
 @code {
-
+    private RenderFragment WriteFilterValue(UnitCommonSelector selector, WritableUnitFieldValue fieldValue) => __builder =>
+    {
+        if(selector.Filter.UseFreeFormFilter)
+        {
+            <InputText @bind="@fieldValue.Text">@fieldValue.Text</InputText>
+        } else {
+            <select @bind="@fieldValue.Text">
+            @foreach (var value in selector.Filter.Values)
+            {
+                <option value="@value">@value</option>
+            }
+            </select>
+        }
+    };
 }

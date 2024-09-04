@@ -8,6 +8,7 @@ namespace ShatteredSunCommunity.Models
     {
         String,
         Double,
+        Long,
         StringArray,
         Image,
         Bool
