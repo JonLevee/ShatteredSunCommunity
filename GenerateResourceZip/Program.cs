@@ -17,6 +17,10 @@ namespace GenerateResourceZip
     internal class Program
     {
         public string LuaRoot { get; private set; }
+        public string IconUnitsRootSource { get; private set; }
+        public string IconUnitsRootTarget { get; private set; }
+        public string IconNotFound { get; private set; }
+
         private static readonly string[] pathsToRemove =
         {
             "collisionInfo",
@@ -112,10 +116,30 @@ namespace GenerateResourceZip
         static void Main(string[] args)
         {
             var steamInfo = new SteamInfo();
-            var root = Path.Combine(steamInfo.GetRoot(), @"engine\LJ\lua");
+            var steamRoot = steamInfo.GetRoot();
+            var luaRoot = Path.Combine(steamRoot, @"engine\LJ\lua");
+            var iconUnitsRoot = Path.Combine(steamRoot, @"engine\Sanctuary_Data\Resources\UI\Gameplay\IconsUnits");
+            var iconNotFound = Path.Combine(steamRoot, @"engine\Sanctuary_Data\Resources\UI\UI\MapEditor\Icons\block_icon.png");
+            var relativeRootTarget = @"ShatteredSunCommunity\wwwroot\IconUnits";
+            var wwwRoot = Directory.GetCurrentDirectory();
+            var iconUnitsRootTarget = Path.Combine(wwwRoot, relativeRootTarget);
+            while (!Directory.Exists(iconUnitsRootTarget))
+            {
+                wwwRoot = Directory.GetParent(wwwRoot)?.FullName;
+                if (wwwRoot == null)
+                    break;
+                iconUnitsRootTarget = Path.Combine(wwwRoot, relativeRootTarget);
+            }
+            if (!Directory.Exists(iconUnitsRootTarget))
+            {
+                throw new DirectoryNotFoundException(iconUnitsRootTarget);
+            }
             var program = new Program
             {
-                LuaRoot = root,
+                LuaRoot = luaRoot,
+                IconNotFound = iconNotFound,
+                IconUnitsRootSource = iconUnitsRoot,
+                IconUnitsRootTarget = iconUnitsRootTarget,
             };
 
             program.GenerateData();
@@ -144,6 +168,15 @@ namespace GenerateResourceZip
         public void GenerateData()
         {
             var data = new SanctuarySunData();
+            foreach (var file in Directory.GetFiles(IconUnitsRootTarget, "*.png"))
+            {
+                File.Delete(file);
+            }
+            foreach (var source in Directory.GetFiles(IconUnitsRootSource, "*.png"))
+            {
+                File.Copy(source, Path.Combine(IconUnitsRootTarget, Path.GetFileName(source)));
+            }
+            File.Copy(IconNotFound, Path.Combine(IconUnitsRootTarget, "IconNotFound.png"));
             var localData = new JsonConversionLocalData();
             using (GetLuaTable("common/systems/factions.lua", "FactionsData", out LuaTable table))
             {

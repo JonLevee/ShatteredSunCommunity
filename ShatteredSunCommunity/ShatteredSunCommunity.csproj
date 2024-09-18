@@ -49,6 +49,10 @@
 		</EmbeddedResource>
 	</ItemGroup>
 
+	<ItemGroup>
+	  <Folder Include="wwwroot\IconUnits\" />
+	</ItemGroup>
+
 	<Target Name="DeleteCssImportsTask" AfterTargets="BundleScopedCssFiles" Condition="'@(_ScopedCss)' != ''">
 		<Message Importance="High" Text="DeleteCssImportsTask: $(_ScopedCssOutputFullPath)" />
 	</Target>

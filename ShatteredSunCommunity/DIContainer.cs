@@ -164,6 +164,7 @@ namespace ShatteredSunCommunity
             var file = "ShatteredSunUnitData.json";
             var json = File.ReadAllText(file);
             var instance = JsonSerializer.Deserialize<SanctuarySunData>(json, JsonHelper.JsonOptions);
+            var unitIcons = Directory.GetFiles(@"wwwroot\IconUnits", "*.png").Select(Path.GetFileName).ToList();
             foreach (var unit in instance.Units)
             {
                 foreach (var field in unit.Values)
@@ -178,6 +179,8 @@ namespace ShatteredSunCommunity
                     field.ColSpan = JsonHelper.ExpectedMaxGroups - groups.Count + 1;
                     field.IsThumbnail = field.GetThumbnail();
                 }
+                var unitIcon = unit["GeneralTpId"].Text + ".png";
+                unit.UnitIcon = unitIcons.Contains(unitIcon, StringComparer.OrdinalIgnoreCase) ? unitIcon : "IconNotFound.png";
             }
             return instance;
 

@@ -53,10 +53,7 @@
 
 @code {
     public string ProductName => Assembly.GetEntryAssembly()?.GetCustomAttribute<AssemblyProductAttribute>()?.Product;
-    private string GetUnitHeaderClass(UnitViewHeaderRow row)
-    {
-        return row.IsLastHeader ? "lastUnitHeader" : "unitHeader";
-    }
+    private string lastGroup = string.Empty;
     private RenderFragment DisplayUnitData(UnitData unit)
     {
         if (unit != null)
@@ -88,9 +85,7 @@
         <table>
             <tr>
                 <td class="unitImageFrame" rowspan="5">
-                    <div class="unitImage">
-                        @item["GeneralIconUI"]
-                    </div>
+                    <img class="unitImage" src="IconUnits/@item.UnitIcon" />
                 </td>
                 <th class="unitViewData">@item["GeneralDisplayName"]</th>
             </tr>
@@ -108,16 +103,21 @@
                 <td class="unitCol">@item["EconomyCostAlloys"]</td>
                 <td class="unitCol">@item["EconomyBuildTime"]</td>
             </tr>
-            @foreach(var field in item.Values.Where(v=>!v.IsHeader))
-        {
+            @foreach(var field in item.GetDisplayFields())
+            {
+                @if(field.IsBreak)
+                {
+                    <tr class="break"><td class="break" colspan="10"><hr class="break" /></td></tr>
+                }
             <tr class="unitRow">
-                @foreach(var group in field.GroupParts)
+                @foreach(var group in field.Groups)
             {
                 <td class="unitCol">@group</td>
             }
                 <td class="unitCol" colspan="@field.ColSpan">@field.Text</td>
             </tr>
-        }
+
+            }
         </table>
     </div>
     ;

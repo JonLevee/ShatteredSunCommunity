@@ -1,21 +1,29 @@
 ﻿.unitImageFrame {
+    width: 150px;
+    height: 150px;
     vertical-align: top;
-    border: solid;
+    /* border: solid;*/
 }
 
 .unitImage {
-    width: 150px;
-    height: 150px;
+    width: 140px;
+    height: 140px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 table.unitTable, th.unitRow, td.unitCol {
     table-layout: fixed;
-    border: 1px solid black;
+    /* border: 1px solid black; 
     border-collapse: collapse;
+        */
 }
 
 table.unitTable {
     width: 100px;
+    border: 1px solid black;
+    border-collapse: collapse;
 }
 
 td.unitCol {
@@ -37,6 +45,7 @@ div.divThumbnail {
     border-collapse: collapse;
 }
 
+/*
 th.unitHeader {
     text-align: center;
     border: 1px solid black;
@@ -48,7 +57,7 @@ th.lastUnitHeader {
     border: 1px solid black;
     border-collapse: collapse;
 }
-
+    */
 .filteringControl {
     /* width: 210px; */
     white-space: nowrap;
@@ -64,4 +73,10 @@ th.lastUnitHeader {
     display: inline-block;
     white-space: normal;
     vertical-align: top;
+}
+
+tr.break, td.break, hr.break {
+    height: 1px;
+    border: none;
+    padding: 0;
 }
