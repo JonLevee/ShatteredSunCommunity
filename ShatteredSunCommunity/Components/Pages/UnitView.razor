@@ -39,10 +39,51 @@
         <tbody>
             @foreach(var row in unitViewFilters.GetRows(data.Units))
             {
-                <tr>
-                    @foreach(var unit in row.Units)
+                <tr class="unitViewRow">
+                    @foreach(var item in row.Units)
                     {
-                        <td class="unitView">@DisplayUnitData(unit)</td>
+                        <td class="unitView">
+                            <div class="unitView">
+                                <table class="unitView">
+                                    <tr>
+                                        <td class="unitImageFrame" rowspan="5">
+                                            <img class="unitImage" src="IconUnits/@item.UnitIcon" />
+                                        </td>
+                                        <th class="unitViewData">@item["GeneralDisplayName"]</th>
+                                    </tr>
+                                    <tr><td>[@item["GeneralName"]] @item["GeneralDisplayName"]</td></tr>
+                                    <tr><td>Faction: @item["Faction"]</td></tr>
+                                    <tr><td>tpId: @item["GeneralTpId"]</td></tr>
+                                    <tr><td>Enabled: @item["Enabled"]</td></tr>
+
+                                </table>
+                                <table class="unitView unitTable @HideIfThumbClass">
+                                    <tr class="unitRow">
+                                        <td class="unitCol">@item["DefenceHealthMax"]</td>
+                                        <td class="unitCol">@item["EconomyCostEnergy"]</td>
+                                        <td class="unitCol">@item["EconomyCostAlloys"]</td>
+                                        <td class="unitCol">@item["EconomyBuildTime"]</td>
+                                    </tr>
+                                    @foreach(var field in item.GetDisplayFields())
+                                    {
+                                        @if(field.IsBreak)
+                                        {
+                                            <tr class="break"><td class="break" colspan="99">
+                                            <hr2 class="break" />
+                                            </td></tr>
+                                        }
+                                    <tr class="unitRow">
+                                        @foreach(var group in field.Groups)
+                                    {
+                                        <td class="unitCol">@group</td>
+                                    }
+                                        <td class="unitCol" colspan="@field.ColSpan">@field.Text</td>
+                                    </tr>
+
+                                    }
+                                </table>
+                            </div>
+                        </td>
                     }
                 </tr>
             }
@@ -54,75 +95,9 @@
 @code {
     public string ProductName => Assembly.GetEntryAssembly()?.GetCustomAttribute<AssemblyProductAttribute>()?.Product;
     private string lastGroup = string.Empty;
-    private RenderFragment DisplayUnitData(UnitData unit)
-    {
-        if (unit != null)
-        {
-            if (unitViewFilters.ShowUnitThumbnails)
-                return UnitViewThumbprint(unit);
-            else
-                return UnitViewFull(unit);
-        }
-        return Empty;
-    }
 
-    private RenderFragment Empty =>@<div/>;
-
-    private RenderFragment<UnitData> UnitViewThumbprint = item =>
-    @<div class="divThumbnail">
-        <table class="unitTableThumbnail" style="vertical-align: top;">
-            @foreach(var field in item.Values.Where(v=>v.IsThumbnail))
-            {
-                <tr class="unitRowThumbnail">
-                    <th class="unitColThumbnail">@field.DisplayName</th>
-                    <td class="unitColThumbnail">@field.Text</td>
-                </tr>
-            }
-        </table>
-    </div>;
-    private RenderFragment<UnitData> UnitViewFull = item =>
-    @<div>
-        <table>
-            <tr>
-                <td class="unitImageFrame" rowspan="5">
-                    <img class="unitImage" src="IconUnits/@item.UnitIcon" />
-                </td>
-                <th class="unitViewData">@item["GeneralDisplayName"]</th>
-            </tr>
-            <tr><td>[@item["GeneralName"]] @item["GeneralDisplayName"]</td></tr>
-            <tr><td>Faction: @item["Faction"]</td></tr>
-            <tr><td>tpId: @item["GeneralTpId"]</td></tr>
-            <tr><td>Enabled: @item["Enabled"]</td></tr>
-
-        </table>
-        <hr />
-        <table class="unitTable">
-            <tr class="unitRow">
-                <td class="unitCol">@item["DefenceHealthMax"]</td>
-                <td class="unitCol">@item["EconomyCostEnergy"]</td>
-                <td class="unitCol">@item["EconomyCostAlloys"]</td>
-                <td class="unitCol">@item["EconomyBuildTime"]</td>
-            </tr>
-            @foreach(var field in item.GetDisplayFields())
-            {
-                @if(field.IsBreak)
-                {
-                    <tr class="break"><td class="break" colspan="99">
-                    <hr2 class="break" />
-                    </td></tr>
-                }
-            <tr class="unitRow">
-                @foreach(var group in field.Groups)
-            {
-                <td class="unitCol">@group</td>
-            }
-                <td class="unitCol" colspan="@field.ColSpan">@field.Text</td>
-            </tr>
-
-            }
-        </table>
-    </div>
-    ;
+    private string ShowBorderIfThumbClass => unitViewFilters.ShowUnitThumbnails ? "showBorderIfThumbClass" : "";
+    private string HideIfThumbClass => unitViewFilters.ShowUnitThumbnails ? "hideIfThumbClass" : "";
 
     protected override void OnInitialized()
     {

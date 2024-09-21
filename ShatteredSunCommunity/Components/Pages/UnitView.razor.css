@@ -15,15 +15,31 @@
 
 table.unitTable, th.unitRow, td.unitCol {
     table-layout: fixed;
-    /* border: 1px solid black; 
-    border-collapse: collapse;
-        */
 }
 
 table.unitTable {
-    width: 100px;
+    table-layout: fixed;
+    border-top: 1px solid black;
+    width: 400px;
+    padding: 2px;
+}
+
+.unitView {
+    width: 100%;
+}
+
+div.unitView {
+    margin-bottom: 2px;
+    border: 1px solid black;
+}
+
+tr.unitViewRow {
+    /*
     border: 1px solid black;
     border-collapse: collapse;
+    padding-top: 1em;
+        */
+    padding-bottom: 1em;
 }
 
 td.unitCol {
@@ -37,6 +53,12 @@ th {
 
 td.unitView {
     vertical-align: top;
+    width: 400px;
+    /*
+    border: 1px solid black;
+    border-collapse: separate;
+    padding-bottom: 1em;
+        */
 }
 
 div.divThumbnail {
@@ -45,19 +67,6 @@ div.divThumbnail {
     border-collapse: collapse;
 }
 
-/*
-th.unitHeader {
-    text-align: center;
-    border: 1px solid black;
-    border-collapse: collapse;
-}
-
-th.lastUnitHeader {
-    text-align: center;
-    border: 1px solid black;
-    border-collapse: collapse;
-}
-    */
 .filteringControl {
     /* width: 210px; */
     white-space: nowrap;
@@ -80,4 +89,13 @@ tr.break, td.break, hr.break {
     line-height: 1px;
     border: 1px groove #9fc4f1;
     padding: 0;
+}
+
+.showBorderIfThumbClass {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+.hideIfThumbClass {
+    display: none;
 }
