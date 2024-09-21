@@ -77,6 +77,7 @@ th.lastUnitHeader {
 
 tr.break, td.break, hr.break {
     height: 1px;
-    border: none;
+    line-height: 1px;
+    border: 1px groove #9fc4f1;
     padding: 0;
 }
