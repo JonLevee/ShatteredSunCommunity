@@ -1,4 +1,8 @@
-﻿.unitImageFrame {
+﻿td {
+    font-size: 0.875em; /* 14px/16=0.875em */
+}
+
+.unitImageFrame {
     width: 150px;
     height: 150px;
     vertical-align: top;
@@ -54,6 +58,7 @@ th {
 td.unitView {
     vertical-align: top;
     width: 400px;
+    font-size: 12pt;
     /*
     border: 1px solid black;
     border-collapse: separate;
@@ -87,7 +92,7 @@ div.divThumbnail {
 tr.break, td.break, hr.break {
     height: 1px;
     line-height: 1px;
-    border: 1px groove #9fc4f1;
+    border: 1px dotted #9fc4f1;
     padding: 0;
 }
 
