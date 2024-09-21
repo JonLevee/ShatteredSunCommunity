@@ -1,7 +1,18 @@
-﻿td {
-    font-size: 0.875em; /* 14px/16=0.875em */
+﻿body {
+    color: white;
 }
-
+td, th {
+    font-size: 0.875em; /* 14px/16=0.875em */
+    /* color: white; */
+}
+/*
+div.backgroundDiv {
+    background-image: url("Images/background_logo.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-attachment: fixed;
+}
+*/
 .unitImageFrame {
     width: 150px;
     height: 150px;
@@ -78,10 +89,12 @@ div.divThumbnail {
     vertical-align: top;
 }
 
-.unitViewContainer {
+div.unitViewContainer {
     white-space: nowrap;
     vertical-align: top;
 }
+
+
 
 .unitViewTable {
     display: inline-block;

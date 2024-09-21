@@ -51,6 +51,7 @@
 
 	<ItemGroup>
 	  <Folder Include="wwwroot\IconUnits\" />
+	  <Folder Include="wwwroot\Images\" />
 	</ItemGroup>
 
 	<Target Name="DeleteCssImportsTask" AfterTargets="BundleScopedCssFiles" Condition="'@(_ScopedCss)' != ''">

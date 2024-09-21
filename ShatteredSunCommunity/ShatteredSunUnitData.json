@@ -149,11 +149,11 @@
         "Value": {
           "UnitFieldType": "StringArray",
           "StringArray": [
-            "Attack",
             "Stop",
-            "Assist",
             "Move",
-            "Patrol"
+            "Assist",
+            "Patrol",
+            "Attack"
           ]
         }
       },
@@ -504,10 +504,10 @@
         "Value": {
           "UnitFieldType": "StringArray",
           "StringArray": [
+            "Attack",
             "Assist",
             "Stop",
             "Patrol",
-            "Attack",
             "Move"
           ]
         }
@@ -859,10 +859,10 @@
         "Value": {
           "UnitFieldType": "StringArray",
           "StringArray": [
+            "Assist",
             "Stop",
             "Patrol",
-            "Move",
-            "Assist"
+            "Move"
           ]
         }
       },
@@ -1230,10 +1230,10 @@
         "Value": {
           "UnitFieldType": "StringArray",
           "StringArray": [
+            "Attack",
             "Assist",
             "Stop",
             "Patrol",
-            "Attack",
             "Move"
           ]
         }
@@ -1568,10 +1568,10 @@
         "Value": {
           "UnitFieldType": "StringArray",
           "StringArray": [
+            "Assist",
             "Stop",
             "Patrol",
-            "Move",
-            "Assist"
+            "Move"
           ]
         }
       },
@@ -1938,10 +1938,10 @@
         "Value": {
           "UnitFieldType": "StringArray",
           "StringArray": [
+            "Attack",
             "Assist",
             "Stop",
             "Patrol",
-            "Attack",
             "Move"
           ]
         }
@@ -2291,10 +2291,10 @@
         "Value": {
           "UnitFieldType": "StringArray",
           "StringArray": [
+            "Attack",
             "Assist",
             "Stop",
             "Patrol",
-            "Attack",
             "Move"
           ]
         }
@@ -2628,10 +2628,10 @@
         "Value": {
           "UnitFieldType": "StringArray",
           "StringArray": [
+            "Attack",
             "Assist",
             "Stop",
             "Patrol",
-            "Attack",
             "Move"
           ]
         }
@@ -2981,10 +2981,10 @@
         "Value": {
           "UnitFieldType": "StringArray",
           "StringArray": [
+            "Assist",
             "Stop",
             "Patrol",
-            "Move",
-            "Assist"
+            "Move"
           ]
         }
       },
@@ -3350,10 +3350,10 @@
         "Value": {
           "UnitFieldType": "StringArray",
           "StringArray": [
+            "Attack",
             "Assist",
             "Stop",
             "Patrol",
-            "Attack",
             "Move"
           ]
         }
@@ -3820,15 +3820,15 @@
         "Value": {
           "UnitFieldType": "StringArray",
           "StringArray": [
-            "Capture",
-            "Repair",
             "Harvest",
+            "Capture",
             "Move",
-            "Stop",
-            "Assist",
-            "Pause",
+            "Patrol",
+            "Repair",
             "Attack",
-            "Patrol"
+            "Assist",
+            "Stop",
+            "Pause"
           ]
         }
       },
@@ -4152,10 +4152,10 @@
         "Value": {
           "UnitFieldType": "StringArray",
           "StringArray": [
+            "Attack",
             "Assist",
             "Stop",
             "Patrol",
-            "Attack",
             "Move"
           ]
         }
@@ -4475,10 +4475,10 @@
         "Value": {
           "UnitFieldType": "StringArray",
           "StringArray": [
+            "Attack",
             "Assist",
             "Stop",
             "Patrol",
-            "Attack",
             "Move"
           ]
         }
@@ -4798,10 +4798,10 @@
         "Value": {
           "UnitFieldType": "StringArray",
           "StringArray": [
+            "Attack",
             "Assist",
             "Stop",
             "Patrol",
-            "Attack",
             "Move"
           ]
         }
@@ -5121,10 +5121,10 @@
         "Value": {
           "UnitFieldType": "StringArray",
           "StringArray": [
+            "Attack",
             "Assist",
             "Stop",
             "Patrol",
-            "Attack",
             "Move"
           ]
         }
@@ -5492,13 +5492,13 @@
         "Value": {
           "UnitFieldType": "StringArray",
           "StringArray": [
-            "Capture",
             "Repair",
             "Harvest",
-            "Assist",
             "Stop",
-            "Patrol",
+            "Capture",
+            "Assist",
             "Pause",
+            "Patrol",
             "Move"
           ]
         }
@@ -5820,10 +5820,10 @@
         "Value": {
           "UnitFieldType": "StringArray",
           "StringArray": [
+            "Assist",
             "Stop",
             "Patrol",
-            "Move",
-            "Assist"
+            "Move"
           ]
         }
       },
@@ -6159,10 +6159,10 @@
         "Value": {
           "UnitFieldType": "StringArray",
           "StringArray": [
+            "Attack",
             "Assist",
             "Stop",
             "Patrol",
-            "Attack",
             "Move"
           ]
         }
@@ -6483,9 +6483,9 @@
           "StringArray": [
             "Assist",
             "Stop",
+            "Move",
             "Patrol",
-            "Attack",
-            "Move"
+            "Attack"
           ]
         }
       },
@@ -6803,9 +6803,9 @@
         "Value": {
           "UnitFieldType": "StringArray",
           "StringArray": [
-            "Assist",
             "Stop",
             "Patrol",
+            "Assist",
             "Attack",
             "Move"
           ]
@@ -7173,14 +7173,14 @@
         "Value": {
           "UnitFieldType": "StringArray",
           "StringArray": [
+            "Stop",
+            "Move",
+            "Pause",
             "Capture",
-            "Repair",
+            "Patrol",
             "Harvest",
             "Assist",
-            "Stop",
-            "Patrol",
-            "Pause",
-            "Move"
+            "Repair"
           ]
         }
       },
@@ -7502,9 +7502,9 @@
           "StringArray": [
             "Assist",
             "Stop",
+            "Move",
             "Patrol",
-            "Attack",
-            "Move"
+            "Attack"
           ]
         }
       },
@@ -7822,9 +7822,9 @@
           "UnitFieldType": "StringArray",
           "StringArray": [
             "Assist",
-            "Stop",
-            "Patrol",
             "Attack",
+            "Patrol",
+            "Stop",
             "Move"
           ]
         }
@@ -8190,14 +8190,14 @@
         "Value": {
           "UnitFieldType": "StringArray",
           "StringArray": [
-            "Capture",
-            "Repair",
-            "Harvest",
-            "Assist",
             "Stop",
-            "Patrol",
+            "Assist",
+            "Harvest",
+            "Capture",
             "Pause",
-            "Move"
+            "Move",
+            "Patrol",
+            "Repair"
           ]
         }
       },
@@ -8516,10 +8516,10 @@
         "Value": {
           "UnitFieldType": "StringArray",
           "StringArray": [
-            "Stop",
-            "Patrol",
             "Move",
-            "Assist"
+            "Assist",
+            "Patrol",
+            "Stop"
           ]
         }
       },
@@ -8854,10 +8854,10 @@
           "UnitFieldType": "StringArray",
           "StringArray": [
             "Assist",
-            "Stop",
             "Patrol",
+            "Move",
             "Attack",
-            "Move"
+            "Stop"
           ]
         }
       },
@@ -9174,9 +9174,9 @@
         "Value": {
           "UnitFieldType": "StringArray",
           "StringArray": [
-            "Assist",
             "Stop",
             "Patrol",
+            "Assist",
             "Attack",
             "Move"
           ]
@@ -9496,10 +9496,10 @@
           "UnitFieldType": "StringArray",
           "StringArray": [
             "Assist",
-            "Stop",
-            "Patrol",
             "Attack",
-            "Move"
+            "Stop",
+            "Move",
+            "Patrol"
           ]
         }
       },
@@ -9816,9 +9816,9 @@
         "Value": {
           "UnitFieldType": "StringArray",
           "StringArray": [
-            "Assist",
             "Stop",
             "Patrol",
+            "Assist",
             "Attack",
             "Move"
           ]
@@ -10394,8 +10394,8 @@
         "Value": {
           "UnitFieldType": "StringArray",
           "StringArray": [
-            "Attack",
-            "Stop"
+            "Stop",
+            "Attack"
           ]
         }
       },
@@ -10714,11 +10714,11 @@
         "Value": {
           "UnitFieldType": "StringArray",
           "StringArray": [
-            "Repair",
-            "Harvest",
             "Assist",
             "Stop",
-            "Pause"
+            "Harvest",
+            "Pause",
+            "Repair"
           ]
         }
       },
@@ -11022,9 +11022,9 @@
         "Value": {
           "UnitFieldType": "StringArray",
           "StringArray": [
-            "Stop",
+            "Assist",
             "Pause",
-            "Assist"
+            "Stop"
           ]
         }
       },
@@ -11328,9 +11328,9 @@
         "Value": {
           "UnitFieldType": "StringArray",
           "StringArray": [
-            "Stop",
+            "Assist",
             "Pause",
-            "Assist"
+            "Stop"
           ]
         }
       },
@@ -11667,8 +11667,8 @@
           "UnitFieldType": "StringArray",
           "StringArray": [
             "Stop",
-            "Pause",
-            "Assist"
+            "Assist",
+            "Pause"
           ]
         }
       },
@@ -12796,9 +12796,9 @@
         "Value": {
           "UnitFieldType": "StringArray",
           "StringArray": [
-            "Stop",
+            "Assist",
             "Pause",
-            "Assist"
+            "Stop"
           ]
         }
       },
@@ -13118,9 +13118,9 @@
         "Value": {
           "UnitFieldType": "StringArray",
           "StringArray": [
-            "Stop",
+            "Assist",
             "Pause",
-            "Assist"
+            "Stop"
           ]
         }
       },
@@ -13425,8 +13425,8 @@
           "UnitFieldType": "StringArray",
           "StringArray": [
             "Stop",
-            "Pause",
-            "Assist"
+            "Assist",
+            "Pause"
           ]
         }
       },
@@ -13731,8 +13731,8 @@
           "UnitFieldType": "StringArray",
           "StringArray": [
             "Stop",
-            "Pause",
-            "Assist"
+            "Assist",
+            "Pause"
           ]
         }
       },
@@ -14481,10 +14481,10 @@
           "UnitFieldType": "StringArray",
           "StringArray": [
             "Assist",
-            "Stop",
             "Patrol",
+            "Move",
             "Attack",
-            "Move"
+            "Stop"
           ]
         }
       },
@@ -14737,8 +14737,8 @@
         "Value": {
           "UnitFieldType": "StringArray",
           "StringArray": [
-            "Attack",
-            "Stop"
+            "Stop",
+            "Attack"
           ]
         }
       },
@@ -15443,11 +15443,11 @@
         "Value": {
           "UnitFieldType": "StringArray",
           "StringArray": [
-            "Repair",
+            "Pause",
+            "Stop",
             "Harvest",
             "Assist",
-            "Stop",
-            "Pause"
+            "Repair"
           ]
         }
       },
@@ -15751,8 +15751,8 @@
           "UnitFieldType": "StringArray",
           "StringArray": [
             "Stop",
-            "Pause",
-            "Assist"
+            "Assist",
+            "Pause"
           ]
         }
       },
@@ -16056,9 +16056,9 @@
         "Value": {
           "UnitFieldType": "StringArray",
           "StringArray": [
-            "Stop",
+            "Assist",
             "Pause",
-            "Assist"
+            "Stop"
           ]
         }
       },
@@ -16394,9 +16394,9 @@
         "Value": {
           "UnitFieldType": "StringArray",
           "StringArray": [
-            "Stop",
             "Pause",
-            "Assist"
+            "Assist",
+            "Stop"
           ]
         }
       },
@@ -16984,9 +16984,9 @@
         "Value": {
           "UnitFieldType": "StringArray",
           "StringArray": [
-            "Stop",
+            "Assist",
             "Pause",
-            "Assist"
+            "Stop"
           ]
         }
       },
@@ -18491,9 +18491,9 @@
           "UnitFieldType": "StringArray",
           "StringArray": [
             "Assist",
-            "Stop",
-            "Patrol",
             "Attack",
+            "Patrol",
+            "Stop",
             "Move"
           ]
         }
@@ -18980,8 +18980,8 @@
         "Value": {
           "UnitFieldType": "StringArray",
           "StringArray": [
-            "Attack",
-            "Stop"
+            "Stop",
+            "Attack"
           ]
         }
       },
@@ -19854,11 +19854,11 @@
         "Value": {
           "UnitFieldType": "StringArray",
           "StringArray": [
-            "Repair",
-            "Harvest",
             "Assist",
             "Stop",
-            "Pause"
+            "Harvest",
+            "Pause",
+            "Repair"
           ]
         }
       },
@@ -20144,9 +20144,9 @@
         "Value": {
           "UnitFieldType": "StringArray",
           "StringArray": [
-            "Stop",
+            "Assist",
             "Pause",
-            "Assist"
+            "Stop"
           ]
         }
       },
@@ -20434,8 +20434,8 @@
           "UnitFieldType": "StringArray",
           "StringArray": [
             "Stop",
-            "Pause",
-            "Assist"
+            "Assist",
+            "Pause"
           ]
         }
       },
@@ -21776,9 +21776,9 @@
         "Value": {
           "UnitFieldType": "StringArray",
           "StringArray": [
-            "Assist",
             "Stop",
             "Patrol",
+            "Assist",
             "Attack",
             "Move"
           ]
@@ -22131,11 +22131,11 @@
         "Value": {
           "UnitFieldType": "StringArray",
           "StringArray": [
-            "Assist",
-            "Stop",
-            "Patrol",
+            "Move",
             "Attack",
-            "Move"
+            "Patrol",
+            "Assist",
+            "Stop"
           ]
         }
       },
@@ -22486,10 +22486,10 @@
         "Value": {
           "UnitFieldType": "StringArray",
           "StringArray": [
+            "Assist",
             "Stop",
-            "Patrol",
             "Move",
-            "Assist"
+            "Patrol"
           ]
         }
       },
@@ -22843,9 +22843,9 @@
           "StringArray": [
             "Assist",
             "Stop",
+            "Move",
             "Patrol",
-            "Attack",
-            "Move"
+            "Attack"
           ]
         }
       },
@@ -23179,9 +23179,9 @@
         "Value": {
           "UnitFieldType": "StringArray",
           "StringArray": [
-            "Assist",
             "Stop",
             "Patrol",
+            "Assist",
             "Attack",
             "Move"
           ]
@@ -23533,10 +23533,10 @@
           "UnitFieldType": "StringArray",
           "StringArray": [
             "Assist",
-            "Stop",
             "Patrol",
+            "Move",
             "Attack",
-            "Move"
+            "Stop"
           ]
         }
       },
@@ -23869,10 +23869,10 @@
         "Value": {
           "UnitFieldType": "StringArray",
           "StringArray": [
-            "Assist",
+            "Attack",
             "Stop",
             "Patrol",
-            "Attack",
+            "Assist",
             "Move"
           ]
         }
@@ -24222,10 +24222,10 @@
         "Value": {
           "UnitFieldType": "StringArray",
           "StringArray": [
-            "Stop",
-            "Patrol",
+            "Assist",
             "Move",
-            "Assist"
+            "Patrol",
+            "Stop"
           ]
         }
       },
@@ -24708,15 +24708,15 @@
         "Value": {
           "UnitFieldType": "StringArray",
           "StringArray": [
-            "Capture",
-            "Repair",
-            "Harvest",
             "Move",
-            "Stop",
-            "Assist",
             "Pause",
+            "Capture",
+            "Harvest",
             "Attack",
-            "Patrol"
+            "Patrol",
+            "Repair",
+            "Assist",
+            "Stop"
           ]
         }
       },
@@ -25041,10 +25041,10 @@
           "UnitFieldType": "StringArray",
           "StringArray": [
             "Assist",
-            "Stop",
             "Patrol",
+            "Move",
             "Attack",
-            "Move"
+            "Stop"
           ]
         }
       },
@@ -25363,9 +25363,9 @@
         "Value": {
           "UnitFieldType": "StringArray",
           "StringArray": [
-            "Assist",
             "Stop",
             "Patrol",
+            "Assist",
             "Attack",
             "Move"
           ]
@@ -25686,9 +25686,9 @@
         "Value": {
           "UnitFieldType": "StringArray",
           "StringArray": [
-            "Assist",
             "Stop",
             "Patrol",
+            "Assist",
             "Attack",
             "Move"
           ]
@@ -26009,11 +26009,11 @@
         "Value": {
           "UnitFieldType": "StringArray",
           "StringArray": [
-            "Assist",
-            "Stop",
-            "Patrol",
+            "Move",
             "Attack",
-            "Move"
+            "Patrol",
+            "Assist",
+            "Stop"
           ]
         }
       },
@@ -26380,13 +26380,13 @@
         "Value": {
           "UnitFieldType": "StringArray",
           "StringArray": [
-            "Capture",
             "Repair",
-            "Harvest",
             "Assist",
+            "Capture",
             "Stop",
-            "Patrol",
             "Pause",
+            "Patrol",
+            "Harvest",
             "Move"
           ]
         }
@@ -26708,10 +26708,10 @@
         "Value": {
           "UnitFieldType": "StringArray",
           "StringArray": [
-            "Stop",
-            "Patrol",
+            "Assist",
             "Move",
-            "Assist"
+            "Patrol",
+            "Stop"
           ]
         }
       },
@@ -27048,10 +27048,10 @@
           "UnitFieldType": "StringArray",
           "StringArray": [
             "Assist",
-            "Stop",
             "Patrol",
+            "Move",
             "Attack",
-            "Move"
+            "Stop"
           ]
         }
       },
@@ -27369,11 +27369,11 @@
         "Value": {
           "UnitFieldType": "StringArray",
           "StringArray": [
+            "Move",
+            "Attack",
             "Assist",
             "Stop",
-            "Patrol",
-            "Attack",
-            "Move"
+            "Patrol"
           ]
         }
       },
@@ -27691,10 +27691,10 @@
         "Value": {
           "UnitFieldType": "StringArray",
           "StringArray": [
-            "Assist",
+            "Attack",
             "Stop",
             "Patrol",
-            "Attack",
+            "Assist",
             "Move"
           ]
         }
@@ -28061,14 +28061,14 @@
         "Value": {
           "UnitFieldType": "StringArray",
           "StringArray": [
-            "Capture",
+            "Pause",
             "Repair",
+            "Move",
             "Harvest",
-            "Assist",
             "Stop",
             "Patrol",
-            "Pause",
-            "Move"
+            "Assist",
+            "Capture"
           ]
         }
       },
@@ -28389,10 +28389,10 @@
           "UnitFieldType": "StringArray",
           "StringArray": [
             "Assist",
-            "Stop",
             "Patrol",
+            "Move",
             "Attack",
-            "Move"
+            "Stop"
           ]
         }
       },
@@ -28709,10 +28709,10 @@
         "Value": {
           "UnitFieldType": "StringArray",
           "StringArray": [
-            "Assist",
+            "Attack",
             "Stop",
             "Patrol",
-            "Attack",
+            "Assist",
             "Move"
           ]
         }
@@ -29030,11 +29030,11 @@
         "Value": {
           "UnitFieldType": "StringArray",
           "StringArray": [
+            "Move",
+            "Attack",
             "Assist",
             "Stop",
-            "Patrol",
-            "Attack",
-            "Move"
+            "Patrol"
           ]
         }
       },
@@ -29400,13 +29400,13 @@
           "UnitFieldType": "StringArray",
           "StringArray": [
             "Capture",
-            "Repair",
-            "Harvest",
-            "Assist",
             "Stop",
-            "Patrol",
+            "Move",
+            "Repair",
+            "Assist",
+            "Harvest",
             "Pause",
-            "Move"
+            "Patrol"
           ]
         }
       },
@@ -29725,9 +29725,9 @@
         "Value": {
           "UnitFieldType": "StringArray",
           "StringArray": [
-            "Assist",
             "Stop",
             "Patrol",
+            "Assist",
             "Attack",
             "Move"
           ]
@@ -30624,8 +30624,8 @@
           "UnitFieldType": "StringArray",
           "StringArray": [
             "Repair",
-            "Harvest",
             "Assist",
+            "Harvest",
             "Stop",
             "Pause"
           ]
@@ -30931,9 +30931,9 @@
         "Value": {
           "UnitFieldType": "StringArray",
           "StringArray": [
-            "Stop",
+            "Assist",
             "Pause",
-            "Assist"
+            "Stop"
           ]
         }
       },
@@ -31238,8 +31238,8 @@
           "UnitFieldType": "StringArray",
           "StringArray": [
             "Stop",
-            "Pause",
-            "Assist"
+            "Assist",
+            "Pause"
           ]
         }
       },
@@ -31576,8 +31576,8 @@
           "UnitFieldType": "StringArray",
           "StringArray": [
             "Stop",
-            "Pause",
-            "Assist"
+            "Assist",
+            "Pause"
           ]
         }
       },
@@ -32705,9 +32705,9 @@
         "Value": {
           "UnitFieldType": "StringArray",
           "StringArray": [
-            "Stop",
             "Pause",
-            "Assist"
+            "Assist",
+            "Stop"
           ]
         }
       },
@@ -33027,8 +33027,8 @@
         "Value": {
           "UnitFieldType": "StringArray",
           "StringArray": [
-            "Stop",
             "Pause",
+            "Stop",
             "Assist"
           ]
         }
@@ -33334,8 +33334,8 @@
           "UnitFieldType": "StringArray",
           "StringArray": [
             "Stop",
-            "Pause",
-            "Assist"
+            "Assist",
+            "Pause"
           ]
         }
       },
@@ -34389,10 +34389,10 @@
         "Value": {
           "UnitFieldType": "StringArray",
           "StringArray": [
-            "Assist",
-            "Stop",
-            "Patrol",
             "Attack",
+            "Assist",
+            "Patrol",
+            "Stop",
             "Move"
           ]
         }
@@ -34646,8 +34646,8 @@
         "Value": {
           "UnitFieldType": "StringArray",
           "StringArray": [
-            "Attack",
-            "Stop"
+            "Stop",
+            "Attack"
           ]
         }
       },
@@ -35352,11 +35352,11 @@
         "Value": {
           "UnitFieldType": "StringArray",
           "StringArray": [
-            "Repair",
-            "Harvest",
-            "Assist",
             "Stop",
-            "Pause"
+            "Pause",
+            "Harvest",
+            "Repair",
+            "Assist"
           ]
         }
       },
@@ -35660,8 +35660,8 @@
           "UnitFieldType": "StringArray",
           "StringArray": [
             "Stop",
-            "Pause",
-            "Assist"
+            "Assist",
+            "Pause"
           ]
         }
       },
@@ -35965,9 +35965,9 @@
         "Value": {
           "UnitFieldType": "StringArray",
           "StringArray": [
+            "Assist",
             "Stop",
-            "Pause",
-            "Assist"
+            "Pause"
           ]
         }
       },
@@ -36304,8 +36304,8 @@
           "UnitFieldType": "StringArray",
           "StringArray": [
             "Stop",
-            "Pause",
-            "Assist"
+            "Assist",
+            "Pause"
           ]
         }
       },
@@ -38108,8 +38108,8 @@
         "Value": {
           "UnitFieldType": "StringArray",
           "StringArray": [
-            "Attack",
-            "Stop"
+            "Stop",
+            "Attack"
           ]
         }
       },
@@ -38982,11 +38982,11 @@
         "Value": {
           "UnitFieldType": "StringArray",
           "StringArray": [
-            "Repair",
-            "Harvest",
-            "Assist",
             "Stop",
-            "Pause"
+            "Repair",
+            "Assist",
+            "Pause",
+            "Harvest"
           ]
         }
       },
@@ -39272,9 +39272,9 @@
         "Value": {
           "UnitFieldType": "StringArray",
           "StringArray": [
-            "Stop",
             "Pause",
-            "Assist"
+            "Assist",
+            "Stop"
           ]
         }
       },
@@ -39561,9 +39561,9 @@
         "Value": {
           "UnitFieldType": "StringArray",
           "StringArray": [
+            "Assist",
             "Stop",
-            "Pause",
-            "Assist"
+            "Pause"
           ]
         }
       },
@@ -40922,9 +40922,9 @@
           "UnitFieldType": "StringArray",
           "StringArray": [
             "Assist",
+            "Attack",
             "Stop",
             "Patrol",
-            "Attack",
             "Move"
           ]
         }
@@ -41294,10 +41294,10 @@
           "UnitFieldType": "StringArray",
           "StringArray": [
             "Assist",
-            "Stop",
-            "Patrol",
+            "Move",
             "Attack",
-            "Move"
+            "Patrol",
+            "Stop"
           ]
         }
       },
@@ -41649,10 +41649,10 @@
         "Value": {
           "UnitFieldType": "StringArray",
           "StringArray": [
-            "Assist",
-            "Stop",
-            "Patrol",
             "Attack",
+            "Assist",
+            "Patrol",
+            "Stop",
             "Move"
           ]
         }
@@ -42021,9 +42021,9 @@
         "Value": {
           "UnitFieldType": "StringArray",
           "StringArray": [
-            "Stop",
-            "Patrol",
             "Move",
+            "Patrol",
+            "Stop",
             "Assist"
           ]
         }
@@ -42409,11 +42409,11 @@
         "Value": {
           "UnitFieldType": "StringArray",
           "StringArray": [
-            "Assist",
-            "Stop",
-            "Patrol",
             "Attack",
-            "Move"
+            "Assist",
+            "Move",
+            "Stop",
+            "Patrol"
           ]
         }
       },
@@ -42764,11 +42764,11 @@
         "Value": {
           "UnitFieldType": "StringArray",
           "StringArray": [
-            "Assist",
-            "Stop",
-            "Patrol",
             "Attack",
-            "Move"
+            "Assist",
+            "Move",
+            "Stop",
+            "Patrol"
           ]
         }
       },
@@ -43135,10 +43135,10 @@
           "UnitFieldType": "StringArray",
           "StringArray": [
             "Assist",
-            "Stop",
             "Patrol",
             "Attack",
-            "Move"
+            "Move",
+            "Stop"
           ]
         }
       },
@@ -43488,11 +43488,11 @@
         "Value": {
           "UnitFieldType": "StringArray",
           "StringArray": [
-            "Assist",
-            "Stop",
             "Patrol",
+            "Stop",
             "Attack",
-            "Move"
+            "Move",
+            "Assist"
           ]
         }
       },
@@ -43858,9 +43858,9 @@
         "Value": {
           "UnitFieldType": "StringArray",
           "StringArray": [
-            "Stop",
-            "Patrol",
             "Move",
+            "Patrol",
+            "Stop",
             "Assist"
           ]
         }
@@ -44360,15 +44360,15 @@
         "Value": {
           "UnitFieldType": "StringArray",
           "StringArray": [
-            "Capture",
-            "Repair",
-            "Harvest",
-            "Move",
-            "Stop",
-            "Assist",
-            "Pause",
             "Attack",
-            "Patrol"
+            "Capture",
+            "Harvest",
+            "Stop",
+            "Repair",
+            "Assist",
+            "Move",
+            "Patrol",
+            "Pause"
           ]
         }
       },
@@ -44693,10 +44693,10 @@
         "Value": {
           "UnitFieldType": "StringArray",
           "StringArray": [
-            "Assist",
-            "Stop",
-            "Patrol",
             "Attack",
+            "Assist",
+            "Patrol",
+            "Stop",
             "Move"
           ]
         }
@@ -45033,10 +45033,10 @@
         "Value": {
           "UnitFieldType": "StringArray",
           "StringArray": [
-            "Assist",
-            "Stop",
-            "Patrol",
             "Attack",
+            "Assist",
+            "Patrol",
+            "Stop",
             "Move"
           ]
         }
@@ -45373,11 +45373,11 @@
         "Value": {
           "UnitFieldType": "StringArray",
           "StringArray": [
-            "Assist",
-            "Stop",
-            "Patrol",
             "Attack",
-            "Move"
+            "Move",
+            "Assist",
+            "Patrol",
+            "Stop"
           ]
         }
       },
@@ -45713,11 +45713,11 @@
         "Value": {
           "UnitFieldType": "StringArray",
           "StringArray": [
-            "Assist",
-            "Stop",
-            "Patrol",
             "Attack",
-            "Move"
+            "Assist",
+            "Move",
+            "Stop",
+            "Patrol"
           ]
         }
       },
@@ -46101,13 +46101,13 @@
         "Value": {
           "UnitFieldType": "StringArray",
           "StringArray": [
-            "Capture",
-            "Repair",
             "Harvest",
-            "Assist",
             "Stop",
-            "Patrol",
+            "Repair",
+            "Capture",
             "Pause",
+            "Assist",
+            "Patrol",
             "Move"
           ]
         }
@@ -46446,9 +46446,9 @@
         "Value": {
           "UnitFieldType": "StringArray",
           "StringArray": [
-            "Stop",
-            "Patrol",
             "Move",
+            "Patrol",
+            "Stop",
             "Assist"
           ]
         }
@@ -46803,9 +46803,9 @@
           "UnitFieldType": "StringArray",
           "StringArray": [
             "Assist",
+            "Attack",
             "Stop",
             "Patrol",
-            "Attack",
             "Move"
           ]
         }
@@ -47142,10 +47142,10 @@
           "UnitFieldType": "StringArray",
           "StringArray": [
             "Assist",
-            "Stop",
-            "Patrol",
+            "Move",
             "Attack",
-            "Move"
+            "Patrol",
+            "Stop"
           ]
         }
       },
@@ -47528,14 +47528,14 @@
         "Value": {
           "UnitFieldType": "StringArray",
           "StringArray": [
-            "Capture",
+            "Move",
             "Repair",
-            "Harvest",
             "Assist",
             "Stop",
-            "Patrol",
+            "Capture",
             "Pause",
-            "Move"
+            "Patrol",
+            "Harvest"
           ]
         }
       },
@@ -47873,9 +47873,9 @@
           "UnitFieldType": "StringArray",
           "StringArray": [
             "Assist",
+            "Attack",
             "Stop",
             "Patrol",
-            "Attack",
             "Move"
           ]
         }
@@ -48210,11 +48210,11 @@
         "Value": {
           "UnitFieldType": "StringArray",
           "StringArray": [
-            "Assist",
-            "Stop",
-            "Patrol",
             "Attack",
-            "Move"
+            "Move",
+            "Assist",
+            "Patrol",
+            "Stop"
           ]
         }
       },
@@ -48548,11 +48548,11 @@
         "Value": {
           "UnitFieldType": "StringArray",
           "StringArray": [
-            "Assist",
-            "Stop",
             "Patrol",
+            "Stop",
             "Attack",
-            "Move"
+            "Move",
+            "Assist"
           ]
         }
       },
@@ -48934,13 +48934,13 @@
         "Value": {
           "UnitFieldType": "StringArray",
           "StringArray": [
-            "Capture",
-            "Repair",
             "Harvest",
-            "Assist",
             "Stop",
-            "Patrol",
+            "Repair",
+            "Capture",
             "Pause",
+            "Assist",
+            "Patrol",
             "Move"
           ]
         }
@@ -49325,14 +49325,14 @@
         "Value": {
           "UnitFieldType": "StringArray",
           "StringArray": [
-            "Capture",
+            "Patrol",
             "Repair",
+            "Capture",
             "Harvest",
             "Assist",
+            "Move",
             "Stop",
-            "Patrol",
-            "Pause",
-            "Move"
+            "Pause"
           ]
         }
       },
@@ -49651,11 +49651,11 @@
         "Value": {
           "UnitFieldType": "StringArray",
           "StringArray": [
-            "Assist",
-            "Stop",
-            "Patrol",
             "Attack",
-            "Move"
+            "Assist",
+            "Move",
+            "Stop",
+            "Patrol"
           ]
         }
       },
@@ -49972,11 +49972,11 @@
         "Value": {
           "UnitFieldType": "StringArray",
           "StringArray": [
-            "Assist",
-            "Stop",
-            "Patrol",
             "Attack",
-            "Move"
+            "Move",
+            "Assist",
+            "Patrol",
+            "Stop"
           ]
         }
       },
@@ -50310,8 +50310,8 @@
         "Value": {
           "UnitFieldType": "StringArray",
           "StringArray": [
-            "Attack",
-            "Stop"
+            "Stop",
+            "Attack"
           ]
         }
       },
@@ -50584,8 +50584,8 @@
         "Value": {
           "UnitFieldType": "StringArray",
           "StringArray": [
-            "Attack",
-            "Stop"
+            "Stop",
+            "Attack"
           ]
         }
       },
@@ -50921,11 +50921,11 @@
         "Value": {
           "UnitFieldType": "StringArray",
           "StringArray": [
-            "Repair",
-            "Harvest",
-            "Assist",
             "Stop",
-            "Pause"
+            "Pause",
+            "Harvest",
+            "Repair",
+            "Assist"
           ]
         }
       },
@@ -51246,9 +51246,9 @@
         "Value": {
           "UnitFieldType": "StringArray",
           "StringArray": [
+            "Assist",
             "Stop",
-            "Pause",
-            "Assist"
+            "Pause"
           ]
         }
       },
@@ -51569,9 +51569,9 @@
         "Value": {
           "UnitFieldType": "StringArray",
           "StringArray": [
+            "Assist",
             "Stop",
-            "Pause",
-            "Assist"
+            "Pause"
           ]
         }
       },
@@ -51924,9 +51924,9 @@
         "Value": {
           "UnitFieldType": "StringArray",
           "StringArray": [
-            "Stop",
+            "Assist",
             "Pause",
-            "Assist"
+            "Stop"
           ]
         }
       },
@@ -53122,9 +53122,9 @@
         "Value": {
           "UnitFieldType": "StringArray",
           "StringArray": [
+            "Assist",
             "Stop",
-            "Pause",
-            "Assist"
+            "Pause"
           ]
         }
       },
@@ -53785,8 +53785,8 @@
           "UnitFieldType": "StringArray",
           "StringArray": [
             "Stop",
-            "Pause",
-            "Assist"
+            "Assist",
+            "Pause"
           ]
         }
       },
@@ -54107,9 +54107,9 @@
         "Value": {
           "UnitFieldType": "StringArray",
           "StringArray": [
-            "Stop",
             "Pause",
-            "Assist"
+            "Assist",
+            "Stop"
           ]
         }
       },
@@ -55238,8 +55238,8 @@
         "Value": {
           "UnitFieldType": "StringArray",
           "StringArray": [
-            "Attack",
-            "Stop"
+            "Stop",
+            "Attack"
           ]
         }
       },
@@ -55511,11 +55511,11 @@
         "Value": {
           "UnitFieldType": "StringArray",
           "StringArray": [
-            "Assist",
-            "Stop",
-            "Patrol",
             "Attack",
-            "Move"
+            "Assist",
+            "Move",
+            "Stop",
+            "Patrol"
           ]
         }
       },
@@ -55785,8 +55785,8 @@
         "Value": {
           "UnitFieldType": "StringArray",
           "StringArray": [
-            "Attack",
-            "Stop"
+            "Stop",
+            "Attack"
           ]
         }
       },
@@ -56525,9 +56525,9 @@
         "Value": {
           "UnitFieldType": "StringArray",
           "StringArray": [
+            "Assist",
             "Repair",
             "Harvest",
-            "Assist",
             "Stop",
             "Pause"
           ]
@@ -56849,9 +56849,9 @@
         "Value": {
           "UnitFieldType": "StringArray",
           "StringArray": [
+            "Assist",
             "Stop",
-            "Pause",
-            "Assist"
+            "Pause"
           ]
         }
       },
@@ -57172,9 +57172,9 @@
         "Value": {
           "UnitFieldType": "StringArray",
           "StringArray": [
-            "Stop",
             "Pause",
-            "Assist"
+            "Assist",
+            "Stop"
           ]
         }
       },
@@ -57527,9 +57527,9 @@
         "Value": {
           "UnitFieldType": "StringArray",
           "StringArray": [
-            "Stop",
+            "Assist",
             "Pause",
-            "Assist"
+            "Stop"
           ]
         }
       },
@@ -58151,9 +58151,9 @@
         "Value": {
           "UnitFieldType": "StringArray",
           "StringArray": [
-            "Stop",
             "Pause",
-            "Assist"
+            "Assist",
+            "Stop"
           ]
         }
       },
@@ -60024,10 +60024,10 @@
           "UnitFieldType": "StringArray",
           "StringArray": [
             "Assist",
-            "Stop",
-            "Patrol",
+            "Move",
             "Attack",
-            "Move"
+            "Patrol",
+            "Stop"
           ]
         }
       },
@@ -60547,8 +60547,8 @@
         "Value": {
           "UnitFieldType": "StringArray",
           "StringArray": [
-            "Attack",
-            "Stop"
+            "Stop",
+            "Attack"
           ]
         }
       },
@@ -61472,11 +61472,11 @@
         "Value": {
           "UnitFieldType": "StringArray",
           "StringArray": [
+            "Pause",
             "Repair",
-            "Harvest",
             "Assist",
             "Stop",
-            "Pause"
+            "Harvest"
           ]
         }
       },
@@ -61779,9 +61779,9 @@
         "Value": {
           "UnitFieldType": "StringArray",
           "StringArray": [
+            "Assist",
             "Stop",
-            "Pause",
-            "Assist"
+            "Pause"
           ]
         }
       },
@@ -62085,8 +62085,8 @@
         "Value": {
           "UnitFieldType": "StringArray",
           "StringArray": [
-            "Stop",
             "Pause",
+            "Stop",
             "Assist"
           ]
         }

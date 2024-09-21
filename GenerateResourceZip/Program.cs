@@ -7,19 +7,14 @@ using ShatteredSunCommunity.Models;
 using System.Diagnostics;
 using ShatteredSunCommunity.Extensions;
 using ShatteredSunCommunity.Conversion;
-using static System.Net.Mime.MediaTypeNames;
-using System.Reflection.PortableExecutable;
-using System.Text.Json.Serialization;
-using System.IO;
 
 namespace GenerateResourceZip
 {
     internal class Program
     {
         public string LuaRoot { get; private set; }
-        public string IconUnitsRootSource { get; private set; }
-        public string IconUnitsRootTarget { get; private set; }
-        public string IconNotFound { get; private set; }
+        public string SteamRoot { get; private set; }
+        public string WWWRoot { get; private set; }
 
         private static readonly string[] pathsToRemove =
         {
@@ -118,28 +113,26 @@ namespace GenerateResourceZip
             var steamInfo = new SteamInfo();
             var steamRoot = steamInfo.GetRoot();
             var luaRoot = Path.Combine(steamRoot, @"engine\LJ\lua");
-            var iconUnitsRoot = Path.Combine(steamRoot, @"engine\Sanctuary_Data\Resources\UI\Gameplay\IconsUnits");
-            var iconNotFound = Path.Combine(steamRoot, @"engine\Sanctuary_Data\Resources\UI\UI\MapEditor\Icons\block_icon.png");
-            var relativeRootTarget = @"ShatteredSunCommunity\wwwroot\IconUnits";
+            var relativeRootTarget = @"ShatteredSunCommunity\wwwroot";
             var wwwRoot = Directory.GetCurrentDirectory();
-            var iconUnitsRootTarget = Path.Combine(wwwRoot, relativeRootTarget);
-            while (!Directory.Exists(iconUnitsRootTarget))
+            var wwwRootTarget = Path.Combine(wwwRoot, relativeRootTarget);
+            while (!Directory.Exists(wwwRootTarget))
             {
                 wwwRoot = Directory.GetParent(wwwRoot)?.FullName;
                 if (wwwRoot == null)
                     break;
-                iconUnitsRootTarget = Path.Combine(wwwRoot, relativeRootTarget);
+                wwwRootTarget = Path.Combine(wwwRoot, relativeRootTarget);
             }
-            if (!Directory.Exists(iconUnitsRootTarget))
+            if (!Directory.Exists(wwwRootTarget))
             {
-                throw new DirectoryNotFoundException(iconUnitsRootTarget);
+                throw new DirectoryNotFoundException(wwwRootTarget);
             }
+
             var program = new Program
             {
+                WWWRoot = wwwRootTarget,
+                SteamRoot = steamRoot,
                 LuaRoot = luaRoot,
-                IconNotFound = iconNotFound,
-                IconUnitsRootSource = iconUnitsRoot,
-                IconUnitsRootTarget = iconUnitsRootTarget,
             };
 
             program.GenerateData();
@@ -167,16 +160,8 @@ namespace GenerateResourceZip
 
         public void GenerateData()
         {
+            CopyAllFilesToWWWRoot();
             var data = new SanctuarySunData();
-            foreach (var file in Directory.GetFiles(IconUnitsRootTarget, "*.png"))
-            {
-                File.Delete(file);
-            }
-            foreach (var source in Directory.GetFiles(IconUnitsRootSource, "*.png"))
-            {
-                File.Copy(source, Path.Combine(IconUnitsRootTarget, Path.GetFileName(source)));
-            }
-            File.Copy(IconNotFound, Path.Combine(IconUnitsRootTarget, "IconNotFound.png"));
             var localData = new JsonConversionLocalData();
             using (GetLuaTable("common/systems/factions.lua", "FactionsData", out LuaTable table))
             {
@@ -229,6 +214,33 @@ namespace GenerateResourceZip
             var outputPath = "../../../../ShatteredSunCommunity/ShatteredSunUnitData.json";
             File.WriteAllText(outputPath, JsonSerializer.Serialize(data, JsonHelper.JsonOptions));
 
+        }
+
+        private void CopyAllFilesToWWWRoot()
+        {
+
+            CopyFilesToWWWRoot(@"engine\Sanctuary_Data\Resources\UI\Gameplay\IconsUnits", "IconUnits", "*.png");
+            CopyFilesToWWWRoot(@"engine\Sanctuary_Data\Resources\UI\UI\MapEditor\Icons", "IconUnits", "block_icon.png");
+            CopyFilesToWWWRoot(@"engine\Sanctuary_Data\Resources\UI\UI\MapEditor\Images", "Images", "background_logo.png");
+            var iconUnitDir = Path.Combine(WWWRoot, "IconUnits");
+            File.Move(Path.Combine(iconUnitDir,"block_icon.png"), Path.Combine(iconUnitDir, "IconNotFound.png"));
+        }
+
+        private void CopyFilesToWWWRoot(string relativeSource, string relativeTarget, string fileMask)
+        {
+            var sourceDir = Path.Combine(SteamRoot, relativeSource);
+            var targetDir = Path.Combine(WWWRoot, relativeTarget);
+            foreach(var file in Directory.GetFiles(targetDir,fileMask))
+            {
+                File.Delete(file);
+            }
+            var filesToCopy = Directory.GetFiles(sourceDir, fileMask);
+            if (!filesToCopy.Any())
+                throw new FileNotFoundException($"{sourceDir} => '{fileMask}'");
+            foreach (var file in Directory.GetFiles(sourceDir, fileMask))
+            {
+                File.Copy(file, Path.Combine(targetDir, Path.GetFileName(file)));
+            }
         }
 
         private void Add(

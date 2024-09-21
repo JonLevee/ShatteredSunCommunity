@@ -12,83 +12,84 @@
 @rendermode InteractiveServer
 
 <PageTitle>Unit Viewer</PageTitle>
+<div class="backgroundDiv">
 
+    <h1 class="unitView">UnitView</h1>
+    <h2>@ProductName</h2>
+    <div class="unitViewContainer">
+        <table class="unitViewTable">
+            <UnitViewFilterContainer />
+        </table>
 
-<h1 class="unitView">UnitView</h1>
-<h2>@ProductName</h2>
-<div class="unitViewContainer">
-    <table class="unitViewTable">
-        <UnitViewFilterContainer />
-    </table>
-
-    <table class="unitViewTable">
-        <thead>
-            @foreach(var selector in unitViewFilters.GroupBy.GetDisplayableSelectors())
-            {
-                var row = unitViewFilters.GetDataHeaderRow(selector);
-                <tr>
+        <table class="unitViewTable">
+            <thead>
+                @foreach(var selector in unitViewFilters.GroupBy.GetDisplayableSelectors())
+                {
+                    var row = unitViewFilters.GetDataHeaderRow(selector);
+                    <tr>
                 
-                    @foreach (var column in row.Columns)
-                    {
-                        <th class="unitHeader" colspan="@column.Colspan">@column.Header</th>
-                    }
-                </tr>
-            }
+                        @foreach (var column in row.Columns)
+                        {
+                            <th class="unitHeader" colspan="@column.Colspan">@column.Header</th>
+                        }
+                    </tr>
+                }
 
-        </thead>
-        <tbody>
-            @foreach(var row in unitViewFilters.GetRows(data.Units))
-            {
-                <tr class="unitViewRow">
-                    @foreach(var item in row.Units)
-                    {
-                        <td class="unitView">
-                            <div class="unitView">
-                                <table class="unitView">
-                                    <tr>
-                                        <td class="unitImageFrame" rowspan="5">
-                                            <img class="unitImage" src="IconUnits/@item.UnitIcon" />
-                                        </td>
-                                        <th class="unitViewData">@item["GeneralDisplayName"]</th>
-                                    </tr>
-                                    <tr><td>[@item["GeneralName"]] @item["GeneralDisplayName"]</td></tr>
-                                    <tr><td>Faction: @item["Faction"]</td></tr>
-                                    <tr><td>tpId: @item["GeneralTpId"]</td></tr>
-                                    <tr><td>Enabled: @item["Enabled"]</td></tr>
+            </thead>
+            <tbody>
+                @foreach(var row in unitViewFilters.GetRows(data.Units))
+                {
+                    <tr class="unitViewRow">
+                        @foreach(var item in row.Units)
+                        {
+                            <td class="unitView">
+                                <div class="unitView">
+                                    <table class="unitView">
+                                        <tr>
+                                            <td class="unitImageFrame" rowspan="5">
+                                                <img class="unitImage" src="IconUnits/@item.UnitIcon" />
+                                            </td>
+                                            <th class="unitViewData">@item["GeneralDisplayName"]</th>
+                                        </tr>
+                                        <tr><td>[@item["GeneralName"]] @item["GeneralDisplayName"]</td></tr>
+                                        <tr><td>Faction: @item["Faction"]</td></tr>
+                                        <tr><td>tpId: @item["GeneralTpId"]</td></tr>
+                                        <tr><td>Enabled: @item["Enabled"]</td></tr>
 
-                                </table>
-                                <table class="unitView unitTable @HideIfThumbClass">
-                                    <tr class="unitRow">
-                                        <td class="unitCol">@item["DefenceHealthMax"]</td>
-                                        <td class="unitCol">@item["EconomyCostEnergy"]</td>
-                                        <td class="unitCol">@item["EconomyCostAlloys"]</td>
-                                        <td class="unitCol">@item["EconomyBuildTime"]</td>
-                                    </tr>
-                                    @foreach(var field in item.GetDisplayFields())
-                                    {
-                                        @if(field.IsBreak)
+                                    </table>
+                                    <table class="unitView unitTable @HideIfThumbClass">
+                                        <tr class="unitRow">
+                                            <td class="unitCol">@item["DefenceHealthMax"]</td>
+                                            <td class="unitCol">@item["EconomyCostEnergy"]</td>
+                                            <td class="unitCol">@item["EconomyCostAlloys"]</td>
+                                            <td class="unitCol">@item["EconomyBuildTime"]</td>
+                                        </tr>
+                                        @foreach(var field in item.GetDisplayFields())
                                         {
-                                            <tr class="break"><td class="break" colspan="99">
-                                            <hr2 class="break" />
-                                            </td></tr>
+                                            @if(field.IsBreak)
+                                            {
+                                                <tr class="break"><td class="break" colspan="99">
+                                                <hr2 class="break" />
+                                                </td></tr>
+                                            }
+                                        <tr class="unitRow">
+                                            @foreach(var group in field.Groups)
+                                        {
+                                            <td class="unitCol">@group</td>
                                         }
-                                    <tr class="unitRow">
-                                        @foreach(var group in field.Groups)
-                                    {
-                                        <td class="unitCol">@group</td>
-                                    }
-                                        <td class="unitCol" colspan="@field.ColSpan">@field.Text</td>
-                                    </tr>
+                                            <td class="unitCol" colspan="@field.ColSpan">@field.Text</td>
+                                        </tr>
 
-                                    }
-                                </table>
-                            </div>
-                        </td>
-                    }
-                </tr>
-            }
-        </tbody>
-    </table>
+                                        }
+                                    </table>
+                                </div>
+                            </td>
+                        }
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
 </div>
 
 
